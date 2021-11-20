@@ -12,13 +12,44 @@
         <!--종목분석-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="StockStudy" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StockStudy" id="Y6W-OH-hqX" customClass="StockStudyViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="926"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AdF-EQ-iuN">
-                                <rect key="frame" x="0.0" y="44" width="428" height="100"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N29-kv-OyF">
+                                <rect key="frame" x="0.0" y="235" width="428" height="608"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eNl-2P-ObK">
+                                    <size key="itemSize" width="204" height="234"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FUK-ZI-dGS">
+                                        <rect key="frame" x="0.0" y="0.0" width="204" height="234"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X7g-xL-va4">
+                                            <rect key="frame" x="0.0" y="0.0" width="204" height="234"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lce-as-5Xv">
+                                <rect key="frame" x="310" y="729" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="addButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ERM-3q-suA"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AdF-EQ-iuN">
+                                <rect key="frame" x="0.0" y="127" width="428" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="코스피" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="usy-0y-W3q">
                                         <rect key="frame" x="66" y="47" width="45" height="21"/>
@@ -43,69 +74,25 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="bZv-Ez-aUi"/>
-                                </constraints>
                             </view>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="N29-kv-OyF">
-                                <rect key="frame" x="0.0" y="235" width="428" height="608"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eNl-2P-ObK">
-                                    <size key="itemSize" width="204" height="234"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="FUK-ZI-dGS">
-                                        <rect key="frame" x="0.0" y="0.0" width="204" height="234"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="X7g-xL-va4">
-                                            <rect key="frame" x="0.0" y="0.0" width="204" height="234"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <size key="customSize" width="204" height="234"/>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="FlT-LS-iXw">
-                                <rect key="frame" x="0.0" y="164" width="428" height="51"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lce-as-5Xv">
-                                <rect key="frame" x="321" y="772" width="67" height="31"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="N29-kv-OyF" secondAttribute="bottom" id="1DY-TK-qB4"/>
-                            <constraint firstItem="N29-kv-OyF" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="1cy-kI-co4"/>
-                            <constraint firstItem="N29-kv-OyF" firstAttribute="top" secondItem="FlT-LS-iXw" secondAttribute="bottom" constant="20" id="E4w-xm-PEt"/>
-                            <constraint firstItem="FlT-LS-iXw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Pai-gf-zqr"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Lce-as-5Xv" secondAttribute="trailing" constant="40" id="UGT-Oa-gKU"/>
-                            <constraint firstItem="N29-kv-OyF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YyA-lk-mo6"/>
-                            <constraint firstItem="FlT-LS-iXw" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="cSS-Xo-X5v"/>
-                            <constraint firstItem="FlT-LS-iXw" firstAttribute="top" secondItem="AdF-EQ-iuN" secondAttribute="bottom" constant="20" id="l7k-4b-8Kn"/>
-                            <constraint firstItem="AdF-EQ-iuN" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="l8Q-FV-TiN"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Lce-as-5Xv" secondAttribute="bottom" constant="40" id="qfc-e0-H3F"/>
-                            <constraint firstItem="AdF-EQ-iuN" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="skR-zI-Z92"/>
-                            <constraint firstItem="AdF-EQ-iuN" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="yaR-k2-eoe"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="종목분석" image="magnifyingglass.circle" catalog="system" selectedImage="magnifyingglass.circle" id="vMs-ML-LaT"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="collectionView" destination="N29-kv-OyF" id="uxc-SP-sFU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="21.028037383177569" y="79.049676025917933"/>
         </scene>
-        <!--View Controller-->
+        <!--Stock Study Detail View Controller-->
         <scene sceneID="pKL-xZ-zMG">
             <objects>
-                <viewController id="srR-SW-O2W" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StockStudyDetailViewController" id="srR-SW-O2W" customClass="StockStudyDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yID-hO-JBw">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,7 +101,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="1422"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-sz-wb0">
-                                        <rect key="frame" x="8" y="0.0" width="424.33333333333331" height="1133.3333333333333"/>
+                                        <rect key="frame" x="8" y="0.0" width="426" height="1133.3333333333333"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종목이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-6C-W0D">
                                                 <rect key="frame" x="35" y="30" width="59" height="20.333333333333329"/>
@@ -123,7 +110,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fat-e5-d3F">
-                                                <rect key="frame" x="30" y="75.333333333333329" width="339.33333333333331" height="34"/>
+                                                <rect key="frame" x="20" y="75.333333333333329" width="351" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -140,12 +127,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A9x-cn-mSD">
-                                                <rect key="frame" x="30" y="281.33333333333331" width="344.33333333333331" height="200"/>
+                                                <rect key="frame" x="20" y="281.33333333333331" width="356" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="8jc-dJ-Idr"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -157,12 +143,11 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Cfe-A5-iut">
-                                                <rect key="frame" x="30" y="562.33333333333337" width="344.33333333333331" height="200"/>
+                                                <rect key="frame" x="20" y="562.33333333333337" width="356" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="Nsp-4u-Oh3"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -174,26 +159,28 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ohj-KH-SqG">
-                                                <rect key="frame" x="35" y="843.33333333333337" width="339.33333333333331" height="200.00000000000011"/>
+                                                <rect key="frame" x="20" y="843.33333333333337" width="356" height="200.00000000000011"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="aCG-BY-dgy"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="KRt-rg-lOg">
-                                                <rect key="frame" x="174" y="149.33333333333334" width="190.33333333333337" height="31"/>
+                                                <rect key="frame" x="174" y="149.33333333333334" width="192" height="31"/>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJy-5I-XPQ">
-                                                <rect key="frame" x="5" y="1083.3333333333333" width="414.33333333333331" height="50"/>
+                                                <rect key="frame" x="5" y="1083.3333333333333" width="416" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="XFc-l2-8T7"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="저장하기"/>
+                                                <connections>
+                                                    <action selector="saveButtonClicked:" destination="srR-SW-O2W" eventType="touchUpInside" id="HU8-vX-5d8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -203,24 +190,24 @@
                                             <constraint firstAttribute="trailing" secondItem="Fat-e5-d3F" secondAttribute="trailing" constant="55" id="3Zq-Nj-6Rj"/>
                                             <constraint firstItem="UUC-an-jQ8" firstAttribute="top" secondItem="A9x-cn-mSD" secondAttribute="bottom" constant="30" id="3jT-dl-sPV"/>
                                             <constraint firstItem="91H-yH-asl" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="35" id="6OV-zb-bfM"/>
-                                            <constraint firstItem="Ohj-KH-SqG" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="35" id="7NB-0N-aE5"/>
+                                            <constraint firstItem="Ohj-KH-SqG" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="20" id="7NB-0N-aE5"/>
                                             <constraint firstAttribute="bottom" secondItem="gJy-5I-XPQ" secondAttribute="bottom" id="A4D-Om-LtM"/>
                                             <constraint firstAttribute="trailing" secondItem="Ohj-KH-SqG" secondAttribute="trailing" constant="50" id="B3D-FH-wTh"/>
                                             <constraint firstItem="dBP-CC-UQU" firstAttribute="top" secondItem="91H-yH-asl" secondAttribute="bottom" constant="50" id="DJE-Gz-zPu"/>
                                             <constraint firstItem="91H-yH-asl" firstAttribute="top" secondItem="Fat-e5-d3F" secondAttribute="bottom" constant="50" id="Fya-Ud-FRR"/>
-                                            <constraint firstItem="Cfe-A5-iut" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="30" id="HH7-Dd-sMY"/>
+                                            <constraint firstItem="Cfe-A5-iut" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="20" id="HH7-Dd-sMY"/>
                                             <constraint firstItem="A9x-cn-mSD" firstAttribute="top" secondItem="dBP-CC-UQU" secondAttribute="bottom" constant="30" id="Hia-F7-8cw"/>
                                             <constraint firstItem="Fat-e5-d3F" firstAttribute="top" secondItem="JFQ-6C-W0D" secondAttribute="bottom" constant="25" id="Ht2-Ro-spa"/>
                                             <constraint firstItem="dBP-CC-UQU" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="35" id="PIs-6A-G9T"/>
                                             <constraint firstItem="Ohj-KH-SqG" firstAttribute="top" secondItem="HjP-xS-tpo" secondAttribute="bottom" constant="30" id="PjQ-Pm-LN2"/>
                                             <constraint firstAttribute="trailing" secondItem="KRt-rg-lOg" secondAttribute="trailing" constant="60" id="Rrc-al-eJB"/>
                                             <constraint firstItem="JFQ-6C-W0D" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="35" id="auf-yG-gSU"/>
-                                            <constraint firstItem="A9x-cn-mSD" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="30" id="b8e-sd-h6i"/>
+                                            <constraint firstItem="A9x-cn-mSD" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="20" id="b8e-sd-h6i"/>
                                             <constraint firstItem="UUC-an-jQ8" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="35" id="d4J-Wf-mty"/>
                                             <constraint firstItem="Cfe-A5-iut" firstAttribute="top" secondItem="UUC-an-jQ8" secondAttribute="bottom" constant="30" id="dSC-6d-iiY"/>
                                             <constraint firstItem="gJy-5I-XPQ" firstAttribute="top" secondItem="Ohj-KH-SqG" secondAttribute="bottom" constant="40" id="eOL-0g-pJO"/>
                                             <constraint firstItem="HjP-xS-tpo" firstAttribute="top" secondItem="Cfe-A5-iut" secondAttribute="bottom" constant="30" id="eik-cO-eM3"/>
-                                            <constraint firstItem="Fat-e5-d3F" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="30" id="kK5-z3-u7m"/>
+                                            <constraint firstItem="Fat-e5-d3F" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="20" id="kK5-z3-u7m"/>
                                             <constraint firstAttribute="trailing" secondItem="gJy-5I-XPQ" secondAttribute="trailing" constant="5" id="mpZ-P8-XYw"/>
                                             <constraint firstItem="gJy-5I-XPQ" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="5" id="n5C-PY-gna"/>
                                             <constraint firstItem="KRt-rg-lOg" firstAttribute="leading" secondItem="91H-yH-asl" secondAttribute="trailing" constant="80" id="pP3-56-p0j"/>
@@ -250,10 +237,17 @@
                         </constraints>
                     </view>
                     <size key="freeformSize" width="428" height="1500"/>
+                    <connections>
+                        <outlet property="memoText" destination="Ohj-KH-SqG" id="0j7-iD-InJ"/>
+                        <outlet property="prosAndConsText" destination="Cfe-A5-iut" id="o4l-Ic-uGe"/>
+                        <outlet property="salesText" destination="A9x-cn-mSD" id="7vl-Fv-R2O"/>
+                        <outlet property="stockNameText" destination="Fat-e5-d3F" id="GjR-VF-to8"/>
+                        <outlet property="updateDatePicker" destination="KRt-rg-lOg" id="QEd-4e-mZr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XxC-Sm-bpq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1095" y="191"/>
+            <point key="canvasLocation" x="754" y="264"/>
         </scene>
     </scenes>
     <resources>

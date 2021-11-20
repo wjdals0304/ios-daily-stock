@@ -9,29 +9,22 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="StockStudyCollectionViewCell" customModule="DailyStock" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="218" height="195"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="StockStudyCollectionViewCell" id="gTV-IL-0wX" customClass="StockStudyCollectionViewCell" customModule="DailyStock" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="142"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="218" height="195"/>
+                <rect key="frame" x="0.0" y="0.0" width="197" height="142"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9a-Jr-tk1">
-                        <rect key="frame" x="20" y="33" width="42" height="21"/>
+                        <rect key="frame" x="20" y="33" width="104" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1C-SS-GL9">
-                        <rect key="frame" x="149" y="63" width="42" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0y-IX-WZi">
-                        <rect key="frame" x="20" y="116" width="178" height="59"/>
+                        <rect key="frame" x="75" y="93" width="119" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -40,8 +33,12 @@
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="218" height="195"/>
-            <point key="canvasLocation" x="253.62318840579712" y="124.21875"/>
+            <size key="customSize" width="197" height="142"/>
+            <connections>
+                <outlet property="stockNameLabel" destination="l9a-Jr-tk1" id="y9y-RO-E7w"/>
+                <outlet property="updateDateLabel" destination="n1C-SS-GL9" id="9pY-Am-zCe"/>
+            </connections>
+            <point key="canvasLocation" x="238.40579710144928" y="106.47321428571428"/>
         </collectionViewCell>
     </objects>
 </document>

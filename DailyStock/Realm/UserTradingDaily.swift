@@ -17,7 +17,7 @@ class UserTradingDaily: Object {
     @Persisted var stockAmount : Int
     @Persisted var stockPrice : Int
     @Persisted var moneyType : String
-    @Persisted var tradingReason : String 
+    @Persisted var tradingReason : String
     @Persisted var writeDate = Date()
     
     

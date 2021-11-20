@@ -12,8 +12,7 @@ import RealmSwift
 
 class UserStockSchedule: Object {
     
-    @Persisted var stockName : String
-    @Persisted var updateDate : Date
+    @Persisted var titleName : String
     @Persisted var alarmDate : Date
     @Persisted var isAlarm : Bool
     @Persisted var memo : String
@@ -24,17 +23,15 @@ class UserStockSchedule: Object {
     @Persisted(primaryKey: true) var _id : ObjectId
 
     
-    convenience init(stockName: String, updateDate: Date , alarmDate: Date, memo: String, writeDate : Date ) {
+    convenience init(titleName: String, isAlarm: Bool , alarmDate: Date, memo: String, writeDate : Date ) {
         
         self.init()
         
-        self.stockName = stockName
-        self.updateDate = updateDate
+        self.titleName = titleName
         self.alarmDate = alarmDate
         self.memo = memo
-        self.isAlarm = false
+        self.isAlarm = isAlarm
         self.writeDate = writeDate
-        
         
     }
     

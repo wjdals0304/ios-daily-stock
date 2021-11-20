@@ -9,6 +9,8 @@ import UIKit
 
 class TradingDailyTableViewCell: UITableViewCell {
 
+    static let identifier = "TradingDailyTableViewCell"
+    
     @IBOutlet var stockNameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var amountLabel: UILabel!
@@ -17,7 +19,6 @@ class TradingDailyTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
