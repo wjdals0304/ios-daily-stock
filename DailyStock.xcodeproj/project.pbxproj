@@ -34,6 +34,10 @@
 		644936A62748C3E200E209FC /* StockScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644936A42748C3E200E209FC /* StockScheduleTableViewCell.xib */; };
 		644936A82748C74E00E209FC /* StockScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936A72748C74E00E209FC /* StockScheduleViewController.swift */; };
 		644936AA2748CCD700E209FC /* StockScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936A92748CCD700E209FC /* StockScheduleDetailViewController.swift */; };
+		644936AE274A19BB00E209FC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 644936AD274A19BB00E209FC /* Alamofire */; };
+		644936B4274A2B1700E209FC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 644936B3274A2B1700E209FC /* DropDown */; };
+		644936B7274A3C4500E209FC /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936B6274A3C4500E209FC /* UILabel+Extensions.swift */; };
+		644936BD274B611000E209FC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936BC274B611000E209FC /* Date+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,8 @@
 		644936A42748C3E200E209FC /* StockScheduleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StockScheduleTableViewCell.xib; sourceTree = "<group>"; };
 		644936A72748C74E00E209FC /* StockScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockScheduleViewController.swift; sourceTree = "<group>"; };
 		644936A92748CCD700E209FC /* StockScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockScheduleDetailViewController.swift; sourceTree = "<group>"; };
+		644936B6274A3C4500E209FC /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
+		644936BC274B611000E209FC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6449369627465E0400E209FC /* RealmSwift in Frameworks */,
+				644936B4274A2B1700E209FC /* DropDown in Frameworks */,
+				644936AE274A19BB00E209FC /* Alamofire in Frameworks */,
 				6449369427465E0400E209FC /* Realm in Frameworks */,
 				644936702745D85900E209FC /* FSCalendar in Frameworks */,
 			);
@@ -98,6 +106,7 @@
 		6449364627449C3D00E209FC /* DailyStock */ = {
 			isa = PBXGroup;
 			children = (
+				644936B5274A3BFF00E209FC /* Extension */,
 				6449366D2744E9F800E209FC /* ViewCell */,
 				6449365D27449D1E00E209FC /* Realm */,
 				6449365C27449D0D00E209FC /* Storyboard */,
@@ -159,6 +168,15 @@
 			path = ViewCell;
 			sourceTree = "<group>";
 		};
+		644936B5274A3BFF00E209FC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				644936B6274A3C4500E209FC /* UILabel+Extensions.swift */,
+				644936BC274B611000E209FC /* Date+Extensions.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,6 +197,8 @@
 				6449366F2745D85900E209FC /* FSCalendar */,
 				6449369327465E0400E209FC /* Realm */,
 				6449369527465E0400E209FC /* RealmSwift */,
+				644936AD274A19BB00E209FC /* Alamofire */,
+				644936B3274A2B1700E209FC /* DropDown */,
 			);
 			productName = DailyStock;
 			productReference = 6449364427449C3D00E209FC /* DailyStock.app */;
@@ -211,6 +231,8 @@
 			packageReferences = (
 				6449366E2745D85900E209FC /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */,
+				644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */,
 			);
 			productRefGroup = 6449364527449C3D00E209FC /* Products */;
 			projectDirPath = "";
@@ -253,10 +275,12 @@
 				644936662744DCFD00E209FC /* TradingDailyTableViewCell.swift in Sources */,
 				6449368927465AFB00E209FC /* UserStockSchedule.swift in Sources */,
 				6449366B2744E9D600E209FC /* StockStudyCollectionViewCell.swift in Sources */,
+				644936BD274B611000E209FC /* Date+Extensions.swift in Sources */,
 				6449369C274733B500E209FC /* TradingDailyDetailViewController.swift in Sources */,
 				6449369E2747A89D00E209FC /* StockStudyViewController.swift in Sources */,
 				64493674274656C000E209FC /* UserStockStudy.swift in Sources */,
 				6449368727465AE300E209FC /* UserTradingDaily.swift in Sources */,
+				644936B7274A3C4500E209FC /* UILabel+Extensions.swift in Sources */,
 				644936AA2748CCD700E209FC /* StockScheduleDetailViewController.swift in Sources */,
 				6449364827449C3D00E209FC /* AppDelegate.swift in Sources */,
 				6449364A27449C3D00E209FC /* SceneDelegate.swift in Sources */,
@@ -495,6 +519,22 @@
 				kind = branch;
 			};
 		};
+		644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -512,6 +552,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */;
 			productName = RealmSwift;
+		};
+		644936AD274A19BB00E209FC /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		644936B3274A2B1700E209FC /* DropDown */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */;
+			productName = DropDown;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

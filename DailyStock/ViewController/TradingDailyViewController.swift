@@ -21,6 +21,7 @@ class TradingDailyViewController: UIViewController {
     var fixedDailyCount : Int = 0
     var unfixedDailyCount : Int = 0
     var totalDailyCount : Int = 0
+    var searchWord: String?
     
     
     var isFiltering : Bool {
@@ -80,6 +81,9 @@ class TradingDailyViewController: UIViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
         
+    
+    
+    
 }
 
 
@@ -94,16 +98,16 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
 
         guard let cell = tableView.dequeueReusableCell(withIdentifier: TradingDailyTableViewCell.identifier, for: indexPath) as? TradingDailyTableViewCell else { return UITableViewCell()}
         
-        
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        
         if self.isFiltering {
+ 
             
             let filterRow = filteredDaily[indexPath.row]
     
             cell.stockNameLabel.text = filterRow.stockName
+            cell.stockNameLabel.KeywordBlue(searchWord ?? "")
             cell.priceLabel.text = "\(filterRow.stockPrice)"
             cell.amountLabel.text = "\(filterRow.stockAmount)"
             cell.dateLabel.text =  formatter.string(from: filterRow.tradingDate)
@@ -127,14 +131,31 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         return 150
     }
 
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TradingDailyDetailViewController") as! TradingDailyDetailViewController
+        
+        vc.dailyData = self.isFiltering ? filteredDaily[indexPath.row] : tasks[indexPath.row]
+        
+        
+        let nav = UINavigationController(rootViewController: vc)
+        
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.present(nav,animated: true, completion: nil)
+        
+    }
+    
 }
-
-
 
 extension TradingDailyViewController: UISearchResultsUpdating {
     
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text?.lowercased() else { return }
+        
+
+        self.searchWord = text
         self.filteredDaily = self.localRealm.objects(UserTradingDaily.self).filter("stockName CONTAINS %@" ,text)
         
         self.tableView.reloadData()

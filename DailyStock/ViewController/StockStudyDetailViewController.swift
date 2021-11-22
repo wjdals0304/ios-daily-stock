@@ -21,12 +21,23 @@ class StockStudyDetailViewController: UIViewController {
     @IBOutlet var prosAndConsText: UITextView!
     @IBOutlet var memoText: UITextView!
     
+    var studyData : UserStockStudy?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "종목 분석"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        
+        
+        if studyData != nil {
+            self.stockNameText.text = studyData?.stockName
+            self.updateDatePicker.date = studyData!.updateDate
+            self.salesText.text = studyData?.sales
+            self.prosAndConsText.text = studyData?.prosAndCons
+            self.memoText.text = studyData?.memo
+        }
+                
         
     }
     

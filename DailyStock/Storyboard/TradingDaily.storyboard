@@ -135,17 +135,6 @@
                                     <action selector="saveButtonClicked:" destination="RDA-B7-sUG" eventType="touchUpInside" id="PzL-SM-dvs"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vyv-cF-6EL">
-                                <rect key="frame" x="104" y="164" width="94" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <menu key="menu" id="HJ8-nT-WMZ">
-                                    <children>
-                                        <command title="매수" id="9vS-9V-eLE"/>
-                                        <command title="매도" id="3xQ-lc-OsI"/>
-                                    </children>
-                                </menu>
-                                <state key="normal" title="매수/매도"/>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iq3-4B-rpf">
                                 <rect key="frame" x="97" y="347" width="308.33333333333337" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -180,6 +169,30 @@
                                     </children>
                                 </menu>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3V9-2U-olY">
+                                <rect key="frame" x="99" y="168" width="99" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="매수/매도"/>
+                                <connections>
+                                    <action selector="showTypeOptions:" destination="RDA-B7-sUG" eventType="touchUpInside" id="Kia-Nz-Kur"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qne-kO-Psc">
+                                <rect key="frame" x="119" y="258" width="24" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1J-a6-leM">
+                                <rect key="frame" x="99" y="248" width="95" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="화폐"/>
+                                <connections>
+                                    <action selector="showMoneyOptions:" destination="RDA-B7-sUG" eventType="touchUpInside" id="BCP-Gs-jsL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UeH-TK-jko"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -189,12 +202,13 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="moneyTypeButton" destination="V1J-a6-leM" id="Tej-YY-hMf"/>
                         <outlet property="stockAmountText" destination="Wgc-aN-OG8" id="60y-Ag-nob"/>
                         <outlet property="stockNameText" destination="WV1-im-Vhl" id="37X-cv-ndQ"/>
                         <outlet property="stockPriceText" destination="iq3-4B-rpf" id="dFM-io-ZLX"/>
                         <outlet property="tradingDatePiker" destination="r79-vS-Png" id="qSc-0Y-dYK"/>
                         <outlet property="tradingReasonText" destination="c04-xV-nC2" id="kZz-0O-RUO"/>
-                        <outlet property="tradingTypeButton" destination="Vyv-cF-6EL" id="Kk0-nv-AcR"/>
+                        <outlet property="tradingTypeButton" destination="3V9-2U-olY" id="Ogp-CY-ZCc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiw-xd-RN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -16,6 +16,8 @@ class StockStudyViewController: UIViewController {
     let localRealm = try! Realm()
     var tasks : Results<UserStockStudy>!
     var filteredStock : Results<UserStockStudy>!
+    var searchWord : String?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +44,11 @@ class StockStudyViewController: UIViewController {
         
         setUpSearchController()
                 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.reloadData()
     }
     
     var isFiltering : Bool {
@@ -101,6 +108,7 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
             let filterRow = filteredStock[indexPath.row]
             
             cell.stockNameLabel.text = filterRow.stockName
+            cell.stockNameLabel.KeywordBlue(searchWord ?? "" )
             cell.updateDateLabel.text = formatter.string(from: filterRow.updateDate)
             
         } else {
@@ -111,12 +119,26 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
             cell.updateDateLabel.text =  formatter.string(from: row.updateDate)
             
         }
-                
+       
         return cell
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockStudyDetailViewController") as! StockStudyDetailViewController
+        
+        vc.studyData = self.isFiltering ? filteredStock[indexPath.row] : tasks[indexPath.row]
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.present(nav,animated: true, completion: nil)
+        
+        
     }
         
 }
-
 
 
 extension StockStudyViewController: UISearchResultsUpdating {
@@ -125,6 +147,8 @@ extension StockStudyViewController: UISearchResultsUpdating {
         
         //대소문자
         guard let text = searchController.searchBar.text?.lowercased() else { return }
+        
+        self.searchWord = text
         
         self.filteredStock = self.localRealm.objects(UserStockStudy.self).filter("stockName CONTAINS %@" ,text)
         
