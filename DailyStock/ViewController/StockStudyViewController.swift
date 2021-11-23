@@ -22,8 +22,12 @@ class StockStudyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
         
         let nibName = UINib(nibName: StockStudyCollectionViewCell.identifier, bundle: nil)
         self.collectionView.register(nibName, forCellWithReuseIdentifier: StockStudyCollectionViewCell.identifier)
@@ -43,6 +47,7 @@ class StockStudyViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         setUpSearchController()
+      
                 
     }
     
@@ -102,6 +107,15 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        
+        cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+            .cgColor
+        cell.backgroundColor = .white
+        cell.layer.borderWidth = 10
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+        
+        
         
         if self.isFiltering {
             

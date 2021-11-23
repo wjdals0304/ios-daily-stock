@@ -22,9 +22,17 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     @IBOutlet var stockAmountText: UITextField!
     @IBOutlet var stockPriceText: UITextField!
     @IBOutlet var tradingReasonText: UITextView!
-    @IBOutlet var tradingDatePiker: UIDatePicker!
     @IBOutlet var moneyTypeButton: UIButton!
     
+    @IBOutlet var tradingDatePiker: UIDatePicker!
+
+    @IBOutlet var stockNameLabel: UILabel!
+    @IBOutlet var tradingTypeLabel: UILabel!
+    @IBOutlet var tradingDateLabel: UILabel!
+    @IBOutlet var stockAmountLabel: UILabel!
+    @IBOutlet var stockPriceLabel: UILabel!
+    @IBOutlet var tradingReasonLabel: UILabel!
+        
     let dropDownTrading = DropDown()
     let dropDownMoney = DropDown()
     
@@ -34,7 +42,49 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "매매 일지"
+        
+        //style
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
+        
+        stockNameLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        stockNameLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        tradingTypeLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        tradingTypeLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        tradingDateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+
+        tradingDateLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        stockAmountLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+
+        stockAmountLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        stockPriceLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+
+        stockPriceLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        tradingReasonLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+
+        tradingReasonLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        stockNameText.clipsToBounds = true
+        stockNameText.layer.cornerRadius = 8
+        stockNameText.layer.borderWidth = 1
+        stockNameText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+        
+        stockAmountText.clipsToBounds = true
+        stockAmountText.layer.cornerRadius = 8
+        stockAmountText.layer.borderWidth = 1
+        stockAmountText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+        
+        tradingReasonText.clipsToBounds = true
+        tradingReasonText.layer.cornerRadius = 8
+        tradingReasonText.layer.borderWidth = 1
+        tradingReasonText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+
+        
+        
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
 
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
@@ -80,6 +130,13 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     
     }
     
+    @IBAction func calendarButtonClicekd(_ sender: UIButton) {
+        
+        self.tradingDatePiker.frame = CGRect(x: 0, y: 400, width:self.view.frame.size.width, height: 200)
+        
+        self.view.addSubview(tradingDatePiker)
+        
+    }
     
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {

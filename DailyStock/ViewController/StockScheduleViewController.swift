@@ -32,6 +32,12 @@ class StockScheduleViewController: UIViewController {
         
         tableView.delegate = self
         tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+
+        //style
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
         
         let nibName = UINib(nibName: StockScheduleTableViewCell.identifier, bundle: nibBundle)
         
@@ -49,6 +55,7 @@ class StockScheduleViewController: UIViewController {
         calendar.appearance.headerTitleColor = .black
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
         calendar.locale = Locale(identifier: "ko_KR")
+        calendar.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
 
     }
     
@@ -74,10 +81,16 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
         
         self.filteredDateTasks = tasks.filter("alarmDate BETWEEN %@", [startCalenderStart,endCalenderEnd]).sorted(byKeyPath: "alarmDate" , ascending: true)
 
-        
         if filteredDateTasks.count == 0   {
             return UITableViewCell()
         }
+        
+        cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+            .cgColor
+        cell.backgroundColor = .white
+        cell.layer.borderWidth = 10
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
         
 
         let row = filteredDateTasks[indexPath.row]
@@ -88,9 +101,7 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
         cell.memoLabel.text = row.memo
         cell.alarmDateLabel.text = formatter.string(from: row.alarmDate)
         
-        print(row.isAlarm)
         cell.alarmImage.image = row.isAlarm ? UIImage(systemName:  "bell.badge.fill" ) : UIImage(systemName: "bell.slash" )
-        
         
         
         return cell
@@ -112,6 +123,16 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
         return 100
     }
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockScheduleDetailViewController") as! StockScheduleDetailViewController
+
+        vc.memoData = tasks[indexPath.row]
+
+        self.present(vc, animated: true, completion: nil)
+    }
+
+    
     
 }
 

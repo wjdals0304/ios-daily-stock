@@ -36,8 +36,16 @@ class TradingDailyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        //style
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+        
         
         let nibName = UINib(nibName: TradingDailyTableViewCell.identifier, bundle: nil)
         self.tableView.register(nibName, forCellReuseIdentifier: TradingDailyTableViewCell.identifier)
@@ -49,6 +57,8 @@ class TradingDailyViewController: UIViewController {
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
+        
+
     }
     
     
@@ -100,6 +110,23 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+        
+        
+        cell.stockNameLabel.textColor = UIColor.black
+        cell.stockNameLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        
+        cell.dateLabel.textColor = UIColor(red: 0.561, green: 0.565, blue: 0.576, alpha: 1)
+
+        cell.dateLabel.font = UIFont(name: "Roboto-Regular", size: 50)
+        
+        cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+            .cgColor
+        cell.layer.borderWidth = 10
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+        
+        
+         
         
         if self.isFiltering {
  

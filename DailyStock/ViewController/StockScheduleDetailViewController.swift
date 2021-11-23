@@ -15,23 +15,62 @@ class StockScheduleDetailViewController: UIViewController {
 
     let localRealm = try! Realm()
     var tasks : Results<UserStockSchedule>!
+    var memoData :  UserStockSchedule?
     
     @IBOutlet var titleText: UITextView!
     @IBOutlet var alarmDatePicker: UIDatePicker!
     @IBOutlet var alarmTF: UISwitch!
     @IBOutlet var memoText: UITextView!
     
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var alarmDateLabel: UILabel!
+    @IBOutlet var alarmLabel: UILabel!
+    @IBOutlet var memoLabel: UILabel!
     
     
     let userNotificationCenter = UNUserNotificationCenter.current()
 
     var alarmState = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
+        titleLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        titleLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        
+        alarmDateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        alarmDateLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        alarmLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        alarmLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        memoLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        memoLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        
+        titleText.clipsToBounds = true
+        titleText.layer.cornerRadius = 8
+        titleText.layer.borderWidth = 1
+        titleText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+        
+        memoText.clipsToBounds = true
+        memoText.layer.cornerRadius = 8
+        memoText.layer.borderWidth = 1
+        memoText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+        
         requestNotificationAuthorization()
+        
+        if memoData != nil {
+            self.titleText.text = memoData?.titleName
+            self.alarmDatePicker.setDate(memoData!.alarmDate, animated: true)
+            self.alarmTF.isOn = memoData!.isAlarm
+            self.memoText.text = memoData?.memo
+        }
+        
+        
     }
     
     @IBAction func saveButtonClicked(_ sender: Any) {
@@ -47,7 +86,6 @@ class StockScheduleDetailViewController: UIViewController {
             localRealm.add(task)
         }
         
-            
     }
     
     
@@ -81,10 +119,7 @@ class StockScheduleDetailViewController: UIViewController {
         let alarmDatePicker = formatter.string(from: alarmDatePicker.date)
         let resultDatePicker = formatter.date(from: alarmDatePicker)
         
-        print(resultDatePicker)
-        
-        let date = Date().addingTimeInterval(3)
-        print(date)
+        let date = Date().addingTimeInterval(5)
         
         let dateComponets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
             

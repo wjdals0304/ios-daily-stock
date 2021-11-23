@@ -68,7 +68,7 @@
         <!--Stock Schedule Detail View Controller-->
         <scene sceneID="w8f-5a-Sxw">
             <objects>
-                <viewController id="WnI-6r-2eY" customClass="StockScheduleDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StockScheduleDetailViewController" id="WnI-6r-2eY" customClass="StockScheduleDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uJt-l2-3Yk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,23 +81,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcB-NU-rSF">
+                                <rect key="frame" x="6" y="753" width="408" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="저장하기"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="WnI-6r-2eY" eventType="touchUpInside" id="AeQ-Cc-5QS"/>
+                                </connections>
+                            </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mbA-Le-X84">
-                                <rect key="frame" x="339" y="251" width="51" height="31"/>
+                                <rect key="frame" x="329" y="210" width="51" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알림일자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a83-vH-eIb">
-                                <rect key="frame" x="20" y="193" width="59" height="40"/>
+                                <rect key="frame" x="20" y="162" width="59" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-bC-bXj">
-                                <rect key="frame" x="185" y="193" width="203" height="31"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="알람여부" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-jM-MIZ">
-                                <rect key="frame" x="20" y="246" width="59" height="40"/>
+                                <rect key="frame" x="324" y="162" width="59" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -111,43 +116,42 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="메모" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3k-4w-mhb">
-                                <rect key="frame" x="20" y="348" width="29.5" height="21"/>
+                                <rect key="frame" x="20" y="285" width="29.5" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="메모" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-EB-hAd">
-                                <rect key="frame" x="20" y="406" width="368" height="300"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BpB-EB-hAd">
+                                <rect key="frame" x="20" y="334" width="368" height="300"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zcB-NU-rSF">
-                                <rect key="frame" x="6" y="753" width="408" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                <connections>
-                                    <action selector="saveButtonClicked:" destination="WnI-6r-2eY" eventType="touchUpInside" id="AeQ-Cc-5QS"/>
-                                </connections>
-                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-bC-bXj">
+                                <rect key="frame" x="20" y="210" width="207" height="31"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VW8-dw-zPP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="alarmDateLabel" destination="a83-vH-eIb" id="rtV-DT-Zgn"/>
                         <outlet property="alarmDatePicker" destination="gu6-bC-bXj" id="Lfi-bH-ANp"/>
+                        <outlet property="alarmLabel" destination="F3k-4w-mhb" id="fB7-RA-e1j"/>
                         <outlet property="alarmTF" destination="mbA-Le-X84" id="Ood-4S-IWl"/>
+                        <outlet property="memoLabel" destination="F3k-4w-mhb" id="yXr-bP-d5a"/>
                         <outlet property="memoText" destination="BpB-EB-hAd" id="tRc-pb-jOg"/>
+                        <outlet property="titleLabel" destination="5bM-3z-hD4" id="6vh-JN-Zby"/>
                         <outlet property="titleText" destination="3bO-zF-4p8" id="RuE-Aq-PXb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwE-Mx-5Gr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="871" y="31"/>
+            <point key="canvasLocation" x="869.56521739130437" y="30.803571428571427"/>
         </scene>
     </scenes>
     <resources>
