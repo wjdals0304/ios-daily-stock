@@ -8,9 +8,15 @@
 import UIKit
 import RealmSwift
 
+enum Mode {
+    case view
+    case select
+}
 
 class StockStudyViewController: UIViewController {
 
+    
+    
     @IBOutlet var collectionView: UICollectionView!
     
     let localRealm = try! Realm()
@@ -18,9 +24,83 @@ class StockStudyViewController: UIViewController {
     var filteredStock : Results<UserStockStudy>!
     var searchWord : String?
     
+    var dictionarySelectedIndexPath: [IndexPath : Bool] = [:]
+
+    var eMode: Mode = .view {
+        didSet {
+            switch eMode {
+            case .view:
+                for (key, value) in dictionarySelectedIndexPath {
+                    if value {
+                        collectionView.deselectItem(at: key, animated: true)
+                    }
+                }
+                dictionarySelectedIndexPath.removeAll()
+                
+                selectBarButton.title = "Select"
+                navigationItem.leftBarButtonItem = nil
+                collectionView.allowsMultipleSelection = false
+                
+            case .select:
+                selectBarButton.title = "Cancel"
+                navigationItem.leftBarButtonItem = deleteBarButton
+                collectionView.allowsMultipleSelection = true
+            }
+        }
+    }
+    
+    lazy var selectBarButton : UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(didSelectButtonClicked(_:)))
+        return  barButtonItem
+    }()
+    
+    lazy var deleteBarButton : UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didDeleteButtonClicked(_:)))
+        return barButtonItem
+    }()
+    
+    
+    @objc func didSelectButtonClicked(_ sender: UIBarButtonItem) {
+        eMode = eMode == .view ? .select : .view
+        
+    }
+    
+    @objc func didDeleteButtonClicked(_ sender: UIBarButtonItem) {
+        
+        var deleteNeededIndexPaths: [IndexPath] = []
+        
+        for (key,value) in dictionarySelectedIndexPath {
+            if value {
+                deleteNeededIndexPaths.append(key)
+            }
+        }
+        
+        for i in deleteNeededIndexPaths.sorted(by: { $0.item > $1.item }){
+            
+            let row = self.isFiltering ? filteredStock[i.row] : tasks[i.row]
+            
+            try! localRealm.write {
+                localRealm.delete(row)
+            }
+            
+        }
+        collectionView.deleteItems(at: deleteNeededIndexPaths)
+        dictionarySelectedIndexPath.removeAll()
+        collectionView.reloadData()
+
+    }
+    
+    func setUpBarButtonItems() {
+        navigationItem.rightBarButtonItem = selectBarButton
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUpBarButtonItems()
+        
         
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
@@ -35,20 +115,11 @@ class StockStudyViewController: UIViewController {
         self.tasks = localRealm.objects(UserStockStudy.self)
         self.navigationItem.title = "종목 분석"
         
-        // collection view layout
-        let spacing: CGFloat = 15
         let layout = UICollectionViewFlowLayout()
-        
-        layout.itemSize = CGSize(width: 170  , height:150 )
-        layout.sectionInset = UIEdgeInsets(top:spacing,left:spacing,bottom:spacing,right:spacing)
-        layout.minimumInteritemSpacing = spacing
-        layout.minimumLineSpacing = spacing
-        layout.scrollDirection = .vertical
         collectionView.collectionViewLayout = layout
         
         setUpSearchController()
-      
-                
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,7 +135,6 @@ class StockStudyViewController: UIViewController {
         
         return isActive && isSearchBarHasText
     }
-    
     
     
     @IBAction func addButtonClicked(_ sender: UIButton) {
@@ -92,7 +162,7 @@ class StockStudyViewController: UIViewController {
 }
 
 
-extension StockStudyViewController : UICollectionViewDataSource, UICollectionViewDelegate {
+extension StockStudyViewController : UICollectionViewDataSource, UICollectionViewDelegate ,UICollectionViewDelegateFlowLayout {
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -107,6 +177,13 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
+    
+        cell.stockNameLabel.textColor = UIColor.black
+        cell.stockNameLabel.font =  UIFont(name: "Roboto-Bold", size: 25)
+        
+        cell.updateDateLabel.textColor = UIColor(red: 0.561, green: 0.565, blue: 0.576, alpha: 1)
+        cell.updateDateLabel.font = UIFont(name: "Roboto-Bold", size: 15)
+        
         
         cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
             .cgColor
@@ -114,8 +191,6 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
         cell.layer.borderWidth = 10
         cell.layer.cornerRadius = 8
         cell.clipsToBounds = true
-        
-        
         
         if self.isFiltering {
             
@@ -133,26 +208,53 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
             cell.updateDateLabel.text =  formatter.string(from: row.updateDate)
             
         }
-       
+                
         return cell
     }
     
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockStudyDetailViewController") as! StockStudyDetailViewController
-        
-        vc.studyData = self.isFiltering ? filteredStock[indexPath.row] : tasks[indexPath.row]
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        
-        self.present(nav,animated: true, completion: nil)
-        
+        switch eMode {
+        case .view :
+            collectionView.deselectItem(at: indexPath, animated: true)
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockStudyDetailViewController") as! StockStudyDetailViewController
+            
+            vc.studyData = self.isFiltering ? filteredStock[indexPath.row] : tasks[indexPath.row]
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            
+            self.present(nav,animated: true, completion: nil)
+            
+        case .select :
+            dictionarySelectedIndexPath[indexPath] = true
+            
+        }
+    
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if eMode == .select {
+            dictionarySelectedIndexPath[indexPath] = false
+        }
         
     }
         
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        guard let flowLayout = collectionViewLayout as? UICollectionViewFlowLayout else { return CGSize() }
+        let numberOfCells: CGFloat = 2
+        let width = collectionView.frame.size.width - (flowLayout.minimumInteritemSpacing * (numberOfCells-1))
+        
+        return CGSize(width: width/(numberOfCells), height: width/(numberOfCells))
+        
+    }
+    
 }
+
+
 
 
 extension StockStudyViewController: UISearchResultsUpdating {

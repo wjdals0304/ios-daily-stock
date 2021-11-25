@@ -20,5 +20,42 @@ extension Date {
     func subtract(years: Int = 0, months: Int = 0, days: Int = 0, hours: Int = 0, minutes: Int = 0, seconds: Int = 0) -> Date? {
         return add(years: -years, months: -months, days: -days, hours: -hours, minutes: -minutes, seconds: -seconds)
     }
+    
+    
+       func toString( dateFormat format: String ) -> Date {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = format
+           dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+           dateFormatter.locale = Locale.current
+           return dateFormatter.date(from: dateFormatter.string(from: self)
+           )!
+       }
+//
+//        func toDate( dateFormat format: String) -> Date {
+//
+//            let dateFormatter = DateFormatter()
+//            dateFormatter.dateFormat = format
+//            dateFormatter.timeZone = TimeZone.autoupdatingCurrent
+//            dateFormatter.locale = Locale.current
+//            return dateFormatter.date(from: self)!
+//        }
+//
+//       
+//       func toStringKST( dateFormat format: String ) -> String {
+//           return self.toString(dateFormat: format)
+//       }
+//
+//      func toDateKST( dateFormat format: String ) -> Date {
+//        return self.toDate(dateFormat: format)
+//      }
+    
+    
+       func toStringUTC( dateFormat format: String ) -> String {
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = format
+           dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+           return dateFormatter.string(from: self)
+       }
+    
 
 }

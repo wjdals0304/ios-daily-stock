@@ -39,6 +39,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     let tradingTypeArray = ["매수","매도"]
     let moneyTypeArray = ["원","달러"]
     
+    var selectedBool : Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,25 +49,22 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
         
         stockNameLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        stockNameLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        stockNameLabel.font = UIFont(name: "Roboto-Bold", size: 15)
         
         tradingTypeLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        tradingTypeLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        tradingTypeLabel.font = UIFont(name: "Roboto-Bold", size: 15)
+        
         tradingDateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-
-        tradingDateLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        tradingDateLabel.font = UIFont(name: "Roboto-Bold", size: 15)
         
         stockAmountLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-
-        stockAmountLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        stockAmountLabel.font = UIFont(name: "Roboto-Bold", size: 15)
         
         stockPriceLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-
-        stockPriceLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        stockPriceLabel.font = UIFont(name: "Roboto-Bold", size: 15)
         
         tradingReasonLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-
-        tradingReasonLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        tradingReasonLabel.font = UIFont(name: "Roboto-Bold", size: 15)
         
         stockNameText.clipsToBounds = true
         stockNameText.layer.cornerRadius = 8
@@ -82,8 +80,6 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
         tradingReasonText.layer.cornerRadius = 8
         tradingReasonText.layer.borderWidth = 1
         tradingReasonText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-
-        
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
 
@@ -98,6 +94,11 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
             self.stockAmountText.text = "\(dailyData?.stockAmount ?? 0)"
             self.stockPriceText.text = "\(dailyData?.stockPrice ?? 0)"
             self.tradingReasonText.text = dailyData?.tradingReason
+            self.tradingTypeButton.setTitle(dailyData?.tradingType, for: .normal)
+            self.moneyTypeButton.setTitle(dailyData?.moneyType, for: .normal)
+            self.tradingDatePiker.setDate(dailyData!.tradingDate, animated: true)
+            
+            self.selectedBool = true
             
         }
         
@@ -130,27 +131,41 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     
     }
     
-    @IBAction func calendarButtonClicekd(_ sender: UIButton) {
-        
-        self.tradingDatePiker.frame = CGRect(x: 0, y: 400, width:self.view.frame.size.width, height: 200)
-        
-        self.view.addSubview(tradingDatePiker)
-        
-    }
-    
-    
     @IBAction func saveButtonClicked(_ sender: UIButton) {
-        
         
         let stockPrice = Int(stockPriceText.text!) ?? 0
         let stockAmount = Int(stockAmountText.text!) ?? 0
         
-        let task = UserTradingDaily(stockName: stockNameText.text! , tradingType: tradingTypeButton.currentTitle!, tradingDate: tradingDatePiker.date, stockAmount: stockPrice , stockPrice: stockAmount , moneyType: moneyTypeButton.currentTitle!, tradingReason: tradingReasonText.text, writeDate: Date())
         
-        try! localRealm.write {
-            localRealm.add(task)
+        if self.selectedBool == true {
+            
+            let task = localRealm.objects(UserTradingDaily.self).filter( "_id = %@",dailyData!._id).first
+            
+            try! localRealm.write {
+                
+                task?.stockName = stockNameText.text!
+                task?.tradingType = tradingTypeButton.currentTitle!
+                task?.tradingDate = tradingDatePiker.date
+                task?.stockAmount = stockAmount
+                task?.stockPrice = stockPrice
+                task?.moneyType = moneyTypeButton.currentTitle!
+                task?.tradingReason = tradingReasonText.text
+                task?.writeDate = Date()
+            
+            }
+            
+        } else {
+            
+            
+            let task = UserTradingDaily(stockName: stockNameText.text! , tradingType: tradingTypeButton.currentTitle!, tradingDate: tradingDatePiker.date, stockAmount: stockAmount , stockPrice: stockPrice , moneyType: moneyTypeButton.currentTitle ?? "" , tradingReason: tradingReasonText.text, writeDate: Date())
+            
+            try! localRealm.write {
+                localRealm.add(task)
+            }
+            
         }
         
+        self.dismiss(animated: true, completion: nil)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {

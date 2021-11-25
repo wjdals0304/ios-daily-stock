@@ -13,22 +13,36 @@ import FSCalendar
 class StockScheduleViewController: UIViewController {
 
     let localRealm = try! Realm()
-    
     var tasks : Results<UserStockSchedule>!
-
     var startCalenderStart : Date?
     var endCalenderEnd: Date?
-    
     var filteredDateTasks : Results<UserStockSchedule>!
+    
     
     @IBOutlet var calendar: FSCalendar!
     @IBOutlet var tableView: UITableView!
     
-
+    lazy var addBarButton : UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(didAddBarButtonClicked(_:)))
+        return barButtonItem
+    }()
     
+    @objc func didAddBarButtonClicked(_ sender : UIBarButtonItem) {
+        
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockScheduleDetailViewController") as! StockScheduleDetailViewController
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav,animated: true, completion: nil)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationItem.title = "일정관리"
+        self.navigationItem.rightBarButtonItem = addBarButton
+        
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -38,14 +52,10 @@ class StockScheduleViewController: UIViewController {
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
         
-        
         let nibName = UINib(nibName: StockScheduleTableViewCell.identifier, bundle: nibBundle)
-        
         self.tableView.register(nibName, forCellReuseIdentifier: StockScheduleTableViewCell.identifier)
-        
         self.tasks = localRealm.objects(UserStockSchedule.self)
         
-
         // calendar
         self.calendar.delegate = self
         self.calendar.dataSource = self
@@ -54,6 +64,7 @@ class StockScheduleViewController: UIViewController {
         calendar.appearance.headerDateFormat = "YYYY년 M월"
         calendar.appearance.headerTitleColor = .black
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
+        calendar.appearance.titleFont = UIFont.systemFont(ofSize: 24)
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
 
@@ -61,9 +72,12 @@ class StockScheduleViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        calendar.reloadData()
         tableView.reloadData()
     }
     
+    
+
     
     
 }
@@ -79,7 +93,7 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
         self.startCalenderStart = calendar.currentPage.add(days:1)!
         self.endCalenderEnd = calendar.currentPage.add(months:1)!
         
-        self.filteredDateTasks = tasks.filter("alarmDate BETWEEN %@", [startCalenderStart,endCalenderEnd]).sorted(byKeyPath: "alarmDate" , ascending: true)
+        self.filteredDateTasks = tasks.filter("alarmDate BETWEEN %@", [startCalenderStart,endCalenderEnd]).sorted(byKeyPath: "alarmDate" , ascending: false )
 
         if filteredDateTasks.count == 0   {
             return UITableViewCell()
@@ -98,14 +112,13 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
         formatter.locale = Locale(identifier: "ko_KR")
         formatter.dateFormat = "dd E"
         
-        cell.memoLabel.text = row.memo
+        cell.titleLabel.text = row.titleName
         cell.alarmDateLabel.text = formatter.string(from: row.alarmDate)
         
         cell.alarmImage.image = row.isAlarm ? UIImage(systemName:  "bell.badge.fill" ) : UIImage(systemName: "bell.slash" )
         
         
         return cell
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -120,52 +133,50 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockScheduleDetailViewController") as! StockScheduleDetailViewController
 
-        vc.memoData = tasks[indexPath.row]
-
-        self.present(vc, animated: true, completion: nil)
+        vc.memoData = filteredDateTasks[indexPath.row]
+        
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        
+        self.present(nav,animated: true, completion: nil)
+        
     }
 
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let row = tasks[indexPath.row]
     
-    
+            try! localRealm.write{
+                localRealm.delete(row)
+                tableView.reloadData()
+                calendar.reloadData()
+            }
+        }
+    }
+        
 }
 
 extension StockScheduleViewController :  FSCalendarDelegate, FSCalendarDataSource {
     
-    
-    
     func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        
+
         let format = DateFormatter()
         format.dateFormat = "yyyyMMdd"
-        
-        
-        let startCalenderStart = calendar.currentPage.add(days:1)!
-        let endCalenderEnd = calendar.currentPage.add(months:1)!
-        
-        let filteredDateTasks = tasks.filter("alarmDate BETWEEN %@", [startCalenderStart,endCalenderEnd])
-        
-        var count = 0
-    
-        for task in filteredDateTasks {
-            
-            if format.string(from: task.alarmDate)  ==  format.string(from: date) {
-                count += 1
-            }
-        }
-        
-        return count
-        
+ 
+        return tasks.filter("calendarDate = %@" , format.string(from: date) ).count
     }
     
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         tableView.reloadData()
+        
     }
     
     

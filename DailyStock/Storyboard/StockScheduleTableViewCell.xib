@@ -9,29 +9,29 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="StockScheduleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="StockScheduleTableViewCell" rowHeight="130" id="KGk-i7-Jjw" customClass="StockScheduleTableViewCell" customModule="DailyStock" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="445" height="130"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="StockScheduleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="StockScheduleTableViewCell" rowHeight="138" id="KGk-i7-Jjw" customClass="StockScheduleTableViewCell" customModule="DailyStock" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="405" height="138"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="445" height="130"/>
+                <rect key="frame" x="0.0" y="0.0" width="405" height="138"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pu-dQ-pW2">
-                        <rect key="frame" x="131" y="26" width="99" height="74"/>
+                        <rect key="frame" x="104" y="11" width="182" height="50"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My3-pv-2Ir">
-                        <rect key="frame" x="20" y="28" width="89" height="72"/>
+                        <rect key="frame" x="20" y="13" width="66" height="47"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arr-uH-Ebl">
-                        <rect key="frame" x="304" y="41" width="88" height="49"/>
+                        <rect key="frame" x="338" y="18" width="54" height="36"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                 </subviews>
@@ -40,9 +40,9 @@
             <connections>
                 <outlet property="alarmDateLabel" destination="My3-pv-2Ir" id="OkO-bA-XEp"/>
                 <outlet property="alarmImage" destination="arr-uH-Ebl" id="5Ls-Wd-wk0"/>
-                <outlet property="memoLabel" destination="7Pu-dQ-pW2" id="he5-BP-nck"/>
+                <outlet property="titleLabel" destination="7Pu-dQ-pW2" id="CnY-Cs-6S2"/>
             </connections>
-            <point key="canvasLocation" x="77.536231884057983" y="123.88392857142857"/>
+            <point key="canvasLocation" x="48.550724637681164" y="126.5625"/>
         </tableViewCell>
     </objects>
 </document>

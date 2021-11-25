@@ -27,6 +27,7 @@ class StockScheduleDetailViewController: UIViewController {
     @IBOutlet var alarmLabel: UILabel!
     @IBOutlet var memoLabel: UILabel!
     
+    var selectedBool : Bool = false
     
     let userNotificationCenter = UNUserNotificationCenter.current()
 
@@ -35,21 +36,26 @@ class StockScheduleDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
         
         titleLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        titleLabel.font = UIFont(name: "Roboto-Regular", size: 18)
-        
+        titleLabel.font = UIFont(name: "Roboto-Bold", size: 16)
         
         alarmDateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        alarmDateLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        alarmDateLabel.font = UIFont(name: "Roboto-Bold", size: 16)
         
         alarmLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        alarmLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        alarmLabel.font = UIFont(name: "Roboto-Bold", size: 16)
         
         memoLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        memoLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        memoLabel.font = UIFont(name: "Roboto-Bold", size: 16)
+        
+        alarmLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        alarmLabel.font = UIFont(name: "Roboto-Bold", size: 16)
+        
         
         titleText.clipsToBounds = true
         titleText.layer.cornerRadius = 8
@@ -68,28 +74,70 @@ class StockScheduleDetailViewController: UIViewController {
             self.alarmDatePicker.setDate(memoData!.alarmDate, animated: true)
             self.alarmTF.isOn = memoData!.isAlarm
             self.memoText.text = memoData?.memo
+            self.selectedBool = true
         }
-        
+        alarmDatePicker.locale = Locale(identifier: "ko-KR")
         
     }
+    
+    @objc func closeButtonClicked(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
     @IBAction func saveButtonClicked(_ sender: Any) {
+
         
-        if UserDefaults.standard.bool(forKey: "alarmState") == true {
-            sendNotification()
+        if self.selectedBool == true {
+            
+            let task = localRealm.objects(UserStockSchedule.self).filter( "_id = %@",memoData!._id).first
+            
+            // 알람 삭제
+            if task?.isAlarm == false {
+                removeSendNofi(schedulUUID: task!.scheduleUUID)
+            }
+            
+            // 시간 변경시 알람 변경
+            if alarmDatePicker.date != task?.alarmDate {
+                sendNotification(scheduleUUID: task!.scheduleUUID, alarmTitle: titleText.text, alarmDate: alarmDatePicker.date)
+            }
+            
+            try! localRealm.write{
+                
+                task?.titleName = titleText.text
+                task?.isAlarm = alarmTF.isOn
+                task?.alarmDate = alarmDatePicker.date
+                task?.memo = memoText.text
+                task?.writeDate = Date()
+                
+            }
+            
+        } else {
+
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMdd"
+            
+            let scheduleUUID = UUID().uuidString
+            
+            let alarmStrToDate = dateFormatter.string(from: alarmDatePicker.date )
+            
+            let task = UserStockSchedule(titleName: titleText.text, isAlarm:  alarmTF.isOn , alarmDate: alarmDatePicker.date, memo: memoText.text , calendarDate: alarmStrToDate , writeDate: Date(),scheduleUUID: scheduleUUID)
+            
+            if UserDefaults.standard.bool(forKey: "alarmState") == true {
+                sendNotification(scheduleUUID: scheduleUUID , alarmTitle: titleText.text , alarmDate: alarmDatePicker.date)
+            }
+                   
+            try! localRealm.write {
+                localRealm.add(task)
+
+            }
         }
         
-        
-        let task = UserStockSchedule(titleName: titleText.text, isAlarm:  alarmTF.isOn , alarmDate: alarmDatePicker.date, memo: memoText.text, writeDate: Date())
-        
-        try! localRealm.write {
-            localRealm.add(task)
-        }
+        self.dismiss(animated: true, completion: nil)
         
     }
     
-    
-
     func requestNotificationAuthorization() {
         
         let authOpthions = UNAuthorizationOptions(arrayLiteral: .alert,.badge,.sound)
@@ -103,29 +151,27 @@ class StockScheduleDetailViewController: UIViewController {
     }
     
     
-    func sendNotification(){
-        
+    func sendNotification(scheduleUUID : String , alarmTitle : String, alarmDate : Date){
         
         let notificationContent = UNMutableNotificationContent()
 
-        notificationContent.title = "물 마실 시간이에요!"
-        notificationContent.body = "하루 2리터 목표 달성을 위해 열심히 달려보아요"
+        notificationContent.title = alarmTitle
         notificationContent.badge = 1
         
-        let formatter = DateFormatter()
-        formatter.locale = Locale(identifier: "ko_KR")
-        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+//        let formatter = DateFormatter()
+//        formatter.locale = Locale(identifier: "ko_KR")
+//        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+//
+//        let alarmDatePicker = formatter.string(from: alarmDatePicker.date)
+//        let resultDatePicker = formatter.date(from: alarmDatePicker)
+//
+//        let date = Date().addingTimeInterval(5)
         
-        let alarmDatePicker = formatter.string(from: alarmDatePicker.date)
-        let resultDatePicker = formatter.date(from: alarmDatePicker)
-        
-        let date = Date().addingTimeInterval(5)
-        
-        let dateComponets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: date)
+        let dateComponets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: alarmDate)
             
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponets, repeats: false)
             
-        let request = UNNotificationRequest(identifier: "\(Date())",
+        let request = UNNotificationRequest(identifier: scheduleUUID ,
                                                  content: notificationContent,
                                                  trigger: trigger)
             
@@ -134,8 +180,13 @@ class StockScheduleDetailViewController: UIViewController {
                             print("Notification Error: ", error)
                         }
             }
-            
-    
     }
+    
+    func removeSendNofi(schedulUUID: String) {
+        
+        userNotificationCenter.removePendingNotificationRequests(withIdentifiers:[schedulUUID])
+        
+    }
+    
     
 }

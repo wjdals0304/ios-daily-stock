@@ -46,6 +46,8 @@ class StockStudyDetailViewController: UIViewController {
             self.memoText.text = studyData?.memo
         }
         
+        updateDatePicker.locale = Locale(identifier: "ko-KR")
+
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
         
@@ -53,19 +55,19 @@ class StockStudyDetailViewController: UIViewController {
         viewInScroll.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
         
         stockNameLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        stockNameLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        stockNameLabel.font = UIFont(name: "Roboto-Bold", size: 20)
 
         updateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        updateLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        updateLabel.font = UIFont(name: "Roboto-Bold", size: 20)
 
         salesLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        salesLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        salesLabel.font = UIFont(name: "Roboto-Bold", size: 20)
 
         prosAndConsLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        prosAndConsLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        prosAndConsLabel.font = UIFont(name: "Roboto-Bold", size: 20)
 
         memoLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        memoLabel.font = UIFont(name: "Roboto-Regular", size: 18)
+        memoLabel.font = UIFont(name: "Roboto-Bold", size: 20)
 
         stockNameText.clipsToBounds = true
         stockNameText.layer.cornerRadius = 8
@@ -101,7 +103,8 @@ class StockStudyDetailViewController: UIViewController {
         try! localRealm.write{
             localRealm.add(task)
         }
-        
+     
+        self.dismiss(animated: true, completion: nil)
     }
     
     

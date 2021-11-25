@@ -30,8 +30,10 @@ class UserTradingDaily: Object {
         
         self.stockName = stockName
         self.tradingType = tradingType
+        self.tradingDate = tradingDate
         self.stockAmount = stockAmount
         self.stockPrice = stockPrice
+        self.moneyType = moneyType
         self.tradingReason = tradingReason
         self.writeDate = writeDate
         

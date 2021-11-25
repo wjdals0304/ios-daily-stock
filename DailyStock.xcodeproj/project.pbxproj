@@ -38,6 +38,8 @@
 		644936B4274A2B1700E209FC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 644936B3274A2B1700E209FC /* DropDown */; };
 		644936B7274A3C4500E209FC /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936B6274A3C4500E209FC /* UILabel+Extensions.swift */; };
 		644936BD274B611000E209FC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936BC274B611000E209FC /* Date+Extensions.swift */; };
+		644936BF274E37AB00E209FC /* roboto.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 644936BE274E375100E209FC /* roboto.regular.ttf */; };
+		644936C1274E3A8100E209FC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 644936C0274E39A600E209FC /* Roboto-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +71,8 @@
 		644936A92748CCD700E209FC /* StockScheduleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockScheduleDetailViewController.swift; sourceTree = "<group>"; };
 		644936B6274A3C4500E209FC /* UILabel+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extensions.swift"; sourceTree = "<group>"; };
 		644936BC274B611000E209FC /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		644936BE274E375100E209FC /* roboto.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.regular.ttf; sourceTree = "<group>"; };
+		644936C0274E39A600E209FC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				6449364727449C3D00E209FC /* AppDelegate.swift */,
 				6449364927449C3D00E209FC /* SceneDelegate.swift */,
 				6449364B27449C3D00E209FC /* ViewController.swift */,
+				644936BE274E375100E209FC /* roboto.regular.ttf */,
+				644936C0274E39A600E209FC /* Roboto-Bold.ttf */,
 				6449364D27449C3D00E209FC /* Main.storyboard */,
 				6449365027449C3F00E209FC /* Assets.xcassets */,
 				6449365227449C3F00E209FC /* LaunchScreen.storyboard */,
@@ -248,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				644936C1274E3A8100E209FC /* Roboto-Bold.ttf in Resources */,
 				6449366127449F8F00E209FC /* StockStudy.storyboard in Resources */,
 				6449365427449C3F00E209FC /* LaunchScreen.storyboard in Resources */,
 				644936A62748C3E200E209FC /* StockScheduleTableViewCell.xib in Resources */,
@@ -257,6 +264,7 @@
 				6449365F27449F2800E209FC /* TradingDaily.storyboard in Resources */,
 				6449364F27449C3D00E209FC /* Main.storyboard in Resources */,
 				644936672744DCFD00E209FC /* TradingDailyTableViewCell.xib in Resources */,
+				644936BF274E37AB00E209FC /* roboto.regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

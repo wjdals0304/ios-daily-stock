@@ -10,7 +10,7 @@ import UIKit
 class StockScheduleTableViewCell: UITableViewCell {
 
     @IBOutlet var alarmDateLabel: UILabel!
-    @IBOutlet var memoLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var alarmImage: UIImageView!
     
     static let identifier = "StockScheduleTableViewCell"

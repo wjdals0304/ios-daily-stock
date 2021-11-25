@@ -36,16 +36,13 @@ class TradingDailyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         //style
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
         
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-        
         
         let nibName = UINib(nibName: TradingDailyTableViewCell.identifier, bundle: nil)
         self.tableView.register(nibName, forCellReuseIdentifier: TradingDailyTableViewCell.identifier)
@@ -56,7 +53,6 @@ class TradingDailyViewController: UIViewController {
         self.navigationItem.title = "매매일지"
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
         
 
     }
@@ -111,41 +107,48 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        
         cell.stockNameLabel.textColor = UIColor.black
-        cell.stockNameLabel.font = UIFont.boldSystemFont(ofSize: 32)
+        cell.stockNameLabel.font =  UIFont(name: "Roboto-Bold", size: 50)
         
         cell.dateLabel.textColor = UIColor(red: 0.561, green: 0.565, blue: 0.576, alpha: 1)
-
-        cell.dateLabel.font = UIFont(name: "Roboto-Regular", size: 50)
+        cell.dateLabel.font = UIFont(name: "Roboto-Bold", size: 20)
         
+        cell.priceLabel.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
+        cell.priceLabel.font = UIFont(name: "Roboto-Bold", size: 24)
+        
+        cell.amountLabel.textColor =  UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
+        cell.amountLabel.font = UIFont(name: "Roboto-Bold", size: 24)
+
+        cell.clipsToBounds = true
         cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
             .cgColor
-        cell.layer.borderWidth = 10
+        cell.layer.borderWidth = 8
         cell.layer.cornerRadius = 8
-        cell.clipsToBounds = true
         
-        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
          
         
         if self.isFiltering {
  
             
             let filterRow = filteredDaily[indexPath.row]
-    
+            let decimalPrice = numberFormatter.string(from: NSNumber(value: filterRow.stockPrice))!
+            
             cell.stockNameLabel.text = filterRow.stockName
             cell.stockNameLabel.KeywordBlue(searchWord ?? "")
-            cell.priceLabel.text = "\(filterRow.stockPrice)"
-            cell.amountLabel.text = "\(filterRow.stockAmount)"
+            cell.priceLabel.text = "\(decimalPrice)"
+            cell.amountLabel.text = "\(filterRow.stockAmount)주"
             cell.dateLabel.text =  formatter.string(from: filterRow.tradingDate)
             
         } else {
             
             let row = tasks[indexPath.row]
+            let decimalPrice = numberFormatter.string(from: NSNumber(value: row.stockPrice))!
 
             cell.stockNameLabel.text = row.stockName
-            cell.priceLabel.text = "\(row.stockPrice)"
-            cell.amountLabel.text = "\(row.stockAmount)"
+            cell.priceLabel.text = "\(decimalPrice)"
+            cell.amountLabel.text = "\(row.stockAmount)주"
             cell.dateLabel.text = formatter.string(from: row.tradingDate)
             
         }
@@ -173,6 +176,22 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         self.present(nav,animated: true, completion: nil)
         
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            
+            let row = tasks[indexPath.row]
+            
+            try! localRealm.write{
+                localRealm.delete(row)
+                tableView.reloadData()
+            }
+            
+        }
+        
+        
+    }
+    
     
 }
 
