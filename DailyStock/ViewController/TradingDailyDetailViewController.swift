@@ -32,7 +32,8 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     @IBOutlet var stockAmountLabel: UILabel!
     @IBOutlet var stockPriceLabel: UILabel!
     @IBOutlet var tradingReasonLabel: UILabel!
-        
+    @IBOutlet var saveUIButton: UIButton!
+    
     let dropDownTrading = DropDown()
     let dropDownMoney = DropDown()
     
@@ -44,7 +45,31 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //style
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
+
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        
+        self.view.addGestureRecognizer(tapGesture)
+        
+        if dailyData != nil {
+            self.stockNameText.text = dailyData?.stockName
+            self.stockAmountText.text = "\(dailyData?.stockAmount ?? 0)"
+            self.stockPriceText.text = "\(dailyData?.stockPrice ?? 0)"
+            self.tradingReasonText.text = dailyData?.tradingReason
+            self.tradingTypeButton.setTitle(dailyData?.tradingType, for: .normal)
+            self.moneyTypeButton.setTitle(dailyData?.moneyType, for: .normal)
+            self.tradingDatePiker.setDate(dailyData!.tradingDate, animated: true)
+            
+            self.selectedBool = true
+        }
+        
+        setUpStyle()
+    
+    }
+    
+    func setUpStyle() {
+        
         view.backgroundColor = .white
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
         
@@ -80,28 +105,8 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
         tradingReasonText.layer.cornerRadius = 8
         tradingReasonText.layer.borderWidth = 1
         tradingReasonText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
-
-        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
-        tapGesture.delegate = self
-        
-        self.view.addGestureRecognizer(tapGesture)
-        
-        
-        if dailyData != nil {
-            self.stockNameText.text = dailyData?.stockName
-            self.stockAmountText.text = "\(dailyData?.stockAmount ?? 0)"
-            self.stockPriceText.text = "\(dailyData?.stockPrice ?? 0)"
-            self.tradingReasonText.text = dailyData?.tradingReason
-            self.tradingTypeButton.setTitle(dailyData?.tradingType, for: .normal)
-            self.moneyTypeButton.setTitle(dailyData?.moneyType, for: .normal)
-            self.tradingDatePiker.setDate(dailyData!.tradingDate, animated: true)
-            
-            self.selectedBool = true
-            
-        }
-        
+    
+        // 셀렉트 박스
         dropDownTrading.anchorView = tradingTypeButton
         dropDownTrading.dataSource = tradingTypeArray
         dropDownTrading.selectionAction = {  [self] (index: Int , item: String) in
@@ -114,7 +119,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
             self.moneyTypeButton.setTitle(moneyTypeArray[index], for: .normal)
         }
         dropDownMoney.width = 150
-
+    
     }
     
     @objc func closeButtonClicked(){
@@ -133,10 +138,28 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         
+        guard self.stockNameText.text?.isEmpty == false
+             ,self.tradingTypeButton.currentTitle?.isEmpty == false
+             ,self.stockAmountText.text?.isEmpty == false
+             ,self.stockPriceText.text?.isEmpty == false
+             ,self.moneyTypeButton.currentTitle?.isEmpty == false
+             ,self.tradingReasonText.text?.isEmpty == false
+                
+        else {
+            
+            let alert = UIAlertController(title: nil, message: "모든 항목을 확인해주세요.", preferredStyle: .alert )
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+
+        
         let stockPrice = Int(stockPriceText.text!) ?? 0
         let stockAmount = Int(stockAmountText.text!) ?? 0
         
-        
+
         if self.selectedBool == true {
             
             let task = localRealm.objects(UserTradingDaily.self).filter( "_id = %@",dailyData!._id).first
@@ -156,8 +179,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
             
         } else {
             
-            
-            let task = UserTradingDaily(stockName: stockNameText.text! , tradingType: tradingTypeButton.currentTitle!, tradingDate: tradingDatePiker.date, stockAmount: stockAmount , stockPrice: stockPrice , moneyType: moneyTypeButton.currentTitle ?? "" , tradingReason: tradingReasonText.text, writeDate: Date())
+            let task = UserTradingDaily(stockName: stockNameText.text! , tradingType: tradingTypeButton.currentTitle!, tradingDate: tradingDatePiker.date, stockAmount: stockAmount , stockPrice: stockPrice , moneyType: moneyTypeButton.currentTitle! , tradingReason: tradingReasonText.text, writeDate: Date())
             
             try! localRealm.write {
                 localRealm.add(task)
@@ -173,5 +195,6 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
         return true
     }
     
+
 
 }

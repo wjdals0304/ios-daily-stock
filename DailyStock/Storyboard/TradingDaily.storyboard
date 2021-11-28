@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="rwa-bS-cNH">
-                                <rect key="frame" x="0.0" y="104" width="428" height="739"/>
+                                <rect key="frame" x="0.0" y="64" width="428" height="779"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="117" id="5We-xO-cyR">
@@ -51,12 +51,12 @@
                             <constraint firstItem="rwa-bS-cNH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EHj-c0-RL7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rwa-bS-cNH" secondAttribute="trailing" id="KAy-uC-0KB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QxS-Hg-wYZ" secondAttribute="bottom" constant="50" id="hxx-tP-fA8"/>
-                            <constraint firstItem="rwa-bS-cNH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="60" id="l62-yA-ifL"/>
+                            <constraint firstItem="rwa-bS-cNH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="l62-yA-ifL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="rwa-bS-cNH" secondAttribute="bottom" id="qgY-vx-VEn"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="QxS-Hg-wYZ" secondAttribute="trailing" constant="50" id="sTs-QY-XHZ"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="매매일지" image="square.and.pencil" catalog="system" selectedImage="square.and.pencil" id="PKB-3M-t1b"/>
+                    <tabBarItem key="tabBarItem" title="매매일지" image="icon_tradingDaily.png" selectedImage="icon_tradingDaily.png" id="PKB-3M-t1b"/>
                     <navigationItem key="navigationItem" id="Vh6-jN-e6a"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
@@ -154,6 +154,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1J-a6-leM">
+                                <rect key="frame" x="342" y="426" width="54" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="단위"/>
+                                <connections>
+                                    <action selector="showMoneyOptions:" destination="RDA-B7-sUG" eventType="touchUpInside" id="BCP-Gs-jsL"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="매매 이유" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Mx-bw-eCw">
                                 <rect key="frame" x="20" y="479" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -168,20 +177,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-NQ-0ff">
-                                <rect key="frame" x="183" y="246" width="213" height="42"/>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-NQ-0ff">
+                                <rect key="frame" x="183" y="233" width="183" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <locale key="locale" localeIdentifier="ko_KR"/>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1J-a6-leM">
-                                <rect key="frame" x="342" y="426" width="54" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="단위"/>
-                                <connections>
-                                    <action selector="showMoneyOptions:" destination="RDA-B7-sUG" eventType="touchUpInside" id="BCP-Gs-jsL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UeH-TK-jko"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -192,6 +192,7 @@
                     </view>
                     <connections>
                         <outlet property="moneyTypeButton" destination="V1J-a6-leM" id="Tej-YY-hMf"/>
+                        <outlet property="saveUIButton" destination="DdL-8v-OeM" id="mSK-FF-ZQf"/>
                         <outlet property="stockAmountLabel" destination="fKM-kB-gsR" id="ioN-kl-02t"/>
                         <outlet property="stockAmountText" destination="Wgc-aN-OG8" id="60y-Ag-nob"/>
                         <outlet property="stockNameLabel" destination="FiB-bq-nFN" id="Cuk-pO-Pzb"/>
@@ -213,8 +214,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon_tradingDaily.png" width="28" height="27"/>
         <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square.and.pencil" catalog="system" width="128" height="115"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

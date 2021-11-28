@@ -86,7 +86,18 @@ class StockScheduleDetailViewController: UIViewController {
     
     
     @IBAction func saveButtonClicked(_ sender: Any) {
-
+        
+        guard self.titleText.text?.isEmpty == false
+        else {
+            
+            let alert = UIAlertController(title: nil, message: "종목이름을 입력해주세요.", preferredStyle: .alert )
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
+        }
+        
         
         if self.selectedBool == true {
             
@@ -113,7 +124,6 @@ class StockScheduleDetailViewController: UIViewController {
             }
             
         } else {
-
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyyMMdd"
@@ -157,15 +167,7 @@ class StockScheduleDetailViewController: UIViewController {
 
         notificationContent.title = alarmTitle
         notificationContent.badge = 1
-        
-//        let formatter = DateFormatter()
-//        formatter.locale = Locale(identifier: "ko_KR")
-//        formatter.dateFormat = "yyyy-MM-dd HH:mm"
-//
-//        let alarmDatePicker = formatter.string(from: alarmDatePicker.date)
-//        let resultDatePicker = formatter.date(from: alarmDatePicker)
-//
-//        let date = Date().addingTimeInterval(5)
+
         
         let dateComponets = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute], from: alarmDate)
             
@@ -174,13 +176,17 @@ class StockScheduleDetailViewController: UIViewController {
         let request = UNNotificationRequest(identifier: scheduleUUID ,
                                                  content: notificationContent,
                                                  trigger: trigger)
-            
+        
         userNotificationCenter.add(request) { error in
             if let error = error {
                             print("Notification Error: ", error)
                         }
             }
     }
+    
+    /// local notification active swift
+    /// willpresent appdelgate:
+    /// badge 처리
     
     func removeSendNofi(schedulUUID: String) {
         

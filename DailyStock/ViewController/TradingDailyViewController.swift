@@ -35,14 +35,9 @@ class TradingDailyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //style
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
+                
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
         
         let nibName = UINib(nibName: TradingDailyTableViewCell.identifier, bundle: nil)
         self.tableView.register(nibName, forCellReuseIdentifier: TradingDailyTableViewCell.identifier)
@@ -54,7 +49,9 @@ class TradingDailyViewController: UIViewController {
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         
-
+        setUpStyle()
+        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
+        
     }
     
     
@@ -86,8 +83,17 @@ class TradingDailyViewController: UIViewController {
         self.navigationItem.title = "매매일지"
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
-        
     
+    
+    func setUpStyle() {
+        
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
+        self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+
+        
+    }
     
     
 }
@@ -191,7 +197,7 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         
         
     }
-    
+        
     
 }
 

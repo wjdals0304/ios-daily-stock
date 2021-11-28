@@ -99,15 +99,9 @@ class StockStudyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUpBarButtonItems()
-        
-        
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
         
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
         
         let nibName = UINib(nibName: StockStudyCollectionViewCell.identifier, bundle: nil)
         self.collectionView.register(nibName, forCellWithReuseIdentifier: StockStudyCollectionViewCell.identifier)
@@ -119,7 +113,17 @@ class StockStudyViewController: UIViewController {
         collectionView.collectionViewLayout = layout
         
         setUpSearchController()
+        setUpStyle()
+        setUpBarButtonItems()
+        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
 
+    }
+    
+    func setUpStyle() {
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        collectionView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

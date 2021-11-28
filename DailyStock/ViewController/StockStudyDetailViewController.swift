@@ -31,10 +31,16 @@ class StockStudyDetailViewController: UIViewController {
         
     @IBOutlet var viewInScroll: UIView!
     
+    var selectedBool : Bool = false
+    @IBOutlet var scrollView: UIScrollView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let scrollSize = CGSize(width: self.viewInScroll.frame.size.width , height: self.scrollView.frame.size.height )
+        
+        self.scrollView.contentSize = scrollSize
+
         navigationItem.title = "종목 분석"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
         
@@ -44,8 +50,18 @@ class StockStudyDetailViewController: UIViewController {
             self.salesText.text = studyData?.sales
             self.prosAndConsText.text = studyData?.prosAndCons
             self.memoText.text = studyData?.memo
+            
+            self.selectedBool = true
         }
-        
+        setUpStyle()
+        scrollViewDidScroll( self.scrollView)
+    }
+    func scrollViewDidScroll(_ scrollView : UIScrollView) {
+        self.scrollView.contentOffset.x = 0.0
+    }
+    
+    
+    func setUpStyle() {
         updateDatePicker.locale = Locale(identifier: "ko-KR")
 
         view.backgroundColor = .white
@@ -96,17 +112,46 @@ class StockStudyDetailViewController: UIViewController {
     }
     
     
+    
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         
-        let task = UserStockStudy(stockName: stockNameText.text!, updateDate: updateDatePicker.date, sales: salesText.text!, prosAndCons: prosAndConsText.text!, memo: memoText.text!, writeDate: Date())
-        
-        try! localRealm.write{
-            localRealm.add(task)
+        guard self.stockNameText.text?.isEmpty == false
+        else {
+            let alert = UIAlertController(title: nil, message: "종목이름을 입력해주세요.", preferredStyle: .alert )
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+            
+            self.present(alert, animated: true, completion: nil)
+            
+            return
         }
-     
+        
+        
+        if self.selectedBool == true {
+            
+            let task = localRealm.objects(UserStockStudy.self).filter("_id = %@",studyData!._id).first
+            
+            try! localRealm.write{
+                
+                task?.stockName = stockNameText.text!
+                task?.updateDate = updateDatePicker.date
+                task?.sales = salesText.text!
+                task?.prosAndCons = prosAndConsText.text!
+                task?.memo = memoText.text!
+                task?.writeDate = Date()
+            }
+            
+        } else {
+            
+            let task = UserStockStudy(stockName: stockNameText.text!, updateDate: updateDatePicker.date, sales: salesText.text!, prosAndCons: prosAndConsText.text!, memo: memoText.text!, writeDate: Date())
+            
+            try! localRealm.write{
+                localRealm.add(task)
+            }
+            
+        }
+        
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+
     
 }

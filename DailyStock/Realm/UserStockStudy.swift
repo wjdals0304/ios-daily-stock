@@ -11,13 +11,16 @@ import RealmSwift
 
 class UserStockStudy: Object {
     
-    @Persisted(primaryKey: true) var stockName : String
+    @Persisted var stockName : String
     @Persisted var updateDate : Date
     @Persisted var sales : String
     @Persisted var prosAndCons : String
     @Persisted var memo : String
     @Persisted var writeDate = Date()
     
+    
+    @Persisted(primaryKey: true) var _id : ObjectId
+
     
     convenience init(stockName: String,updateDate : Date ,sales: String , prosAndCons: String, memo: String, writeDate: Date ) {
         
