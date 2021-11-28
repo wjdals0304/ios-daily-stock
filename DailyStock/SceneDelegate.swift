@@ -17,6 +17,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        
+        // 탭바 폰트 사이즈 적용
+        let tbltemProxy = UITabBarItem.appearance()
+        tbltemProxy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .normal)
+        
+        tbltemProxy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .disabled)
+        
+        
+//        if let tbc = self.window?.rootViewController as? UITabBarController {
+//
+////            if let tbltems = tbc.tabBar.items {
+////
+////                for tbltem in tbltems {
+////                    tbltem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]
+////                                                  , for: .normal)
+////                    tbltem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]
+////                                                  , for: .disabled)
+////                }
+////            }
+////
+//
+//
+//
+//        }
+        
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
