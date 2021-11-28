@@ -107,7 +107,7 @@ class StockStudyViewController: UIViewController {
         self.collectionView.register(nibName, forCellWithReuseIdentifier: StockStudyCollectionViewCell.identifier)
         
         self.tasks = localRealm.objects(UserStockStudy.self)
-        self.navigationItem.title = "종목 분석"
+        self.navigationItem.title = "종목분석"
         
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
@@ -116,6 +116,8 @@ class StockStudyViewController: UIViewController {
         setUpStyle()
         setUpBarButtonItems()
         self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
+        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .disabled)
+        
 
     }
     

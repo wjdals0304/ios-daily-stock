@@ -9,32 +9,43 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" restorationIdentifier="StockScheduleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="StockScheduleTableViewCell" rowHeight="138" id="KGk-i7-Jjw" customClass="StockScheduleTableViewCell" customModule="DailyStock" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="405" height="138"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="StockScheduleTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="StockScheduleTableViewCell" rowHeight="132" id="KGk-i7-Jjw" customClass="StockScheduleTableViewCell" customModule="DailyStock" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="474" height="132"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="405" height="138"/>
+                <rect key="frame" x="0.0" y="0.0" width="474" height="132"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pu-dQ-pW2">
-                        <rect key="frame" x="104" y="11" width="182" height="50"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Pu-dQ-pW2">
+                        <rect key="frame" x="81.5" y="20" width="41.5" height="92"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My3-pv-2Ir">
-                        <rect key="frame" x="20" y="13" width="66" height="47"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="My3-pv-2Ir">
+                        <rect key="frame" x="10" y="20" width="41.5" height="92"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arr-uH-Ebl">
-                        <rect key="frame" x="338" y="18" width="54" height="36"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="arr-uH-Ebl">
+                        <rect key="frame" x="426" y="10" width="28" height="112"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="28" id="OXQ-EG-YkD"/>
+                        </constraints>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="7Pu-dQ-pW2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="5fN-Vw-gqG"/>
+                    <constraint firstAttribute="bottom" secondItem="arr-uH-Ebl" secondAttribute="bottom" constant="10" id="Hzq-Db-de6"/>
+                    <constraint firstItem="7Pu-dQ-pW2" firstAttribute="leading" secondItem="My3-pv-2Ir" secondAttribute="trailing" constant="30" id="IGN-k4-oIL"/>
+                    <constraint firstItem="arr-uH-Ebl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ONq-7C-KY1"/>
+                    <constraint firstItem="My3-pv-2Ir" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="aEg-8U-7Kc"/>
+                    <constraint firstItem="My3-pv-2Ir" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="iSH-lD-L4K"/>
+                    <constraint firstAttribute="bottom" secondItem="7Pu-dQ-pW2" secondAttribute="bottom" constant="20" id="ivX-69-w2H"/>
+                    <constraint firstAttribute="trailing" secondItem="arr-uH-Ebl" secondAttribute="trailing" constant="20" id="slv-Il-GUl"/>
+                    <constraint firstAttribute="bottom" secondItem="My3-pv-2Ir" secondAttribute="bottom" constant="20" id="yW5-kh-xXO"/>
+                </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
@@ -42,7 +53,7 @@
                 <outlet property="alarmImage" destination="arr-uH-Ebl" id="5Ls-Wd-wk0"/>
                 <outlet property="titleLabel" destination="7Pu-dQ-pW2" id="CnY-Cs-6S2"/>
             </connections>
-            <point key="canvasLocation" x="48.550724637681164" y="126.5625"/>
+            <point key="canvasLocation" x="98.550724637681171" y="98.4375"/>
         </tableViewCell>
     </objects>
 </document>

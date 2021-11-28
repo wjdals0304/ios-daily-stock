@@ -52,6 +52,11 @@ class TradingDailyViewController: UIViewController {
         setUpStyle()
         self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
         
+   
+        print(self.tabBarController?.tabBar.items)
+        
+  
+        
     }
     
     
@@ -114,7 +119,7 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         formatter.dateFormat = "yyyy-MM-dd"
         
         cell.stockNameLabel.textColor = UIColor.black
-        cell.stockNameLabel.font =  UIFont(name: "Roboto-Bold", size: 50)
+        cell.stockNameLabel.font =  UIFont(name: "Roboto-Bold", size: 30)
         
         cell.dateLabel.textColor = UIColor(red: 0.561, green: 0.565, blue: 0.576, alpha: 1)
         cell.dateLabel.font = UIFont(name: "Roboto-Bold", size: 20)
