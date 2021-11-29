@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 
-class StockStudyDetailViewController: UIViewController {
+class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelegate {
 
     
     let localRealm = try! Realm()
@@ -37,9 +37,7 @@ class StockStudyDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scrollSize = CGSize(width: self.viewInScroll.frame.size.width , height: self.scrollView.frame.size.height )
-        
-        self.scrollView.contentSize = scrollSize
+
 
         navigationItem.title = "종목 분석"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
@@ -54,11 +52,18 @@ class StockStudyDetailViewController: UIViewController {
             self.selectedBool = true
         }
         setUpStyle()
-        scrollViewDidScroll( self.scrollView)
+        
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        
+        self.view.addGestureRecognizer(tapGesture)
     }
-    func scrollViewDidScroll(_ scrollView : UIScrollView) {
-        self.scrollView.contentOffset.x = 0.0
+
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
     }
+    
     
     
     func setUpStyle() {

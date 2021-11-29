@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		6449364827449C3D00E209FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449364727449C3D00E209FC /* AppDelegate.swift */; };
 		6449364A27449C3D00E209FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449364927449C3D00E209FC /* SceneDelegate.swift */; };
-		6449364C27449C3D00E209FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449364B27449C3D00E209FC /* ViewController.swift */; };
 		6449364F27449C3D00E209FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6449364D27449C3D00E209FC /* Main.storyboard */; };
 		6449365127449C3F00E209FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6449365027449C3F00E209FC /* Assets.xcassets */; };
 		6449365427449C3F00E209FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6449365227449C3F00E209FC /* LaunchScreen.storyboard */; };
@@ -42,13 +41,15 @@
 		644936C1274E3A8100E209FC /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 644936C0274E39A600E209FC /* Roboto-Bold.ttf */; };
 		645429D727506DC700804EAA /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645429D627506DC700804EAA /* UIColor+Extensions.swift */; };
 		645429D92753571800804EAA /* icon_tradingDaily.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429D82753571800804EAA /* icon_tradingDaily.png */; };
+		645429DB27547F0700804EAA /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DA27547F0700804EAA /* icon_calendar.png */; };
+		645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DC27547F1100804EAA /* icon_stockStudy.png */; };
+		64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64542A092754F07D00804EAA /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		6449364427449C3D00E209FC /* DailyStock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyStock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6449364727449C3D00E209FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6449364927449C3D00E209FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6449364B27449C3D00E209FC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6449364E27449C3D00E209FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6449365027449C3F00E209FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6449365327449C3F00E209FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -77,6 +78,8 @@
 		644936C0274E39A600E209FC /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		645429D627506DC700804EAA /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		645429D82753571800804EAA /* icon_tradingDaily.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tradingDaily.png; sourceTree = "<group>"; };
+		645429DA27547F0700804EAA /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
+		645429DC27547F1100804EAA /* icon_stockStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stockStudy.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +92,7 @@
 				644936AE274A19BB00E209FC /* Alamofire in Frameworks */,
 				6449369427465E0400E209FC /* Realm in Frameworks */,
 				644936702745D85900E209FC /* FSCalendar in Frameworks */,
+				64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -114,6 +118,7 @@
 		6449364627449C3D00E209FC /* DailyStock */ = {
 			isa = PBXGroup;
 			children = (
+				645429DE2754A4C300804EAA /* image */,
 				644936B5274A3BFF00E209FC /* Extension */,
 				6449366D2744E9F800E209FC /* ViewCell */,
 				6449365D27449D1E00E209FC /* Realm */,
@@ -121,11 +126,9 @@
 				6449365B27449D0100E209FC /* ViewController */,
 				6449364727449C3D00E209FC /* AppDelegate.swift */,
 				6449364927449C3D00E209FC /* SceneDelegate.swift */,
-				6449364B27449C3D00E209FC /* ViewController.swift */,
 				644936BE274E375100E209FC /* roboto.regular.ttf */,
 				644936C0274E39A600E209FC /* Roboto-Bold.ttf */,
 				6449364D27449C3D00E209FC /* Main.storyboard */,
-				645429D82753571800804EAA /* icon_tradingDaily.png */,
 				6449365027449C3F00E209FC /* Assets.xcassets */,
 				6449365227449C3F00E209FC /* LaunchScreen.storyboard */,
 				6449365527449C3F00E209FC /* Info.plist */,
@@ -189,6 +192,16 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		645429DE2754A4C300804EAA /* image */ = {
+			isa = PBXGroup;
+			children = (
+				645429DC27547F1100804EAA /* icon_stockStudy.png */,
+				645429DA27547F0700804EAA /* icon_calendar.png */,
+				645429D82753571800804EAA /* icon_tradingDaily.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -211,6 +224,7 @@
 				6449369527465E0400E209FC /* RealmSwift */,
 				644936AD274A19BB00E209FC /* Alamofire */,
 				644936B3274A2B1700E209FC /* DropDown */,
+				64542A092754F07D00804EAA /* IQKeyboardManagerSwift */,
 			);
 			productName = DailyStock;
 			productReference = 6449364427449C3D00E209FC /* DailyStock.app */;
@@ -245,6 +259,7 @@
 				6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */,
+				64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 6449364527449C3D00E209FC /* Products */;
 			projectDirPath = "";
@@ -260,10 +275,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645429DB27547F0700804EAA /* icon_calendar.png in Resources */,
 				644936C1274E3A8100E209FC /* Roboto-Bold.ttf in Resources */,
 				6449366127449F8F00E209FC /* StockStudy.storyboard in Resources */,
 				6449365427449C3F00E209FC /* LaunchScreen.storyboard in Resources */,
 				644936A62748C3E200E209FC /* StockScheduleTableViewCell.xib in Resources */,
+				645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */,
 				645429D92753571800804EAA /* icon_tradingDaily.png in Resources */,
 				6449366C2744E9D600E209FC /* StockStudyCollectionViewCell.xib in Resources */,
 				644936632744A0C300E209FC /* StockSchedule.storyboard in Resources */,
@@ -283,7 +300,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				644936A82748C74E00E209FC /* StockScheduleViewController.swift in Sources */,
-				6449364C27449C3D00E209FC /* ViewController.swift in Sources */,
 				6449369A27472CE000E209FC /* TradingDailyViewController.swift in Sources */,
 				644936A52748C3E200E209FC /* StockScheduleTableViewCell.swift in Sources */,
 				644936A027488BCD00E209FC /* StockStudyDetailViewController.swift in Sources */,
@@ -376,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -431,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -446,15 +462,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XJJN8UXL48;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -464,7 +484,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -473,15 +493,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XJJN8UXL48;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -491,7 +515,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -551,6 +575,14 @@
 				kind = branch;
 			};
 		};
+		64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -578,6 +610,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */;
 			productName = DropDown;
+		};
+		64542A092754F07D00804EAA /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

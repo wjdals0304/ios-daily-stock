@@ -68,8 +68,7 @@ class StockScheduleViewController: UIViewController {
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
         
-        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
-
+     
     }
     
     override func viewWillAppear(_ animated: Bool) {

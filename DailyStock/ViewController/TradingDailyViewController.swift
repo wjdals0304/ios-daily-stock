@@ -48,14 +48,8 @@ class TradingDailyViewController: UIViewController {
         self.navigationItem.title = "매매일지"
 
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
         setUpStyle()
-        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
-        
-   
-        print(self.tabBarController?.tabBar.items)
-        
-  
+        addButton.setTitle("", for: .normal)
         
     }
     

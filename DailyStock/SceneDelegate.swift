@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -26,22 +27,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         tbltemProxy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .disabled)
         
         
-//        if let tbc = self.window?.rootViewController as? UITabBarController {
-//
-////            if let tbltems = tbc.tabBar.items {
-////
-////                for tbltem in tbltems {
-////                    tbltem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]
-////                                                  , for: .normal)
-////                    tbltem.setTitleTextAttributes([NSAttributedString.Key.font : UIFont.systemFont(ofSize: 15)]
-////                                                  , for: .disabled)
-////                }
-////            }
-////
-//
-//
-//
-//        }
+        if let tbc = self.window?.rootViewController as? UITabBarController {
+
+            tbc.tabBar.isTranslucent = false
+            tbc.tabBar.barTintColor = .purple
+
+        }
+        
+        //다크모드
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
+        
+        IQKeyboardManager.shared.enable = true
+        IQKeyboardManager.shared.enableAutoToolbar = false
+        IQKeyboardManager.shared.shouldResignOnTouchOutside = true
+        
+        
+
         
         
     }

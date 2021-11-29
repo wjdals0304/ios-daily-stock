@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -48,7 +49,7 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="huI-xv-skJ" secondAttribute="bottom" constant="420" id="zZV-hO-EFz"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="일정관리" image="calendar.badge.clock.rtl" catalog="system" selectedImage="calendar.badge.clock.rtl" id="ree-aX-ZBY"/>
+                    <tabBarItem key="tabBarItem" title="일정관리" image="icon_calendar.png" selectedImage="icon_calendar.png" id="ree-aX-ZBY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="calendar" destination="huI-xv-skJ" id="NFR-dq-eQf"/>
@@ -82,7 +83,7 @@
                                 <rect key="frame" x="345" y="297" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="알림일자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a83-vH-eIb">
-                                <rect key="frame" x="20" y="237" width="70" height="40"/>
+                                <rect key="frame" x="20" y="237" width="59" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rVV-iA-neu"/>
                                 </constraints>
@@ -97,7 +98,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="제목" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5bM-3z-hD4">
-                                <rect key="frame" x="20" y="84" width="40" height="21"/>
+                                <rect key="frame" x="20" y="84" width="29.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -116,7 +117,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-bC-bXj">
-                                <rect key="frame" x="10" y="297" width="235" height="31"/>
+                                <rect key="frame" x="10" y="297" width="285" height="31"/>
                             </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3bO-zF-4p8">
                                 <rect key="frame" x="20" y="125" width="374" height="92"/>
@@ -131,6 +132,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="VW8-dw-zPP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="VW8-dw-zPP" firstAttribute="trailing" secondItem="mbA-Le-X84" secondAttribute="trailing" constant="20" id="4EE-uI-3uL"/>
                             <constraint firstItem="3bO-zF-4p8" firstAttribute="top" secondItem="5bM-3z-hD4" secondAttribute="bottom" constant="20" id="BAi-Z7-fKc"/>
@@ -138,10 +140,9 @@
                             <constraint firstItem="zcB-NU-rSF" firstAttribute="top" secondItem="BpB-EB-hAd" secondAttribute="bottom" constant="20" id="Fn4-hT-Bal"/>
                             <constraint firstItem="5bM-3z-hD4" firstAttribute="top" secondItem="VW8-dw-zPP" secondAttribute="top" constant="40" id="GOF-pS-GbL"/>
                             <constraint firstItem="a83-vH-eIb" firstAttribute="top" secondItem="3bO-zF-4p8" secondAttribute="bottom" constant="20" id="LTb-bn-yRA"/>
-                            <constraint firstItem="KRC-jM-MIZ" firstAttribute="leading" secondItem="a83-vH-eIb" secondAttribute="trailing" constant="245" id="Lsb-Ey-Yvq"/>
                             <constraint firstItem="BpB-EB-hAd" firstAttribute="top" secondItem="F3k-4w-mhb" secondAttribute="bottom" constant="20" id="MLG-rO-M5u"/>
                             <constraint firstItem="KRC-jM-MIZ" firstAttribute="top" secondItem="3bO-zF-4p8" secondAttribute="bottom" constant="20" id="NNm-i7-Cc6"/>
-                            <constraint firstItem="mbA-Le-X84" firstAttribute="leading" secondItem="gu6-bC-bXj" secondAttribute="trailing" constant="100" id="Q8o-Wa-foT"/>
+                            <constraint firstItem="mbA-Le-X84" firstAttribute="leading" secondItem="gu6-bC-bXj" secondAttribute="trailing" constant="50" id="Q8o-Wa-foT"/>
                             <constraint firstItem="zcB-NU-rSF" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" id="Ryj-Ig-fon"/>
                             <constraint firstItem="3bO-zF-4p8" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="WwP-eh-yph"/>
                             <constraint firstItem="VW8-dw-zPP" firstAttribute="trailing" secondItem="KRC-jM-MIZ" secondAttribute="trailing" constant="20" id="XLv-dr-bDk"/>
@@ -153,13 +154,15 @@
                             <constraint firstItem="mbA-Le-X84" firstAttribute="top" secondItem="KRC-jM-MIZ" secondAttribute="bottom" constant="20" id="ieP-dO-ybp"/>
                             <constraint firstItem="VW8-dw-zPP" firstAttribute="bottom" secondItem="zcB-NU-rSF" secondAttribute="bottom" id="jY2-me-CnP"/>
                             <constraint firstItem="gu6-bC-bXj" firstAttribute="bottom" secondItem="mbA-Le-X84" secondAttribute="bottom" id="kcS-67-exo"/>
-                            <constraint firstItem="VW8-dw-zPP" firstAttribute="trailing" secondItem="5bM-3z-hD4" secondAttribute="trailing" constant="354" id="mcN-dB-Icq"/>
                             <constraint firstItem="VW8-dw-zPP" firstAttribute="trailing" secondItem="BpB-EB-hAd" secondAttribute="trailing" constant="20" id="rfK-30-1AC"/>
                             <constraint firstItem="a83-vH-eIb" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="sqL-7b-PCf"/>
                             <constraint firstItem="gu6-bC-bXj" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="10" id="u4U-9U-M3J"/>
                             <constraint firstItem="F3k-4w-mhb" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="w8E-vh-19G"/>
                             <constraint firstItem="BpB-EB-hAd" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="wYu-Ss-Gf5"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="leQ-Rh-LNC" appends="YES" id="L21-rm-fK9"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="alarmDateLabel" destination="a83-vH-eIb" id="rtV-DT-Zgn"/>
@@ -173,12 +176,17 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwE-Mx-5Gr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="leQ-Rh-LNC">
+                    <connections>
+                        <outlet property="delegate" destination="uJt-l2-3Yk" id="fan-Nw-cON"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="869.56521739130437" y="30.803571428571427"/>
         </scene>
     </scenes>
     <resources>
-        <image name="calendar.badge.clock.rtl" catalog="system" width="128" height="108"/>
+        <image name="icon_calendar.png" width="22" height="22"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

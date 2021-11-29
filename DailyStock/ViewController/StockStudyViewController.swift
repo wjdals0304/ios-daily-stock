@@ -17,6 +17,7 @@ class StockStudyViewController: UIViewController {
 
     
     
+    @IBOutlet var addButton: UIButton!
     @IBOutlet var collectionView: UICollectionView!
     
     let localRealm = try! Realm()
@@ -115,9 +116,9 @@ class StockStudyViewController: UIViewController {
         setUpSearchController()
         setUpStyle()
         setUpBarButtonItems()
-        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .normal)
-        self.tabBarItem.setTitleTextAttributes([.font : UIFont.systemFont(ofSize: 14)], for: .disabled)
         
+        addButton.setTitle("", for: .normal)
+ 
 
     }
     

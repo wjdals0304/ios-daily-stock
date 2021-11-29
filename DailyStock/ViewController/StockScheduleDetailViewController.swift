@@ -11,7 +11,7 @@ import UserNotifications
 
 
 
-class StockScheduleDetailViewController: UIViewController {
+class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDelegate {
 
     let localRealm = try! Realm()
     var tasks : Results<UserStockSchedule>!
@@ -78,7 +78,18 @@ class StockScheduleDetailViewController: UIViewController {
         }
         alarmDatePicker.locale = Locale(identifier: "ko-KR")
         
+        let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
+        tapGesture.delegate = self
+        
+        self.view.addGestureRecognizer(tapGesture)
+        
     }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    
     
     @objc func closeButtonClicked(){
         self.dismiss(animated: true, completion: nil)

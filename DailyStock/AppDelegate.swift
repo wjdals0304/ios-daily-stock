@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-    
+        //탭바 백그라운드
+        if #available(iOS 15.0, *){
+            let appearance = UITabBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            
+            UITabBar.appearance().backgroundColor = UIColor(red: 0.93, green: 0.932, blue: 0.942, alpha: 1)
+        }
+        // 런치스크린
+        Thread.sleep(forTimeInterval: 0.5)
+        
+        
         return true
     }
 
