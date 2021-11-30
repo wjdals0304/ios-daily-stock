@@ -26,13 +26,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         tbltemProxy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .disabled)
         
-        
+
         if let tbc = self.window?.rootViewController as? UITabBarController {
-
             tbc.tabBar.isTranslucent = false
-            tbc.tabBar.barTintColor = .purple
-
+            tbc.tabBar.barTintColor = UIColor(red: 0.93, green: 0.932, blue: 0.942, alpha: 1)
         }
+        
+        if let cc = self.window?.rootViewController as? UINavigationController {
+            cc.navigationBar.isTranslucent = false
+            cc.navigationBar.barTintColor = UIColor(red: 0.93, green: 0.932, blue: 0.942, alpha: 1)
+        }
+        
         
         //다크모드
         if #available(iOS 13.0, *) {

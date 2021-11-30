@@ -30,25 +30,6 @@ extension Date {
            return dateFormatter.date(from: dateFormatter.string(from: self)
            )!
        }
-//
-//        func toDate( dateFormat format: String) -> Date {
-//
-//            let dateFormatter = DateFormatter()
-//            dateFormatter.dateFormat = format
-//            dateFormatter.timeZone = TimeZone.autoupdatingCurrent
-//            dateFormatter.locale = Locale.current
-//            return dateFormatter.date(from: self)!
-//        }
-//
-//       
-//       func toStringKST( dateFormat format: String ) -> String {
-//           return self.toString(dateFormat: format)
-//       }
-//
-//      func toDateKST( dateFormat format: String ) -> Date {
-//        return self.toDate(dateFormat: format)
-//      }
-    
     
        func toStringUTC( dateFormat format: String ) -> String {
            let dateFormatter = DateFormatter()

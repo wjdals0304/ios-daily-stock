@@ -114,8 +114,9 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
             
             let task = localRealm.objects(UserStockSchedule.self).filter( "_id = %@",memoData!._id).first
             
+            
             // 알람 삭제
-            if task?.isAlarm == false {
+            if alarmTF.isOn == false {
                 removeSendNofi(schedulUUID: task!.scheduleUUID)
             }
             
@@ -200,7 +201,6 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
     /// badge 처리
     
     func removeSendNofi(schedulUUID: String) {
-        
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers:[schedulUUID])
         
     }
