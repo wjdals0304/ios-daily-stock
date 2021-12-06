@@ -7,6 +7,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import AppTrackingTransparency
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -63,6 +64,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+//
+//            ATTrackingManager.requestTrackingAuthorization { status in
+//                switch status {
+//
+//                case .notDetermined:
+//                    print("notDetermined")
+//                    Analytics.setAnalyticsCollectionEnabled(true)
+//                case .restricted:
+//                    print("restricted")
+//                    Analytics.setAnalyticsCollectionEnabled(true)
+//
+//                case .denied:
+//                    print("denied")
+//                    Analytics.setAnalyticsCollectionEnabled(true)
+//
+//                case .authorized:
+//                    print("authoried")
+//                    Analytics.setAnalyticsCollectionEnabled(true)
+//
+//                @unknown default:
+//                    print("unknown")
+//                }
+//            }
+//        }
+        
         UIApplication.shared.applicationIconBadgeNumber = 0
 
     }

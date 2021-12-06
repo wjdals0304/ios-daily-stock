@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import AppTrackingTransparency
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,7 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 런치스크린
         Thread.sleep(forTimeInterval: 0.5)
         
+        //Firebase 초기화 , 공유 인스턴스 생성
+        FirebaseApp.configure()
+        //ATT Framework
         
+    
         return true
     }
 

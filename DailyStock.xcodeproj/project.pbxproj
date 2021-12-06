@@ -44,6 +44,8 @@
 		645429DB27547F0700804EAA /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DA27547F0700804EAA /* icon_calendar.png */; };
 		645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DC27547F1100804EAA /* icon_stockStudy.png */; };
 		64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64542A092754F07D00804EAA /* IQKeyboardManagerSwift */; };
+		648FCF62275DA44E0054ED07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */; };
+		64982664275DA7F400FA462F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 64982663275DA7F400FA462F /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,7 @@
 		645429D82753571800804EAA /* icon_tradingDaily.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tradingDaily.png; sourceTree = "<group>"; };
 		645429DA27547F0700804EAA /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
 		645429DC27547F1100804EAA /* icon_stockStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stockStudy.png; sourceTree = "<group>"; };
+		648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64982664275DA7F400FA462F /* FirebaseAnalytics in Frameworks */,
 				6449369627465E0400E209FC /* RealmSwift in Frameworks */,
 				644936B4274A2B1700E209FC /* DropDown in Frameworks */,
 				644936AE274A19BB00E209FC /* Alamofire in Frameworks */,
@@ -128,6 +132,7 @@
 				6449364927449C3D00E209FC /* SceneDelegate.swift */,
 				644936BE274E375100E209FC /* roboto.regular.ttf */,
 				644936C0274E39A600E209FC /* Roboto-Bold.ttf */,
+				648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */,
 				6449364D27449C3D00E209FC /* Main.storyboard */,
 				6449365027449C3F00E209FC /* Assets.xcassets */,
 				6449365227449C3F00E209FC /* LaunchScreen.storyboard */,
@@ -225,6 +230,7 @@
 				644936AD274A19BB00E209FC /* Alamofire */,
 				644936B3274A2B1700E209FC /* DropDown */,
 				64542A092754F07D00804EAA /* IQKeyboardManagerSwift */,
+				64982663275DA7F400FA462F /* FirebaseAnalytics */,
 			);
 			productName = DailyStock;
 			productReference = 6449364427449C3D00E209FC /* DailyStock.app */;
@@ -260,6 +266,7 @@
 				644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */,
 				64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				64982662275DA7F300FA462F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 6449364527449C3D00E209FC /* Products */;
 			projectDirPath = "";
@@ -277,6 +284,7 @@
 			files = (
 				645429DB27547F0700804EAA /* icon_calendar.png in Resources */,
 				644936C1274E3A8100E209FC /* Roboto-Bold.ttf in Resources */,
+				648FCF62275DA44E0054ED07 /* GoogleService-Info.plist in Resources */,
 				6449366127449F8F00E209FC /* StockStudy.storyboard in Resources */,
 				6449365427449C3F00E209FC /* LaunchScreen.storyboard in Resources */,
 				644936A62748C3E200E209FC /* StockScheduleTableViewCell.xib in Resources */,
@@ -465,7 +473,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = XJJN8UXL48;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
@@ -481,7 +489,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmkim.DailyStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -499,7 +507,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.0.3;
 				DEVELOPMENT_TEAM = XJJN8UXL48;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
@@ -515,7 +523,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmkim.DailyStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -589,6 +597,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		64982662275DA7F300FA462F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -621,6 +637,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		64982663275DA7F400FA462F /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64982662275DA7F300FA462F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

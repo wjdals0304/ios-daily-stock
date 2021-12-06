@@ -125,6 +125,11 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
                 sendNotification(scheduleUUID: task!.scheduleUUID, alarmTitle: titleText.text, alarmDate: alarmDatePicker.date)
             }
             
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMdd"
+                        
+            let alarmStrToDate = dateFormatter.string(from: alarmDatePicker.date )
+            
             try! localRealm.write{
                 
                 task?.titleName = titleText.text
@@ -132,6 +137,7 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
                 task?.alarmDate = alarmDatePicker.date
                 task?.memo = memoText.text
                 task?.writeDate = Date()
+                task?.calendarDate = alarmStrToDate
                 
             }
             

@@ -54,6 +54,7 @@ class StockScheduleViewController: UIViewController {
         
         let nibName = UINib(nibName: StockScheduleTableViewCell.identifier, bundle: nibBundle)
         self.tableView.register(nibName, forCellReuseIdentifier: StockScheduleTableViewCell.identifier)
+        self.tableView.tableFooterView = UIView(frame: .zero)
         self.tasks = localRealm.objects(UserStockSchedule.self)
         
         // calendar
@@ -123,6 +124,11 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        
+        if tasks == nil {
+            return 0
+        }
         
         self.startCalenderStart = calendar.currentPage.add(days:1)!
         self.endCalenderEnd = calendar.currentPage.add(months:1)!

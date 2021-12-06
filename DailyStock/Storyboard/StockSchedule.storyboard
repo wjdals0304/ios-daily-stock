@@ -18,11 +18,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huI-xv-skJ" customClass="FSCalendar">
-                                <rect key="frame" x="0.0" y="44" width="414" height="349"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="419"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IEn-gy-iGX">
-                                <rect key="frame" x="0.0" y="393" width="414" height="420"/>
+                                <rect key="frame" x="0.0" y="463" width="414" height="350"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="84" id="cUz-TF-oRB">
@@ -46,7 +46,7 @@
                             <constraint firstItem="IEn-gy-iGX" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="MRX-d2-fYO"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="IEn-gy-iGX" secondAttribute="bottom" id="VgN-aI-HY1"/>
                             <constraint firstItem="IEn-gy-iGX" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="YoS-IZ-82F"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="huI-xv-skJ" secondAttribute="bottom" constant="420" id="zZV-hO-EFz"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="huI-xv-skJ" secondAttribute="bottom" constant="350" id="zZV-hO-EFz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="일정관리" image="icon_calendar.png" selectedImage="icon_calendar.png" id="ree-aX-ZBY"/>
@@ -117,7 +117,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gu6-bC-bXj">
-                                <rect key="frame" x="10" y="297" width="285" height="31"/>
+                                <rect key="frame" x="20" y="297" width="285" height="31"/>
                             </datePicker>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3bO-zF-4p8">
                                 <rect key="frame" x="20" y="125" width="374" height="92"/>
@@ -142,7 +142,7 @@
                             <constraint firstItem="a83-vH-eIb" firstAttribute="top" secondItem="3bO-zF-4p8" secondAttribute="bottom" constant="20" id="LTb-bn-yRA"/>
                             <constraint firstItem="BpB-EB-hAd" firstAttribute="top" secondItem="F3k-4w-mhb" secondAttribute="bottom" constant="20" id="MLG-rO-M5u"/>
                             <constraint firstItem="KRC-jM-MIZ" firstAttribute="top" secondItem="3bO-zF-4p8" secondAttribute="bottom" constant="20" id="NNm-i7-Cc6"/>
-                            <constraint firstItem="mbA-Le-X84" firstAttribute="leading" secondItem="gu6-bC-bXj" secondAttribute="trailing" constant="50" id="Q8o-Wa-foT"/>
+                            <constraint firstItem="mbA-Le-X84" firstAttribute="leading" secondItem="gu6-bC-bXj" secondAttribute="trailing" constant="40" id="Q8o-Wa-foT"/>
                             <constraint firstItem="zcB-NU-rSF" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" id="Ryj-Ig-fon"/>
                             <constraint firstItem="3bO-zF-4p8" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="WwP-eh-yph"/>
                             <constraint firstItem="VW8-dw-zPP" firstAttribute="trailing" secondItem="KRC-jM-MIZ" secondAttribute="trailing" constant="20" id="XLv-dr-bDk"/>
@@ -156,7 +156,7 @@
                             <constraint firstItem="gu6-bC-bXj" firstAttribute="bottom" secondItem="mbA-Le-X84" secondAttribute="bottom" id="kcS-67-exo"/>
                             <constraint firstItem="VW8-dw-zPP" firstAttribute="trailing" secondItem="BpB-EB-hAd" secondAttribute="trailing" constant="20" id="rfK-30-1AC"/>
                             <constraint firstItem="a83-vH-eIb" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="sqL-7b-PCf"/>
-                            <constraint firstItem="gu6-bC-bXj" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="10" id="u4U-9U-M3J"/>
+                            <constraint firstItem="gu6-bC-bXj" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="u4U-9U-M3J"/>
                             <constraint firstItem="F3k-4w-mhb" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="w8E-vh-19G"/>
                             <constraint firstItem="BpB-EB-hAd" firstAttribute="leading" secondItem="VW8-dw-zPP" secondAttribute="leading" constant="20" id="wYu-Ss-Gf5"/>
                         </constraints>

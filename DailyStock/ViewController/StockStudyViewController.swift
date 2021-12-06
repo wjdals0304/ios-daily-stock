@@ -38,12 +38,12 @@ class StockStudyViewController: UIViewController {
                 }
                 dictionarySelectedIndexPath.removeAll()
                 
-                selectBarButton.title = "Select"
+                selectBarButton.title = "선택"
                 navigationItem.leftBarButtonItem = nil
                 collectionView.allowsMultipleSelection = false
                 
             case .select:
-                selectBarButton.title = "Cancel"
+                selectBarButton.title = "취소"
                 navigationItem.leftBarButtonItem = deleteBarButton
                 collectionView.allowsMultipleSelection = true
             }
@@ -51,7 +51,7 @@ class StockStudyViewController: UIViewController {
     }
     
     lazy var selectBarButton : UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(title: "Select", style: .plain, target: self, action: #selector(didSelectButtonClicked(_:)))
+        let barButtonItem = UIBarButtonItem(title: "선택", style: .plain, target: self, action: #selector(didSelectButtonClicked(_:)))
         return  barButtonItem
     }()
     
@@ -160,6 +160,7 @@ class StockStudyViewController: UIViewController {
         searchController.searchBar.placeholder = "종목 검색"
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
 
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false

@@ -41,6 +41,7 @@ class TradingDailyViewController: UIViewController {
         
         let nibName = UINib(nibName: TradingDailyTableViewCell.identifier, bundle: nil)
         self.tableView.register(nibName, forCellReuseIdentifier: TradingDailyTableViewCell.identifier)
+        self.tableView.tableFooterView = UIView(frame: .zero)
         
         self.tasks = localRealm.objects(UserTradingDaily.self)
         self.setUpSearchController()
@@ -50,6 +51,7 @@ class TradingDailyViewController: UIViewController {
         print(Realm.Configuration.defaultConfiguration.fileURL!)
         setUpStyle()
         addButton.setTitle("", for: .normal)
+        
         
     }
     
@@ -77,10 +79,13 @@ class TradingDailyViewController: UIViewController {
         searchController.searchBar.placeholder = "종목 검색"
         searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchResultsUpdater = self
+        searchController.searchBar.setValue("취소", forKey: "cancelButtonText")
         
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "매매일지"
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        
     }
     
     
@@ -101,8 +106,10 @@ class TradingDailyViewController: UIViewController {
 extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            
-        return self.isFiltering ? filteredDaily.count : tasks.count
+        
+        let tasksCount =  tasks == nil ? 0 : tasks.count
+         
+        return self.isFiltering ? filteredDaily.count : tasksCount
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
