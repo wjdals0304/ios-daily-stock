@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04DF226EE4164E1403E4C728 /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91793E6B3FF118BBF059384C /* Pods_DailyStock.framework */; };
 		6449364827449C3D00E209FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449364727449C3D00E209FC /* AppDelegate.swift */; };
 		6449364A27449C3D00E209FC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449364927449C3D00E209FC /* SceneDelegate.swift */; };
 		6449364F27449C3D00E209FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6449364D27449C3D00E209FC /* Main.storyboard */; };
@@ -45,10 +46,10 @@
 		645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DC27547F1100804EAA /* icon_stockStudy.png */; };
 		64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64542A092754F07D00804EAA /* IQKeyboardManagerSwift */; };
 		648FCF62275DA44E0054ED07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */; };
-		64982664275DA7F400FA462F /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 64982663275DA7F400FA462F /* FirebaseAnalytics */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5AD5E1A3F72AA295AAAE34BC /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
 		6449364427449C3D00E209FC /* DailyStock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyStock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6449364727449C3D00E209FC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6449364927449C3D00E209FC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +84,9 @@
 		645429DA27547F0700804EAA /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
 		645429DC27547F1100804EAA /* icon_stockStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stockStudy.png; sourceTree = "<group>"; };
 		648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6498268B275EF26C00FA462F /* DailyStock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyStock.entitlements; sourceTree = "<group>"; };
+		91793E6B3FF118BBF059384C /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE8A61AFC4EDE00E86F7F2EF /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,24 +94,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				64982664275DA7F400FA462F /* FirebaseAnalytics in Frameworks */,
 				6449369627465E0400E209FC /* RealmSwift in Frameworks */,
 				644936B4274A2B1700E209FC /* DropDown in Frameworks */,
 				644936AE274A19BB00E209FC /* Alamofire in Frameworks */,
 				6449369427465E0400E209FC /* Realm in Frameworks */,
 				644936702745D85900E209FC /* FSCalendar in Frameworks */,
 				64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */,
+				04DF226EE4164E1403E4C728 /* Pods_DailyStock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3901B1E2C52EFF34986BFF3F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91793E6B3FF118BBF059384C /* Pods_DailyStock.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		6449363B27449C3D00E209FC = {
 			isa = PBXGroup;
 			children = (
 				6449364627449C3D00E209FC /* DailyStock */,
 				6449364527449C3D00E209FC /* Products */,
+				B25FCCAE945A29347014A350 /* Pods */,
+				3901B1E2C52EFF34986BFF3F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -122,6 +136,7 @@
 		6449364627449C3D00E209FC /* DailyStock */ = {
 			isa = PBXGroup;
 			children = (
+				6498268B275EF26C00FA462F /* DailyStock.entitlements */,
 				645429DE2754A4C300804EAA /* image */,
 				644936B5274A3BFF00E209FC /* Extension */,
 				6449366D2744E9F800E209FC /* ViewCell */,
@@ -207,6 +222,15 @@
 			path = image;
 			sourceTree = "<group>";
 		};
+		B25FCCAE945A29347014A350 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AE8A61AFC4EDE00E86F7F2EF /* Pods-DailyStock.debug.xcconfig */,
+				5AD5E1A3F72AA295AAAE34BC /* Pods-DailyStock.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -214,9 +238,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6449365827449C3F00E209FC /* Build configuration list for PBXNativeTarget "DailyStock" */;
 			buildPhases = (
+				0F6111BC76EE5D1DFAC54C56 /* [CP] Check Pods Manifest.lock */,
 				6449364027449C3D00E209FC /* Sources */,
 				6449364127449C3D00E209FC /* Frameworks */,
 				6449364227449C3D00E209FC /* Resources */,
+				6498268C275EF39100FA462F /* Run Script */,
+				ACEFCE4C5D02ECD3C297AA6E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -230,7 +257,6 @@
 				644936AD274A19BB00E209FC /* Alamofire */,
 				644936B3274A2B1700E209FC /* DropDown */,
 				64542A092754F07D00804EAA /* IQKeyboardManagerSwift */,
-				64982663275DA7F400FA462F /* FirebaseAnalytics */,
 			);
 			productName = DailyStock;
 			productReference = 6449364427449C3D00E209FC /* DailyStock.app */;
@@ -266,7 +292,6 @@
 				644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */,
 				644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */,
 				64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				64982662275DA7F300FA462F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 6449364527449C3D00E209FC /* Products */;
 			projectDirPath = "";
@@ -301,6 +326,68 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0F6111BC76EE5D1DFAC54C56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DailyStock-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6498268C275EF39100FA462F /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
+		};
+		ACEFCE4C5D02ECD3C297AA6E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6449364027449C3D00E209FC /* Sources */ = {
@@ -467,13 +554,16 @@
 		};
 		6449365927449C3F00E209FC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AE8A61AFC4EDE00E86F7F2EF /* Pods-DailyStock.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = DailyStock/DailyStock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.4;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XJJN8UXL48;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
@@ -489,7 +579,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmkim.DailyStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -501,13 +591,15 @@
 		};
 		6449365A27449C3F00E209FC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AD5E1A3F72AA295AAAE34BC /* Pods-DailyStock.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = DailyStock/DailyStock.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.3;
+				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = XJJN8UXL48;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
@@ -523,7 +615,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.3;
+				MARKETING_VERSION = 1.0.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmkim.DailyStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -597,14 +689,6 @@
 				minimumVersion = 6.0.0;
 			};
 		};
-		64982662275DA7F300FA462F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 8.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -637,11 +721,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
-		};
-		64982663275DA7F400FA462F /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 64982662275DA7F300FA462F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

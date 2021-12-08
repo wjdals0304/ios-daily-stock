@@ -30,7 +30,7 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
     var selectedBool : Bool = false
     
     let userNotificationCenter = UNUserNotificationCenter.current()
-
+    
     var alarmState = false
     
     override func viewDidLoad() {
@@ -208,8 +208,7 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
     
     func removeSendNofi(schedulUUID: String) {
         userNotificationCenter.removePendingNotificationRequests(withIdentifiers:[schedulUUID])
-        
     }
     
-    
 }
+

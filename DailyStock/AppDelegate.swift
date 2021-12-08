@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import AppTrackingTransparency
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,8 +20,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         
+        UNUserNotificationCenter.current().delegate = self
+
         //탭바 백그라운드
         if #available(iOS 15.0, *){
             let appearance = UITabBarAppearance()
@@ -33,6 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //Firebase 초기화 , 공유 인스턴스 생성
         FirebaseApp.configure()
+        //Crashlytics
+        
         //ATT Framework
         
     
@@ -54,8 +58,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 
-
-
-
 }
 
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // 3. 앱이 foreground상태 일 때, 알림이 온 경우 어떻게 표현할 것인지 처리
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+
+        // 푸시가 오면 alert, badge, sound표시를 하라는 의미
+        completionHandler([.alert, .badge, .sound])
+    }
+    
+ }

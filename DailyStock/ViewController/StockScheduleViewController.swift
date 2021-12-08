@@ -160,6 +160,10 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let row = tasks[indexPath.row]
+            
+            let StockSchduledetailController = StockScheduleDetailViewController()
+            StockSchduledetailController.removeSendNofi(schedulUUID: row.scheduleUUID)
+            
     
             try! localRealm.write{
                 localRealm.delete(row)
