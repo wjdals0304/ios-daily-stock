@@ -1,10 +1,21 @@
-# 기획서 
-[매매일지](https://serious-walrus-338.notion.site/9aaf57e459fc471a9c808a1bc218f9fd)
+# 매매노트 
+- 개발기간 : 2021-11-16 ~ 
+- 기획서 :  [매매일지](https://serious-walrus-338.notion.site/9aaf57e459fc471a9c808a1bc218f9fd)
+- 앱 스토어 : [매매노트](https://apps.apple.com/app/%EB%A7%A4%EB%A7%A4%EB%85%B8%ED%8A%B8/id1597847346)
 
+<img src ="https://user-images.githubusercontent.com/26668309/145360747-6c185cf3-e82a-4e1a-8839-53b2ba55ef47.png" width =60%> 
+
+
+
+
+
+
+
+<!-- 
 
 
 # 2021.11.16 
-  
+
  - 개발자계정 구매
  - 매매일지앱 프로토타입 작성
  
@@ -52,4 +63,4 @@
 
 # 2021.11.28
  - 오토레이아웃 적용 
- - 탭바 사이즈 크기 
+ - 탭바 사이즈 크기  -->
