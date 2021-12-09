@@ -3,12 +3,18 @@
 - 기획서 :  [매매일지](https://serious-walrus-338.notion.site/9aaf57e459fc471a9c808a1bc218f9fd)
 - 앱 스토어 : [매매노트](https://apps.apple.com/app/%EB%A7%A4%EB%A7%A4%EB%85%B8%ED%8A%B8/id1597847346)
 
-<img src ="https://user-images.githubusercontent.com/26668309/145360747-6c185cf3-e82a-4e1a-8839-53b2ba55ef47.png" width =60%> 
+<img src ="https://user-images.githubusercontent.com/26668309/145360747-6c185cf3-e82a-4e1a-8839-53b2ba55ef47.png" width =70%> 
 
 
+# 사용 요소 
+- TableView , CollectionView 
+- FSCalendar,IQKeyboardManageSwift,Realm ,DropDown
+- firebase analytics , firebase crashlytics
 
-
-
+# 화면 구조 
+- TradingDailyViewController  : 매매일지 
+- StockStudyViewController : 종목분석 
+- StockScheduleViewController : 일정관리
 
 
 <!-- 
