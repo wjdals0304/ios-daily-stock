@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		04DF226EE4164E1403E4C728 /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91793E6B3FF118BBF059384C /* Pods_DailyStock.framework */; };
 		64489E32276E067A00C85D28 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64489E31276E067A00C85D28 /* LoginViewController.swift */; };
 		64489E34276E06FF00C85D28 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64489E33276E06FF00C85D28 /* Login.storyboard */; };
 		6449364827449C3D00E209FC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449364727449C3D00E209FC /* AppDelegate.swift */; };
@@ -22,12 +21,9 @@
 		644936672744DCFD00E209FC /* TradingDailyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644936652744DCFD00E209FC /* TradingDailyTableViewCell.xib */; };
 		6449366B2744E9D600E209FC /* StockStudyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936692744E9D600E209FC /* StockStudyCollectionViewCell.swift */; };
 		6449366C2744E9D600E209FC /* StockStudyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6449366A2744E9D600E209FC /* StockStudyCollectionViewCell.xib */; };
-		644936702745D85900E209FC /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 6449366F2745D85900E209FC /* FSCalendar */; };
 		64493674274656C000E209FC /* UserStockStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64493673274656C000E209FC /* UserStockStudy.swift */; };
 		6449368727465AE300E209FC /* UserTradingDaily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449368627465AE300E209FC /* UserTradingDaily.swift */; };
 		6449368927465AFB00E209FC /* UserStockSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449368827465AFB00E209FC /* UserStockSchedule.swift */; };
-		6449369427465E0400E209FC /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 6449369327465E0400E209FC /* Realm */; };
-		6449369627465E0400E209FC /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6449369527465E0400E209FC /* RealmSwift */; };
 		6449369A27472CE000E209FC /* TradingDailyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449369927472CE000E209FC /* TradingDailyViewController.swift */; };
 		6449369C274733B500E209FC /* TradingDailyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449369B274733B500E209FC /* TradingDailyDetailViewController.swift */; };
 		6449369E2747A89D00E209FC /* StockStudyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6449369D2747A89D00E209FC /* StockStudyViewController.swift */; };
@@ -36,8 +32,6 @@
 		644936A62748C3E200E209FC /* StockScheduleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 644936A42748C3E200E209FC /* StockScheduleTableViewCell.xib */; };
 		644936A82748C74E00E209FC /* StockScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936A72748C74E00E209FC /* StockScheduleViewController.swift */; };
 		644936AA2748CCD700E209FC /* StockScheduleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936A92748CCD700E209FC /* StockScheduleDetailViewController.swift */; };
-		644936AE274A19BB00E209FC /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 644936AD274A19BB00E209FC /* Alamofire */; };
-		644936B4274A2B1700E209FC /* DropDown in Frameworks */ = {isa = PBXBuildFile; productRef = 644936B3274A2B1700E209FC /* DropDown */; };
 		644936B7274A3C4500E209FC /* UILabel+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936B6274A3C4500E209FC /* UILabel+Extensions.swift */; };
 		644936BD274B611000E209FC /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 644936BC274B611000E209FC /* Date+Extensions.swift */; };
 		644936BF274E37AB00E209FC /* roboto.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 644936BE274E375100E209FC /* roboto.regular.ttf */; };
@@ -46,12 +40,11 @@
 		645429D92753571800804EAA /* icon_tradingDaily.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429D82753571800804EAA /* icon_tradingDaily.png */; };
 		645429DB27547F0700804EAA /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DA27547F0700804EAA /* icon_calendar.png */; };
 		645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DC27547F1100804EAA /* icon_stockStudy.png */; };
-		64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 64542A092754F07D00804EAA /* IQKeyboardManagerSwift */; };
 		648FCF62275DA44E0054ED07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */; };
+		ED390ED43F08E89242CB305B /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAA9E3D7FFC630BD1DE5236 /* Pods_DailyStock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5AD5E1A3F72AA295AAAE34BC /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
 		64489E31276E067A00C85D28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		64489E33276E06FF00C85D28 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		6449364427449C3D00E209FC /* DailyStock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyStock.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,8 +82,9 @@
 		645429DC27547F1100804EAA /* icon_stockStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stockStudy.png; sourceTree = "<group>"; };
 		648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6498268B275EF26C00FA462F /* DailyStock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyStock.entitlements; sourceTree = "<group>"; };
-		91793E6B3FF118BBF059384C /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE8A61AFC4EDE00E86F7F2EF /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
+		BA9E27B8448B3C74DFE7A3AA /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
+		CDAA9E3D7FFC630BD1DE5236 /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7C2B9366E518FB8145FFCA4 /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,23 +92,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6449369627465E0400E209FC /* RealmSwift in Frameworks */,
-				644936B4274A2B1700E209FC /* DropDown in Frameworks */,
-				644936AE274A19BB00E209FC /* Alamofire in Frameworks */,
-				6449369427465E0400E209FC /* Realm in Frameworks */,
-				644936702745D85900E209FC /* FSCalendar in Frameworks */,
-				64542A0A2754F07D00804EAA /* IQKeyboardManagerSwift in Frameworks */,
-				04DF226EE4164E1403E4C728 /* Pods_DailyStock.framework in Frameworks */,
+				ED390ED43F08E89242CB305B /* Pods_DailyStock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3901B1E2C52EFF34986BFF3F /* Frameworks */ = {
+		6343BCCFDE0E95C79DB1F9CA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				91793E6B3FF118BBF059384C /* Pods_DailyStock.framework */,
+				CDAA9E3D7FFC630BD1DE5236 /* Pods_DailyStock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -125,7 +113,7 @@
 				6449364627449C3D00E209FC /* DailyStock */,
 				6449364527449C3D00E209FC /* Products */,
 				B25FCCAE945A29347014A350 /* Pods */,
-				3901B1E2C52EFF34986BFF3F /* Frameworks */,
+				6343BCCFDE0E95C79DB1F9CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -231,8 +219,8 @@
 		B25FCCAE945A29347014A350 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AE8A61AFC4EDE00E86F7F2EF /* Pods-DailyStock.debug.xcconfig */,
-				5AD5E1A3F72AA295AAAE34BC /* Pods-DailyStock.release.xcconfig */,
+				D7C2B9366E518FB8145FFCA4 /* Pods-DailyStock.debug.xcconfig */,
+				BA9E27B8448B3C74DFE7A3AA /* Pods-DailyStock.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -244,27 +232,19 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6449365827449C3F00E209FC /* Build configuration list for PBXNativeTarget "DailyStock" */;
 			buildPhases = (
-				0F6111BC76EE5D1DFAC54C56 /* [CP] Check Pods Manifest.lock */,
+				A3A8B9331911048A22524A2F /* [CP] Check Pods Manifest.lock */,
 				6449364027449C3D00E209FC /* Sources */,
 				6449364127449C3D00E209FC /* Frameworks */,
 				6449364227449C3D00E209FC /* Resources */,
 				6498268C275EF39100FA462F /* Run Script */,
-				ACEFCE4C5D02ECD3C297AA6E /* [CP] Embed Pods Frameworks */,
-				D7BBFD19B68C93CEBD39D428 /* [CP] Copy Pods Resources */,
+				045241EC782249C704A7D1D8 /* [CP] Embed Pods Frameworks */,
+				2DDA3F4C6AAC09A357A2D72F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = DailyStock;
-			packageProductDependencies = (
-				6449366F2745D85900E209FC /* FSCalendar */,
-				6449369327465E0400E209FC /* Realm */,
-				6449369527465E0400E209FC /* RealmSwift */,
-				644936AD274A19BB00E209FC /* Alamofire */,
-				644936B3274A2B1700E209FC /* DropDown */,
-				64542A092754F07D00804EAA /* IQKeyboardManagerSwift */,
-			);
 			productName = DailyStock;
 			productReference = 6449364427449C3D00E209FC /* DailyStock.app */;
 			productType = "com.apple.product-type.application";
@@ -294,11 +274,7 @@
 			);
 			mainGroup = 6449363B27449C3D00E209FC;
 			packageReferences = (
-				6449366E2745D85900E209FC /* XCRemoteSwiftPackageReference "FSCalendar" */,
-				6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */,
-				644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */,
-				644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */,
-				64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				64816724276F223C00E90AF8 /* XCRemoteSwiftPackageReference "realm-swift.git" */,
 			);
 			productRefGroup = 6449364527449C3D00E209FC /* Products */;
 			projectDirPath = "";
@@ -336,26 +312,38 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F6111BC76EE5D1DFAC54C56 /* [CP] Check Pods Manifest.lock */ = {
+		045241EC782249C704A7D1D8 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DailyStock-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2DDA3F4C6AAC09A357A2D72F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6498268C275EF39100FA462F /* Run Script */ = {
@@ -378,38 +366,26 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
 		};
-		ACEFCE4C5D02ECD3C297AA6E /* [CP] Embed Pods Frameworks */ = {
+		A3A8B9331911048A22524A2F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DailyStock-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D7BBFD19B68C93CEBD39D428 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -499,6 +475,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -560,6 +537,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = x86_64;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -571,6 +550,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -580,8 +560,9 @@
 		};
 		6449365927449C3F00E209FC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AE8A61AFC4EDE00E86F7F2EF /* Pods-DailyStock.debug.xcconfig */;
+			baseConfigurationReference = D7C2B9366E518FB8145FFCA4 /* Pods-DailyStock.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -591,6 +572,7 @@
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XJJN8UXL48;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "x86_64 arm64";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "매매노트";
@@ -606,6 +588,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.4;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmkim.DailyStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -617,8 +600,9 @@
 		};
 		6449365A27449C3F00E209FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AD5E1A3F72AA295AAAE34BC /* Pods-DailyStock.release.xcconfig */;
+			baseConfigurationReference = BA9E27B8448B3C74DFE7A3AA /* Pods-DailyStock.release.xcconfig */;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
@@ -627,6 +611,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = XJJN8UXL48;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "x86_64 arm64";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "매매노트";
@@ -642,6 +627,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.4;
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.jmkim.DailyStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -675,80 +661,15 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6449366E2745D85900E209FC /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+		64816724276F223C00E90AF8 /* XCRemoteSwiftPackageReference "realm-swift.git" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
-		6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-cocoa.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 5.0.0;
 			};
 		};
-		644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AssistoLab/DropDown.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-		64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		6449366F2745D85900E209FC /* FSCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6449366E2745D85900E209FC /* XCRemoteSwiftPackageReference "FSCalendar" */;
-			productName = FSCalendar;
-		};
-		6449369327465E0400E209FC /* Realm */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = Realm;
-		};
-		6449369527465E0400E209FC /* RealmSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6449369227465E0400E209FC /* XCRemoteSwiftPackageReference "realm-cocoa" */;
-			productName = RealmSwift;
-		};
-		644936AD274A19BB00E209FC /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 644936AC274A19BB00E209FC /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
-		};
-		644936B3274A2B1700E209FC /* DropDown */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 644936B2274A2B1700E209FC /* XCRemoteSwiftPackageReference "DropDown" */;
-			productName = DropDown;
-		};
-		64542A092754F07D00804EAA /* IQKeyboardManagerSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 64542A082754F07D00804EAA /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
-			productName = IQKeyboardManagerSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6449363C27449C3D00E209FC /* Project object */;
 }

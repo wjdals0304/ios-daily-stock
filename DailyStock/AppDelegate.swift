@@ -12,7 +12,7 @@ import UserNotifications
 import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
     
     
     // 세로모드만 적용 
@@ -22,11 +22,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
+
+        //Firebase 초기화 , 공유 인스턴스 생성
+        FirebaseApp.configure()
+
         //google login
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
-                
+
         
         UNUserNotificationCenter.current().delegate = self
 
@@ -40,8 +43,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
         // 런치스크린
         Thread.sleep(forTimeInterval: 0.5)
         
-        //Firebase 초기화 , 공유 인스턴스 생성
-        FirebaseApp.configure()
         //Crashlytics
         
         //ATT Framework
@@ -54,8 +55,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
-    
-
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -72,7 +71,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate , GIDSignInDelegate {
     
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        <#code#>
+
+        if let error = error {
+            print("ERROR Google Sign IN \(error.localizedDescription)")
+            return
+        }
+
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+
+        Auth.auth().signIn(with: credential) { _, _ in
+            self.showMainViewController()
+        }
+    }
+    private func showMainViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let mainViewController = storyboard.instantiateViewController(withIdentifier: "startView")
+        mainViewController.modalPresentationStyle = .fullScreen
+        UIApplication.shared.windows.first?.rootViewController?.show(mainViewController, sender: nil)
+
     }
 
 
