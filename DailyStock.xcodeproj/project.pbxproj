@@ -41,7 +41,7 @@
 		645429DB27547F0700804EAA /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DA27547F0700804EAA /* icon_calendar.png */; };
 		645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DC27547F1100804EAA /* icon_stockStudy.png */; };
 		648FCF62275DA44E0054ED07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */; };
-		ED390ED43F08E89242CB305B /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDAA9E3D7FFC630BD1DE5236 /* Pods_DailyStock.framework */; };
+		81827DB2692E1B82D36E4F51 /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF3FD08CB78D9A50260F375F /* Pods_DailyStock.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,9 +82,9 @@
 		645429DC27547F1100804EAA /* icon_stockStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stockStudy.png; sourceTree = "<group>"; };
 		648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6498268B275EF26C00FA462F /* DailyStock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DailyStock.entitlements; sourceTree = "<group>"; };
-		BA9E27B8448B3C74DFE7A3AA /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
-		CDAA9E3D7FFC630BD1DE5236 /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D7C2B9366E518FB8145FFCA4 /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
+		7C3C90694E9A9B2D4DDBE8B7 /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
+		8F9BE80B82B62C5E98D27495 /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
+		DF3FD08CB78D9A50260F375F /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,17 +92,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED390ED43F08E89242CB305B /* Pods_DailyStock.framework in Frameworks */,
+				81827DB2692E1B82D36E4F51 /* Pods_DailyStock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6343BCCFDE0E95C79DB1F9CA /* Frameworks */ = {
+		3EB2F0368E98B171EDEA4F9F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CDAA9E3D7FFC630BD1DE5236 /* Pods_DailyStock.framework */,
+				DF3FD08CB78D9A50260F375F /* Pods_DailyStock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -113,7 +113,7 @@
 				6449364627449C3D00E209FC /* DailyStock */,
 				6449364527449C3D00E209FC /* Products */,
 				B25FCCAE945A29347014A350 /* Pods */,
-				6343BCCFDE0E95C79DB1F9CA /* Frameworks */,
+				3EB2F0368E98B171EDEA4F9F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -219,8 +219,8 @@
 		B25FCCAE945A29347014A350 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				D7C2B9366E518FB8145FFCA4 /* Pods-DailyStock.debug.xcconfig */,
-				BA9E27B8448B3C74DFE7A3AA /* Pods-DailyStock.release.xcconfig */,
+				8F9BE80B82B62C5E98D27495 /* Pods-DailyStock.debug.xcconfig */,
+				7C3C90694E9A9B2D4DDBE8B7 /* Pods-DailyStock.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -232,13 +232,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6449365827449C3F00E209FC /* Build configuration list for PBXNativeTarget "DailyStock" */;
 			buildPhases = (
-				A3A8B9331911048A22524A2F /* [CP] Check Pods Manifest.lock */,
+				9E6A3F79B1F99CE33CA83EEB /* [CP] Check Pods Manifest.lock */,
 				6449364027449C3D00E209FC /* Sources */,
 				6449364127449C3D00E209FC /* Frameworks */,
 				6449364227449C3D00E209FC /* Resources */,
 				6498268C275EF39100FA462F /* Run Script */,
-				045241EC782249C704A7D1D8 /* [CP] Embed Pods Frameworks */,
-				2DDA3F4C6AAC09A357A2D72F /* [CP] Copy Pods Resources */,
+				7491F1F8B49EAA04321BC8BE /* [CP] Embed Pods Frameworks */,
+				546A22CAF85A7A9C83292FD0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -312,24 +312,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		045241EC782249C704A7D1D8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2DDA3F4C6AAC09A357A2D72F /* [CP] Copy Pods Resources */ = {
+		546A22CAF85A7A9C83292FD0 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -366,7 +349,24 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
 		};
-		A3A8B9331911048A22524A2F /* [CP] Check Pods Manifest.lock */ = {
+		7491F1F8B49EAA04321BC8BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9E6A3F79B1F99CE33CA83EEB /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -560,7 +560,7 @@
 		};
 		6449365927449C3F00E209FC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D7C2B9366E518FB8145FFCA4 /* Pods-DailyStock.debug.xcconfig */;
+			baseConfigurationReference = 8F9BE80B82B62C5E98D27495 /* Pods-DailyStock.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -600,7 +600,7 @@
 		};
 		6449365A27449C3F00E209FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA9E27B8448B3C74DFE7A3AA /* Pods-DailyStock.release.xcconfig */;
+			baseConfigurationReference = 7C3C90694E9A9B2D4DDBE8B7 /* Pods-DailyStock.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
