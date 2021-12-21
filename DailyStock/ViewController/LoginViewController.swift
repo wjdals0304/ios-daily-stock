@@ -25,8 +25,10 @@ class LoginViewController: UIViewController {
         [googleLoginButton,appleLoginButton].forEach{
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor.white.cgColor
-            $0?.layer.cornerRadius = 30
+         
         }
+        
+        setUpStyle()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +39,10 @@ class LoginViewController: UIViewController {
 
     }
 
+    func setUpStyle() {
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+    }
 
     @IBAction func googleLoginButtonTapped(_ sender: UIButton) {
         // TODO: Firebase 인증
@@ -50,8 +56,6 @@ class LoginViewController: UIViewController {
         // TODO: Firebase 인증
         startSignInWithAppleFlow()
     }
-
-
 
 }
 
