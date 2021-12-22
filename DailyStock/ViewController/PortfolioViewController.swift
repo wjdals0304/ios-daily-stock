@@ -11,61 +11,102 @@ import RealmSwift
 
 class PortfolioViewController: UIViewController, ChartViewDelegate {
 
-    let localRealm = try! Realm()
-   @IBOutlet var pieChartView: PieChartView!
+    @IBOutlet var pieChartView: PieChartView!
+
+    @IBOutlet var totalAssetsLabel: UILabel!
+    @IBOutlet var tableView : UITableView!
+    
     var tasks : Results<UserPortfolio>!
     var portofolioList : [UserPortfolio] = []
+    let localRealm = try! Realm()
+    var totalAssets = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        let nibName = UINib(nibName: PortfolioTableViewCell.identifier, bundle: nibBundle)
+        self.tableView.register(nibName, forCellReuseIdentifier: PortfolioTableViewCell.identifier)
+        
+        
+        
+        
         setUpBarButtonItem()
         
         self.tasks = localRealm.objects(UserPortfolio.self)
-        print("bb")
-
         self.portofolioList = Array(tasks)
         self.configureChartView(portofolioList: self.portofolioList)
         
+        self.totalAssetsLabel.text = "\(totalAssets)"
+        
+        
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.configureChartView(portofolioList: self.portofolioList)
+
+    }
+    
+    func percentDouble(portofolio : UserPortfolio) -> Double {
+        
+        return Double(portofolio.stockPrice * portofolio.stockAmount) / Double(totalAssets) * 100
+        
+    }
+
     func configureChartView(portofolioList : [UserPortfolio]){
+        
+        // TODO: 달러, 원화 구분해서 계산
+        for portofolio in portofolioList {
+            self.totalAssets += portofolio.stockPrice * portofolio.stockAmount
+        }
         
         self.pieChartView.delegate = self
         let entries = portofolioList.compactMap { [weak self] overview -> PieChartDataEntry? in
 
          guard let self = self else { return nil }
-           // value :
+            
+          // value :
           // label : 파이차트 항목 이름
           // data :
           return PieChartDataEntry(
-            value: Double(overview.stockAmount * overview.stockPrice)
+            value: percentDouble(portofolio: overview)
             ,label: overview.stockName
             ,data: overview
           )
         }
-
-
-        let dataSet = PieChartDataSet(entries: entries, label: "포토폴리오")
+        
+        let dataSet = PieChartDataSet(entries: entries, label: nil)
         dataSet.sliceSpace = 1
         dataSet.entryLabelColor = .black
+        dataSet.valueTextColor = .black
+        dataSet.xValuePosition = .outsideSlice
+        
 
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
-        dataSet.valueLinePart2Length = 0.3
+        dataSet.valueLinePart2Length = 0.2
+        
 
-        dataSet.colors = ChartColorTemplates.vordiplom()
-          + ChartColorTemplates.joyful()
-          + ChartColorTemplates.colorful()
-          + ChartColorTemplates.liberty()
-          + ChartColorTemplates.pastel()
-          + ChartColorTemplates.material()
-
-
-        self.pieChartView.data = PieChartData(dataSet:dataSet)
+        dataSet.colors = ChartColorTemplates.colorful()
+//          + ChartColorTemplates.liberty()
+//          + ChartColorTemplates.pastel()
+//          + ChartColorTemplates.material()
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .percent
+        formatter.maximumFractionDigits = 2
+        formatter.multiplier = 1.0
+        formatter.percentSymbol = "%"
+        
+        let pieChartData = PieChartData(dataSet:dataSet)
+        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        self.pieChartView.data = pieChartData
+//        self.pieChartView.data = PieChartData(dataSet:dataSet)
+        
         self.pieChartView.spin(duration: 0.3, fromAngle: pieChartView.rotationAngle, toAngle: pieChartView.rotationAngle + 80)
-
-
     }
     
         
@@ -85,6 +126,35 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
     }
 
 
+    
+    
+}
+
+extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate{
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PortfolioTableViewCell.identifier,for: indexPath) as? PortfolioTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        let row = tasks[indexPath.row]
+        
+        
+        cell.updateUI(item: row)
+        
+        return cell
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return tasks.count
+    }
+    
+    
     
     
 }
