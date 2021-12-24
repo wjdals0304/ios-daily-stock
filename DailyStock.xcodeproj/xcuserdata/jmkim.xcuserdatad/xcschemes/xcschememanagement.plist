@@ -7,7 +7,7 @@
 		<key>DailyStock.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>23</integer>
+			<integer>10</integer>
 		</dict>
 		<key>GettingStarted (Playground) 1.xcscheme</key>
 		<dict>
@@ -176,6 +176,14 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>1</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>6449364327449C3D00E209FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

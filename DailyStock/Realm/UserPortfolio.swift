@@ -5,7 +5,7 @@
 //  Created by 김정민 on 2021/12/21.
 //
 
-import Foundation
+import Foundation 
 import RealmSwift
 
 class UserPortfolio: Object {

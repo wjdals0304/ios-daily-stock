@@ -9,12 +9,16 @@ import UIKit
 import Charts
 import RealmSwift
 
-class PortfolioViewController: UIViewController, ChartViewDelegate {
+class PortfolioViewController: UIViewController, ChartViewDelegate, UIScrollViewDelegate {
 
     @IBOutlet var pieChartView: PieChartView!
 
     @IBOutlet var totalAssetsLabel: UILabel!
     @IBOutlet var tableView : UITableView!
+    @IBOutlet var scrollView : UIScrollView!
+    @IBOutlet var tableViewHeight: NSLayoutConstraint!
+    @IBOutlet var viewStackView: UIView!
+    
     
     var tasks : Results<UserPortfolio>!
     var portofolioList : [UserPortfolio] = []
@@ -24,16 +28,20 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
+
         tableView.delegate = self
         tableView.dataSource = self
-        
+
+        print(self.viewStackView.frame.height + 200)
+        tableViewHeight.constant = self.viewStackView.frame.height
+
+        self.tableView.isScrollEnabled = false
+        self.scrollView.bounces = false
+        self.tableView.bounces = true
+
         let nibName = UINib(nibName: PortfolioTableViewCell.identifier, bundle: nibBundle)
         self.tableView.register(nibName, forCellReuseIdentifier: PortfolioTableViewCell.identifier)
-        
-        
-        
-        
+
         setUpBarButtonItem()
         
         self.tasks = localRealm.objects(UserPortfolio.self)
@@ -45,15 +53,10 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        self.configureChartView(portofolioList: self.portofolioList)
 
-    }
-    
     func percentDouble(portofolio : UserPortfolio) -> Double {
         
         return Double(portofolio.stockPrice * portofolio.stockAmount) / Double(totalAssets) * 100
-        
     }
 
     func configureChartView(portofolioList : [UserPortfolio]){
@@ -68,9 +71,6 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
 
          guard let self = self else { return nil }
             
-          // value :
-          // label : 파이차트 항목 이름
-          // data :
           return PieChartDataEntry(
             value: percentDouble(portofolio: overview)
             ,label: overview.stockName
@@ -84,27 +84,33 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         dataSet.valueTextColor = .black
         dataSet.xValuePosition = .outsideSlice
         
-
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
         dataSet.valueLinePart2Length = 0.2
         
-
         dataSet.colors = ChartColorTemplates.colorful()
-//          + ChartColorTemplates.liberty()
-//          + ChartColorTemplates.pastel()
-//          + ChartColorTemplates.material()
-        
+
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
         formatter.maximumFractionDigits = 2
         formatter.multiplier = 1.0
         formatter.percentSymbol = "%"
         
+        let l = pieChartView.legend
+
+        l.horizontalAlignment = .left
+        l.verticalAlignment = .bottom
+        l.orientation = .horizontal
+        l.xEntrySpace = 10
+        l.yEntrySpace = 0
+        self.pieChartView.drawHoleEnabled = false
+        self.pieChartView.drawEntryLabelsEnabled = false
+        self.pieChartView.notifyDataSetChanged()
+        
+        
         let pieChartData = PieChartData(dataSet:dataSet)
         pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
         self.pieChartView.data = pieChartData
-//        self.pieChartView.data = PieChartData(dataSet:dataSet)
         
         self.pieChartView.spin(duration: 0.3, fromAngle: pieChartView.rotationAngle, toAngle: pieChartView.rotationAngle + 80)
     }
@@ -155,6 +161,10 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate{
     }
     
     
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 200
+    }
     
     
 }

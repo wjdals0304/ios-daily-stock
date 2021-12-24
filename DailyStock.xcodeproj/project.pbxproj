@@ -46,9 +46,27 @@
 		64A6C4202770A802009D2828 /* PortfolioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6C41F2770A802009D2828 /* PortfolioViewController.swift */; };
 		64A6C4232770AB7F009D2828 /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 64A6C4222770AB7F009D2828 /* FSCalendar */; };
 		64A6C4252770B4D0009D2828 /* PortfolioDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6C4242770B4D0009D2828 /* PortfolioDetailViewController.swift */; };
+		64C704522774A50D0032302B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 64C704512774A50D0032302B /* FirebaseAnalytics */; };
+		64C704542774A50D0032302B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 64C704532774A50D0032302B /* FirebaseAuth */; };
+		64C704562774A50D0032302B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 64C704552774A50D0032302B /* FirebaseCrashlytics */; };
+		64C7046D2774C77B0032302B /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1150810BF3ECA3876CB2210 /* Pods_DailyStock.framework */; };
+		64C7046E2774C77B0032302B /* Pods_DailyStock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D1150810BF3ECA3876CB2210 /* Pods_DailyStock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		64D3E4B52771B202001E3128 /* UserPortfolio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64D3E4B42771B202001E3128 /* UserPortfolio.swift */; };
-		ED9CE37403046D9DA1FB94E1 /* Pods_DailyStock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCFBDFB934B38A76C558DF08 /* Pods_DailyStock.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		64C7046F2774C77B0032302B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				64C7046E2774C77B0032302B /* Pods_DailyStock.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		64489E31276E067A00C85D28 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -92,10 +110,12 @@
 		64A6C41D27708194009D2828 /* Portfolio.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Portfolio.storyboard; sourceTree = "<group>"; };
 		64A6C41F2770A802009D2828 /* PortfolioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioViewController.swift; sourceTree = "<group>"; };
 		64A6C4242770B4D0009D2828 /* PortfolioDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioDetailViewController.swift; sourceTree = "<group>"; };
+		64C7045E2774B6500032302B /* Realm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Realm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		64C704622774B6550032302B /* RealmSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		64D3E4B42771B202001E3128 /* UserPortfolio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPortfolio.swift; sourceTree = "<group>"; };
-		84F92770016FD7E194AF4AB7 /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
-		9FAB61F973B3B08287C7794B /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
-		BCFBDFB934B38A76C558DF08 /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E01D5DDD8F6C4B20AC4DE32 /* Pods-DailyStock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.release.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.release.xcconfig"; sourceTree = "<group>"; };
+		9C82A1E094AC4CDF5264088D /* Pods-DailyStock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyStock.debug.xcconfig"; path = "Target Support Files/Pods-DailyStock/Pods-DailyStock.debug.xcconfig"; sourceTree = "<group>"; };
+		D1150810BF3ECA3876CB2210 /* Pods_DailyStock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DailyStock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +123,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64C7046D2774C77B0032302B /* Pods_DailyStock.framework in Frameworks */,
 				64A6C4232770AB7F009D2828 /* FSCalendar in Frameworks */,
-				ED9CE37403046D9DA1FB94E1 /* Pods_DailyStock.framework in Frameworks */,
+				64C704562774A50D0032302B /* FirebaseCrashlytics in Frameworks */,
+				64C704522774A50D0032302B /* FirebaseAnalytics in Frameworks */,
+				64C704542774A50D0032302B /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +140,7 @@
 				6449364627449C3D00E209FC /* DailyStock */,
 				6449364527449C3D00E209FC /* Products */,
 				B25FCCAE945A29347014A350 /* Pods */,
-				91CDA578A4EBDD79743CC1C9 /* Frameworks */,
+				A9609AFAADED25542D292A44 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,10 +248,12 @@
 			path = image;
 			sourceTree = "<group>";
 		};
-		91CDA578A4EBDD79743CC1C9 /* Frameworks */ = {
+		A9609AFAADED25542D292A44 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BCFBDFB934B38A76C558DF08 /* Pods_DailyStock.framework */,
+				64C704622774B6550032302B /* RealmSwift.framework */,
+				64C7045E2774B6500032302B /* Realm.framework */,
+				D1150810BF3ECA3876CB2210 /* Pods_DailyStock.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -236,8 +261,8 @@
 		B25FCCAE945A29347014A350 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				9FAB61F973B3B08287C7794B /* Pods-DailyStock.debug.xcconfig */,
-				84F92770016FD7E194AF4AB7 /* Pods-DailyStock.release.xcconfig */,
+				9C82A1E094AC4CDF5264088D /* Pods-DailyStock.debug.xcconfig */,
+				7E01D5DDD8F6C4B20AC4DE32 /* Pods-DailyStock.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -249,13 +274,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6449365827449C3F00E209FC /* Build configuration list for PBXNativeTarget "DailyStock" */;
 			buildPhases = (
-				33CF991DA32FC31F816ECDF8 /* [CP] Check Pods Manifest.lock */,
+				8A1907C6891E709D5EA2A9AE /* [CP] Check Pods Manifest.lock */,
 				6449364027449C3D00E209FC /* Sources */,
 				6449364127449C3D00E209FC /* Frameworks */,
 				6449364227449C3D00E209FC /* Resources */,
 				6498268C275EF39100FA462F /* Run Script */,
-				3F67EDE694F4CC0D1EE61495 /* [CP] Embed Pods Frameworks */,
-				C9EDACB3D2888C7F4EFDC7B7 /* [CP] Copy Pods Resources */,
+				9D747B7574BC582CB33ABD65 /* [CP] Embed Pods Frameworks */,
+				9131DA5FB18A157D7CA2BCBD /* [CP] Copy Pods Resources */,
+				64C7046F2774C77B0032302B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +290,9 @@
 			name = DailyStock;
 			packageProductDependencies = (
 				64A6C4222770AB7F009D2828 /* FSCalendar */,
+				64C704512774A50D0032302B /* FirebaseAnalytics */,
+				64C704532774A50D0032302B /* FirebaseAuth */,
+				64C704552774A50D0032302B /* FirebaseCrashlytics */,
 			);
 			productName = DailyStock;
 			productReference = 6449364427449C3D00E209FC /* DailyStock.app */;
@@ -294,8 +323,8 @@
 			);
 			mainGroup = 6449363B27449C3D00E209FC;
 			packageReferences = (
-				64816724276F223C00E90AF8 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				64A6C4212770AB7F009D2828 /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				64C704502774A50D0032302B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 6449364527449C3D00E209FC /* Products */;
 			projectDirPath = "";
@@ -334,7 +363,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		33CF991DA32FC31F816ECDF8 /* [CP] Check Pods Manifest.lock */ = {
+		6498268C275EF39100FA462F /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
+		};
+		8A1907C6891E709D5EA2A9AE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,44 +405,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3F67EDE694F4CC0D1EE61495 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6498268C275EF39100FA462F /* Run Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			name = "Run Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ \"${CONFIGURATION}\" != \"Debug\" ]; then\n    \"${PODS_ROOT}/FirebaseCrashlytics/run\"\n    \"${PODS_ROOT}/FirebaseCrashlytics/upload-symbols\" -gsp ${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist -p ios ${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}\nfi\n";
-		};
-		C9EDACB3D2888C7F4EFDC7B7 /* [CP] Copy Pods Resources */ = {
+		9131DA5FB18A157D7CA2BCBD /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -408,6 +420,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D747B7574BC582CB33ABD65 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DailyStock/Pods-DailyStock-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -586,7 +615,7 @@
 		};
 		6449365927449C3F00E209FC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9FAB61F973B3B08287C7794B /* Pods-DailyStock.debug.xcconfig */;
+			baseConfigurationReference = 9C82A1E094AC4CDF5264088D /* Pods-DailyStock.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -598,7 +627,7 @@
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XJJN8UXL48;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "x86_64 arm64";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "매매노트";
@@ -608,7 +637,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -626,7 +655,7 @@
 		};
 		6449365A27449C3F00E209FC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 84F92770016FD7E194AF4AB7 /* Pods-DailyStock.release.xcconfig */;
+			baseConfigurationReference = 7E01D5DDD8F6C4B20AC4DE32 /* Pods-DailyStock.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -637,7 +666,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0.4;
 				DEVELOPMENT_TEAM = XJJN8UXL48;
-				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "x86_64 arm64";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = DailyStock/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "매매노트";
@@ -647,7 +676,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -687,20 +716,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		64816724276F223C00E90AF8 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		64A6C4212770AB7F009D2828 /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.0.0;
+			};
+		};
+		64C704502774A50D0032302B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -710,6 +739,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 64A6C4212770AB7F009D2828 /* XCRemoteSwiftPackageReference "FSCalendar" */;
 			productName = FSCalendar;
+		};
+		64C704512774A50D0032302B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C704502774A50D0032302B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		64C704532774A50D0032302B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C704502774A50D0032302B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		64C704552774A50D0032302B /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 64C704502774A50D0032302B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
