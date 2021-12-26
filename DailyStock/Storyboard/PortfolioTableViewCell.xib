@@ -46,33 +46,33 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lhr-NW-qzr">
-                        <rect key="frame" x="255" y="57" width="85" height="31"/>
+                        <rect key="frame" x="275" y="56" width="85" height="31"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QB9-a7-JqE">
-                        <rect key="frame" x="255" y="103" width="92" height="21"/>
+                        <rect key="frame" x="275" y="97" width="92" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BDp-Gn-QF8">
-                        <rect key="frame" x="0.0" y="46" width="380" height="1"/>
+                        <rect key="frame" x="0.0" y="50" width="380" height="2"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRa-Fn-MMa">
-                        <rect key="frame" x="255" y="142" width="91" height="21"/>
+                        <rect key="frame" x="276" y="138" width="91" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFL-Ci-irB">
-                        <rect key="frame" x="255" y="17" width="85" height="21"/>
+                        <rect key="frame" x="279" y="10" width="85" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
@@ -82,10 +82,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="lineView" destination="BDp-Gn-QF8" id="ylc-ec-nni"/>
                 <outlet property="percentLabel" destination="fFL-Ci-irB" id="G2b-Mi-nNr"/>
                 <outlet property="stockAmountLabel" destination="lhr-NW-qzr" id="u1s-hi-O5W"/>
+                <outlet property="stockAmountNameLabel" destination="W3G-e7-en6" id="hkF-oc-XNz"/>
                 <outlet property="stockNameLabel" destination="MML-gc-P0y" id="xgc-ox-gvt"/>
                 <outlet property="stockPriceLabel" destination="QB9-a7-JqE" id="wAF-yX-LCx"/>
+                <outlet property="stockPriceNameLabel" destination="yHC-4k-CkO" id="h6c-Kf-bZf"/>
+                <outlet property="stockTotalAsseetsNameLabel" destination="bgi-n9-c04" id="gpB-zJ-J89"/>
                 <outlet property="stocktotalAssetsLabel" destination="zRa-Fn-MMa" id="3rR-cc-rHI"/>
             </connections>
             <point key="canvasLocation" x="173.91304347826087" y="-99.107142857142847"/>

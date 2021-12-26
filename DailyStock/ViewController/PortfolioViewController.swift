@@ -9,15 +9,16 @@ import UIKit
 import Charts
 import RealmSwift
 
-class PortfolioViewController: UIViewController, ChartViewDelegate, UIScrollViewDelegate {
+class PortfolioViewController: UIViewController, ChartViewDelegate {
 
     @IBOutlet var pieChartView: PieChartView!
 
+    @IBOutlet var totalAssetsNameLabel: UILabel!
     @IBOutlet var totalAssetsLabel: UILabel!
     @IBOutlet var tableView : UITableView!
     @IBOutlet var scrollView : UIScrollView!
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
-    @IBOutlet var viewStackView: UIView!
+    @IBOutlet var viewInStack: UIView!
     
     
     var tasks : Results<UserPortfolio>!
@@ -31,9 +32,7 @@ class PortfolioViewController: UIViewController, ChartViewDelegate, UIScrollView
 
         tableView.delegate = self
         tableView.dataSource = self
-
-        print(self.viewStackView.frame.height + 200)
-        tableViewHeight.constant = self.viewStackView.frame.height
+        tableViewHeight.constant = self.view.frame.height
 
         self.tableView.isScrollEnabled = false
         self.scrollView.bounces = false
@@ -50,9 +49,21 @@ class PortfolioViewController: UIViewController, ChartViewDelegate, UIScrollView
         
         self.totalAssetsLabel.text = "\(totalAssets)"
         
+        setUpStyle()
         
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    
+        self.portofolioList = Array(tasks)
+        self.configureChartView(portofolioList: self.portofolioList)
+        
+        self.tableView.reloadData()
+    }
+
+
 
     func percentDouble(portofolio : UserPortfolio) -> Double {
         
@@ -130,13 +141,49 @@ class PortfolioViewController: UIViewController, ChartViewDelegate, UIScrollView
         self.present(nav,animated: true,completion: nil)
         
     }
+    
+    func setUpStyle() {
+        
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        pieChartView.layer.cornerRadius = 20
+        
+        totalAssetsLabel.textColor =  UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
+        totalAssetsLabel.font = UIFont(name: "Roboto-Bold", size: 28)
+        
+        totalAssetsNameLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
+        totalAssetsNameLabel.font = UIFont(name: "Roboto-Bold", size: 18)
+        
+        viewInStack.layer.cornerRadius = 40
+        viewInStack.clipsToBounds = true
+
+
+        viewInStack.layer.borderWidth = 20
+        viewInStack.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
+        
+        viewInStack.backgroundColor = UIColor(red: 0.951, green: 0.953, blue: 0.971, alpha: 1)
+        
+        self.tableView.layer.cornerRadius = 20
+        
+    }
 
 
     
     
 }
 
-extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate{
+extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate, UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.scrollView {
+            tableView.isScrollEnabled = (self.scrollView.contentOffset.y >= 200)
+        }
+        
+        if scrollView == self.tableView {
+            self.tableView.isScrollEnabled = (tableView.contentOffset.y > 0)
+        }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
