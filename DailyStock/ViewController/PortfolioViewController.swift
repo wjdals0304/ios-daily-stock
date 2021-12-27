@@ -21,10 +21,13 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
     @IBOutlet var viewInStack: UIView!
     
     
+    var dollarViewModel = DollarViewModel()
+    
     var tasks : Results<UserPortfolio>!
     var portofolioList : [UserPortfolio] = []
     let localRealm = try! Realm()
     var totalAssets = 0
+    var dollar = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,31 +56,49 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    
-        self.portofolioList = Array(tasks)
-        self.configureChartView(portofolioList: self.portofolioList)
+        
+        print(#function)
+//        self.portofolioList = Array(tasks)
+//        self.configureChartView(portofolioList: self.portofolioList)
         
         self.tableView.reloadData()
     }
 
-
-
     func percentDouble(portofolio : UserPortfolio) -> Double {
         
-        return Double(portofolio.stockPrice * portofolio.stockAmount) / Double(totalAssets) * 100
+        var total: Double = 0
+        
+        if portofolio.moneyType == "dollar" {
+            total = Double(portofolio.stockPrice * self.dollar * portofolio.stockAmount ) / Double(totalAssets)
+        } else {
+            total = Double(portofolio.stockPrice * portofolio.stockAmount) / Double(totalAssets)
+        }
+        
+        total = total * 100
+
+        return  total
     }
 
     func configureChartView(portofolioList : [UserPortfolio]){
         
+        dollarViewModel.getDollar {
+            self.dollar = UserDefaults.standard.integer(forKey: "dollar")
+        }
+        
         // TODO: 달러, 원화 구분해서 계산
+        print(portofolioList)
         for portofolio in portofolioList {
-            self.totalAssets += portofolio.stockPrice * portofolio.stockAmount
+            if portofolio.moneyType == "dollar" {
+                self.totalAssets += portofolio.stockPrice * self.dollar * portofolio.stockAmount
+            } else {
+                self.totalAssets += portofolio.stockPrice * portofolio.stockAmount
+            }
         }
         
         self.pieChartView.delegate = self
+        
         let entries = portofolioList.compactMap { [weak self] overview -> PieChartDataEntry? in
 
          guard let self = self else { return nil }
@@ -117,7 +138,6 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         self.pieChartView.drawHoleEnabled = false
         self.pieChartView.drawEntryLabelsEnabled = false
         self.pieChartView.notifyDataSetChanged()
-        
         
         let pieChartData = PieChartData(dataSet:dataSet)
         pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
@@ -198,12 +218,10 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
         cell.updateUI(item: row)
         
         return cell
-        
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return tasks.count
     }
     

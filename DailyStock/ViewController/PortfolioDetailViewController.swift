@@ -33,7 +33,6 @@ class PortfolioDetailViewController: UIViewController {
     
         setUpStyle()
 
-
     }
     
     
@@ -44,16 +43,18 @@ class PortfolioDetailViewController: UIViewController {
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         // TODO: 달러/원화 선택 로직 , 편집 구현
         
-        guard self.stockNameText.text?.isEmpty == false
-                , self.stockAmountText.text?.isEmpty == false
-                , self.stockPriceText.text?.isEmpty == false
-        else { return }
-            
+            guard self.stockNameText.text?.isEmpty == false
+                    , self.stockAmountText.text?.isEmpty == false
+                    , self.stockPriceText.text?.isEmpty == false
+            else { return }
+                
         
             let stockAmount = Int(stockAmountText.text!) ?? 0
             let stockPrice = Int(stockPriceText.text!) ?? 0
             
-            let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: "won", stockPrice: stockPrice)
+            let moneyType = self.wonButton.isSelected ? "won" : "dollar"
+            
+            let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice)
             
             
             try! localRealm.write {
@@ -61,26 +62,25 @@ class PortfolioDetailViewController: UIViewController {
             }
             
        
-       self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func dollerTypeClicked(_ sender: UIButton) {
         
-        dollarButton.isSelected = wonButton.isSelected
+        dollarButton.isSelected = !wonButton.isSelected
         dollarButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
         
         dollarButton.tintColor =  UIColor(red: 1, green: 1, blue: 1, alpha: 1)
         
-        wonButton.isSelected = !wonButton.isSelected
+        wonButton.isSelected = !dollarButton.isSelected
         wonButton.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
         
         
     }
     
     @IBAction func wonTypeClicked(_ sender: UIButton) {
         
-        wonButton.isSelected = wonButton.isSelected
+        wonButton.isSelected = !dollarButton.isSelected
         wonButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
         
         wonButton.tintColor =  UIColor(red: 1, green: 1, blue: 1, alpha: 1)
