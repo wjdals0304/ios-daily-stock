@@ -34,16 +34,24 @@ class PortfolioTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateUI(item : UserPortfolio?) {
+    func updateUI(item : UserPortfolio?,stockPercentDic: Dictionary<String, String>) {
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
         
         guard let cell = item else { return }
         
+        let stockAmount = numberFormatter.string(from: NSNumber(value: cell.stockAmount))!
+        let decimalPrice = numberFormatter.string(from: NSNumber(value: cell.stockPrice))!
+        let stocktotalAssetsPrice =
+        numberFormatter.string(from: NSNumber(value: cell.stockAmount * cell.stockPrice))!
+        
         stockNameLabel.text = cell.stockName
-        percentLabel.text = "0"
-        stockAmountLabel.text = "\(cell.stockAmount)"
-        stockPriceLabel.text = "\(cell.stockPrice)"
-        stocktotalAssetsLabel.text = "\(cell.stockAmount * cell.stockPrice)"
-                
+        stockAmountLabel.text = "\(stockAmount)"
+        stockPriceLabel.text = "\(decimalPrice)"
+        stocktotalAssetsLabel.text = "\(stocktotalAssetsPrice)"
+        percentLabel.text = stockPercentDic[cell.stockName]
+
     }
     
     func setUpStyle() {

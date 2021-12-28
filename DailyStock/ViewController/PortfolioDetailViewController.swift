@@ -48,12 +48,10 @@ class PortfolioDetailViewController: UIViewController {
                     , self.stockPriceText.text?.isEmpty == false
             else { return }
                 
-        
             let stockAmount = Int(stockAmountText.text!) ?? 0
             let stockPrice = Int(stockPriceText.text!) ?? 0
-            
-            let moneyType = self.wonButton.isSelected ? "won" : "dollar"
-            
+            let moneyType = self.dollarButton.isSelected ? "dollar" : "won"
+        
             let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice)
             
             
@@ -61,7 +59,6 @@ class PortfolioDetailViewController: UIViewController {
                 localRealm.add(task)
             }
             
-       
             self.dismiss(animated: true, completion: nil)
     }
     
@@ -87,6 +84,10 @@ class PortfolioDetailViewController: UIViewController {
         
         dollarButton.isSelected = !wonButton.isSelected
         dollarButton.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        
+        print("---------------")
+        print(wonButton.isSelected)
+        print(dollarButton.isSelected)
         
     }
     

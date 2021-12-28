@@ -94,10 +94,7 @@ class TradingDailyViewController: UIViewController {
         self.navigationItem.searchController = searchController
         self.navigationItem.title = "매매일지"
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        
-        
     }
-    
     
     func setUpStyle() {
         
@@ -105,10 +102,7 @@ class TradingDailyViewController: UIViewController {
         view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
         
         self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-
-        
     }
-    
     
 }
 
@@ -153,7 +147,6 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         
         if self.isFiltering {
  
-            
             let filterRow = filteredDaily[indexPath.row]
             let decimalPrice = numberFormatter.string(from: NSNumber(value: filterRow.stockPrice))!
             

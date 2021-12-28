@@ -43,7 +43,6 @@ class StockScheduleViewController: UIViewController {
         self.navigationItem.title = "일정관리"
         self.navigationItem.rightBarButtonItem = addBarButton
         
-        
         tableView.delegate = self
         tableView.dataSource = self
         self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
@@ -68,8 +67,6 @@ class StockScheduleViewController: UIViewController {
         calendar.appearance.titleFont = UIFont.systemFont(ofSize: 24)
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-        
-     
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,17 +75,11 @@ class StockScheduleViewController: UIViewController {
         tableView.reloadData()
     }
     
-    
-
-    
-    
 }
 
 
 extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSource {
-    
-    
-   
+       
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StockScheduleTableViewCell.identifier, for: indexPath) as? StockScheduleTableViewCell else { return UITableViewCell() }

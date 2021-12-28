@@ -27,8 +27,6 @@ class DollarAPI {
         request.httpBody = Data() 
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            print("data")
-            print(data!)
             
             guard error == nil else {
                 completion(nil,.failed)

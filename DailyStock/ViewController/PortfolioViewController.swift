@@ -12,7 +12,6 @@ import RealmSwift
 class PortfolioViewController: UIViewController, ChartViewDelegate {
 
     @IBOutlet var pieChartView: PieChartView!
-
     @IBOutlet var totalAssetsNameLabel: UILabel!
     @IBOutlet var totalAssetsLabel: UILabel!
     @IBOutlet var tableView : UITableView!
@@ -20,19 +19,18 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
     @IBOutlet var tableViewHeight: NSLayoutConstraint!
     @IBOutlet var viewInStack: UIView!
     
-    
     var dollarViewModel = DollarViewModel()
-    
     var tasks : Results<UserPortfolio>!
     var portofolioList : [UserPortfolio] = []
     let localRealm = try! Realm()
     var totalAssets = 0
     var dollar = 0
     
+    var stockPercentDic : [String:String] = [:]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
         tableView.delegate = self
         tableView.dataSource = self
         tableViewHeight.constant = self.view.frame.height
@@ -50,7 +48,13 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         self.portofolioList = Array(tasks)
         self.configureChartView(portofolioList: self.portofolioList)
         
-        self.totalAssetsLabel.text = "\(totalAssets)"
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        
+        let totalAssetsDecimal = numberFormatter.string(from: NSNumber(value: totalAssets))!
+        
+        self.totalAssetsLabel.text = "\(totalAssetsDecimal)"
         
         setUpStyle()
         
@@ -68,8 +72,14 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
 
     func percentDouble(portofolio : UserPortfolio) -> Double {
         
-        var total: Double = 0
+        print("percent --------")
+        print(portofolio.stockName)
+        print(portofolio.stockPrice)
+        print(portofolio.stockAmount)
+        print(portofolio.moneyType)
+
         
+        var total: Double = 0
         if portofolio.moneyType == "dollar" {
             total = Double(portofolio.stockPrice * self.dollar * portofolio.stockAmount ) / Double(totalAssets)
         } else {
@@ -77,18 +87,22 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         }
         
         total = total * 100
-
-        return  total
+        print(total)
+        print("-------------")
+        
+        
+        return total
     }
 
     func configureChartView(portofolioList : [UserPortfolio]){
         
-        dollarViewModel.getDollar {
-            self.dollar = UserDefaults.standard.integer(forKey: "dollar")
-        }
+        self.dollarViewModel.getDollar ()
+        self.dollar = UserDefaults.standard.integer(forKey: "dollar")
+        self.dollar = 1000
+        print("dollar")
+        print(self.dollar)
         
         // TODO: 달러, 원화 구분해서 계산
-        print(portofolioList)
         for portofolio in portofolioList {
             if portofolio.moneyType == "dollar" {
                 self.totalAssets += portofolio.stockPrice * self.dollar * portofolio.stockAmount
@@ -98,17 +112,25 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         }
         
         self.pieChartView.delegate = self
-        
-        let entries = portofolioList.compactMap { [weak self] overview -> PieChartDataEntry? in
+    
+        var entries = portofolioList.compactMap { [weak self] overview -> PieChartDataEntry? in
 
          guard let self = self else { return nil }
+          
+            let stockPercent = Int(round(percentDouble(portofolio: overview)))
+            self.stockPercentDic[overview.stockName] = "\(stockPercent)%"
             
           return PieChartDataEntry(
-            value: percentDouble(portofolio: overview)
-            ,label: overview.stockName
+             value: percentDouble(portofolio: overview)
+            ,label: overview.stockName + " - \( stockPercent )%"
             ,data: overview
           )
         }
+        
+        // MARK: 범례 퍼센트로 정렬
+        entries = entries.sorted(by: { entry1, entry2 in
+            entry1.y > entry2.y
+        })
         
         let dataSet = PieChartDataSet(entries: entries, label: nil)
         dataSet.sliceSpace = 1
@@ -119,15 +141,16 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
         dataSet.valueLinePart2Length = 0.2
-        
         dataSet.colors = ChartColorTemplates.colorful()
-
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 2
-        formatter.multiplier = 1.0
-        formatter.percentSymbol = "%"
         
+
+//        let formatter = NumberFormatter()
+//        formatter.numberStyle = .percent
+//        formatter.maximumFractionDigits = 2
+//        formatter.multiplier = 1.0
+//        formatter.percentSymbol = "%"
+//        //pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+
         let l = pieChartView.legend
 
         l.horizontalAlignment = .left
@@ -135,19 +158,20 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         l.orientation = .horizontal
         l.xEntrySpace = 10
         l.yEntrySpace = 0
+        l.font = UIFont.systemFont(ofSize: 20)
+        l.formSize = 20
+        
         self.pieChartView.drawHoleEnabled = false
         self.pieChartView.drawEntryLabelsEnabled = false
         self.pieChartView.notifyDataSetChanged()
         
         let pieChartData = PieChartData(dataSet:dataSet)
-        pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+        pieChartData.setValueTextColor(NSUIColor.clear)
         self.pieChartView.data = pieChartData
         
         self.pieChartView.spin(duration: 0.3, fromAngle: pieChartView.rotationAngle, toAngle: pieChartView.rotationAngle + 80)
     }
-    
         
-    
     func setUpBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(didAddButtonClicked(_:)))
     }
@@ -177,20 +201,13 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         viewInStack.layer.cornerRadius = 40
         viewInStack.clipsToBounds = true
 
-
         viewInStack.layer.borderWidth = 20
         viewInStack.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
-        
         viewInStack.backgroundColor = UIColor(red: 0.951, green: 0.953, blue: 0.971, alpha: 1)
         
         self.tableView.layer.cornerRadius = 20
         
     }
-
-
-    
-    
 }
 
 extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate, UIScrollViewDelegate {
@@ -213,9 +230,7 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
         }
         
         let row = tasks[indexPath.row]
-        
-        
-        cell.updateUI(item: row)
+        cell.updateUI(item: row,stockPercentDic: self.stockPercentDic)
         
         return cell
     }
