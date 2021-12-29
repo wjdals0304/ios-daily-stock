@@ -32,9 +32,7 @@ class PortfolioDetailViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
     
         setUpStyle()
-
     }
-    
     
     @objc func closeButtonClicked(){
         self.dismiss(animated: true, completion: nil)
@@ -52,8 +50,7 @@ class PortfolioDetailViewController: UIViewController {
             let stockPrice = Int(stockPriceText.text!) ?? 0
             let moneyType = self.dollarButton.isSelected ? "dollar" : "won"
         
-            let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice)
-            
+            let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice ,percent: 0)
             
             try! localRealm.write {
                 localRealm.add(task)
@@ -71,7 +68,6 @@ class PortfolioDetailViewController: UIViewController {
         
         wonButton.isSelected = !dollarButton.isSelected
         wonButton.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
         
     }
     

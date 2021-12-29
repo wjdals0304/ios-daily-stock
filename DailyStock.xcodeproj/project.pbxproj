@@ -42,6 +42,7 @@
 		645429D92753571800804EAA /* icon_tradingDaily.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429D82753571800804EAA /* icon_tradingDaily.png */; };
 		645429DB27547F0700804EAA /* icon_calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DA27547F0700804EAA /* icon_calendar.png */; };
 		645429DD27547F1100804EAA /* icon_stockStudy.png in Resources */ = {isa = PBXBuildFile; fileRef = 645429DC27547F1100804EAA /* icon_stockStudy.png */; };
+		6464C66E277C4FE200F018FB /* chart-pie.png in Resources */ = {isa = PBXBuildFile; fileRef = 6464C66D277C4FE100F018FB /* chart-pie.png */; };
 		6481032C2773207300E79CF6 /* PortfolioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6481032A2773207300E79CF6 /* PortfolioTableViewCell.swift */; };
 		6481032D2773207300E79CF6 /* PortfolioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6481032B2773207300E79CF6 /* PortfolioTableViewCell.xib */; };
 		648FCF62275DA44E0054ED07 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */; };
@@ -109,6 +110,7 @@
 		645429D82753571800804EAA /* icon_tradingDaily.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tradingDaily.png; sourceTree = "<group>"; };
 		645429DA27547F0700804EAA /* icon_calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_calendar.png; sourceTree = "<group>"; };
 		645429DC27547F1100804EAA /* icon_stockStudy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_stockStudy.png; sourceTree = "<group>"; };
+		6464C66D277C4FE100F018FB /* chart-pie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chart-pie.png"; path = "../../../../../Downloads/icon/chart-pie.png"; sourceTree = "<group>"; };
 		6481032A2773207300E79CF6 /* PortfolioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioTableViewCell.swift; sourceTree = "<group>"; };
 		6481032B2773207300E79CF6 /* PortfolioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PortfolioTableViewCell.xib; sourceTree = "<group>"; };
 		648FCF61275DA44E0054ED07 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 		645429DE2754A4C300804EAA /* image */ = {
 			isa = PBXGroup;
 			children = (
+				6464C66D277C4FE100F018FB /* chart-pie.png */,
 				645429DC27547F1100804EAA /* icon_stockStudy.png */,
 				645429DA27547F0700804EAA /* icon_calendar.png */,
 				645429D82753571800804EAA /* icon_tradingDaily.png */,
@@ -370,6 +373,7 @@
 				64A6C41E27708194009D2828 /* Portfolio.storyboard in Resources */,
 				644936632744A0C300E209FC /* StockSchedule.storyboard in Resources */,
 				6449365127449C3F00E209FC /* Assets.xcassets in Resources */,
+				6464C66E277C4FE200F018FB /* chart-pie.png in Resources */,
 				6449365F27449F2800E209FC /* TradingDaily.storyboard in Resources */,
 				6449364F27449C3D00E209FC /* Main.storyboard in Resources */,
 				644936672744DCFD00E209FC /* TradingDailyTableViewCell.xib in Resources */,

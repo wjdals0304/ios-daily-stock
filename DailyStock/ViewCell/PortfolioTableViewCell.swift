@@ -62,16 +62,16 @@ class PortfolioTableViewCell: UITableViewCell {
         stockNameLabel?.font = UIFont(name: "Roboto-Regular", size: 24)
         
         [stockAmountNameLabel, stockPriceNameLabel, stockTotalAsseetsNameLabel].forEach {
-            $0?.textColor = UIColor(red: 0.647, green: 0.671, blue: 0.765, alpha: 1)
-            $0?.font = UIFont(name: "Roboto-Regular", size: 16)
+            $0?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
+            $0?.font = UIFont(name: "Roboto-Regular", size: 20)
         }
         
         percentLabel?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
         percentLabel?.font =  UIFont(name: "Roboto-Regular", size: 24)
         
         [stockAmountLabel, stockPriceLabel].forEach {
-            $0?.textColor = UIColor(red: 0.416, green: 0.431, blue: 0.478, alpha: 1)
-            $0?.font = UIFont(name: "Roboto-Regular", size: 18)
+            $0?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
+            $0?.font = UIFont(name: "Roboto-Regular", size: 20)
         }
         
         stocktotalAssetsLabel?.textColor = UIColor(red: 0.279, green: 0.284, blue: 0.304, alpha: 1)

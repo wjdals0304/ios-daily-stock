@@ -23,6 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 탭바 폰트 사이즈 적용
         let tbltemProxy = UITabBarItem.appearance()
+        print(tbltemProxy)
         tbltemProxy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .normal)
         
         tbltemProxy.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)], for: .disabled)

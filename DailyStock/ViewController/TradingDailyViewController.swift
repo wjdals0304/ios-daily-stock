@@ -71,8 +71,6 @@ class TradingDailyViewController: UIViewController {
         tableView.reloadData()
     }
     
-    
-
     @IBAction func addClickedButton(_ sender: UIButton) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "TradingDailyDetailViewController") as! TradingDailyDetailViewController

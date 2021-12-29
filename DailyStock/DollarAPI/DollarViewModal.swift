@@ -19,11 +19,9 @@ class DollarViewModel {
             }
             
             print("baseprice ")
-            print(dollar.first?.basePrice)
+//            print(dollar.first?.basePrice)
 
             UserDefaults.standard.set(dollar.first?.basePrice, forKey: "dollar")
-            
-                    
         }
 
 

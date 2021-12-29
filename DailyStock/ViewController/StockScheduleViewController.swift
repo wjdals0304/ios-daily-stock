@@ -118,7 +118,6 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        
         if tasks == nil {
             return 0
         }
@@ -157,7 +156,6 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
             let StockSchduledetailController = StockScheduleDetailViewController()
             StockSchduledetailController.removeSendNofi(schedulUUID: row.scheduleUUID)
             
-    
             try! localRealm.write{
                 localRealm.delete(row)
                 tableView.reloadData()

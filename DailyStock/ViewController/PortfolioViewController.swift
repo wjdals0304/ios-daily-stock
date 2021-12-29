@@ -30,6 +30,9 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tabBarItem.title = "포토폴리오"
+        
         // Do any additional setup after loading the view.
         tableView.delegate = self
         tableView.dataSource = self
@@ -44,20 +47,18 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
 
         setUpBarButtonItem()
         
-        self.tasks = localRealm.objects(UserPortfolio.self)
+        self.tasks = localRealm.objects(UserPortfolio.self).sorted(byKeyPath: "percent", ascending: false)
+        
         self.portofolioList = Array(tasks)
         self.configureChartView(portofolioList: self.portofolioList)
-        
         
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
         
         let totalAssetsDecimal = numberFormatter.string(from: NSNumber(value: totalAssets))!
-        
         self.totalAssetsLabel.text = "\(totalAssetsDecimal)"
         
         setUpStyle()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,7 +79,6 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         print(portofolio.stockAmount)
         print(portofolio.moneyType)
 
-        
         var total: Double = 0
         if portofolio.moneyType == "dollar" {
             total = Double(portofolio.stockPrice * self.dollar * portofolio.stockAmount ) / Double(totalAssets)
@@ -90,19 +90,15 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         print(total)
         print("-------------")
         
-        
         return total
     }
 
     func configureChartView(portofolioList : [UserPortfolio]){
         
-        self.dollarViewModel.getDollar ()
+        self.dollarViewModel.getDollar()
         self.dollar = UserDefaults.standard.integer(forKey: "dollar")
-        self.dollar = 1000
-        print("dollar")
-        print(self.dollar)
         
-        // TODO: 달러, 원화 구분해서 계산
+        // [x] TODO: 달러, 원화 구분해서 계산
         for portofolio in portofolioList {
             if portofolio.moneyType == "dollar" {
                 self.totalAssets += portofolio.stockPrice * self.dollar * portofolio.stockAmount
@@ -119,7 +115,8 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
           
             let stockPercent = Int(round(percentDouble(portofolio: overview)))
             self.stockPercentDic[overview.stockName] = "\(stockPercent)%"
-            
+            self.updateRealm(overview.stockName, stockPercent)
+                    
           return PieChartDataEntry(
              value: percentDouble(portofolio: overview)
             ,label: overview.stockName + " - \( stockPercent )%"
@@ -175,7 +172,16 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
     func setUpBarButtonItem() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add , target: self, action: #selector(didAddButtonClicked(_:)))
     }
-
+    
+    // MARK: 로컬 디비 UserPortfolio 퍼센트 업데이트
+    func updateRealm(_ stockName: String , _ percent: Int){
+        
+        let task = localRealm.objects(UserPortfolio.self).filter("stockName = %@",stockName).first
+        
+        try! localRealm.write {
+            task?.percent = percent
+        }
+    }
 
     @objc func didAddButtonClicked(_ sender : UIBarButtonItem) {
         
@@ -224,24 +230,24 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PortfolioTableViewCell.identifier,for: indexPath) as? PortfolioTableViewCell else {
             return UITableViewCell()
         }
-        
+//        print("percentdic")
+//        print(stockPercentDic)
+//        print(tasks)
+//        print(type(of: tasks))
+//
         let row = tasks[indexPath.row]
         cell.updateUI(item: row,stockPercentDic: self.stockPercentDic)
         
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasks.count
     }
-    
-    
-    
+        
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }

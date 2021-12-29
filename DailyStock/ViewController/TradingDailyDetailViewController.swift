@@ -13,7 +13,6 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
 
     let localRealm = try! Realm()
     var tasks : Results<UserTradingDaily>!
-    
     var dailyData : UserTradingDaily?
     
     @IBOutlet var stockNameText: UITextField!

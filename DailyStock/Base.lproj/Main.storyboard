@@ -197,11 +197,11 @@
             </objects>
             <point key="canvasLocation" x="-2475.700934579439" y="118.5745140388769"/>
         </scene>
-        <!--Item-->
+        <!--포토폴리오-->
         <scene sceneID="ehz-tr-CEP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4D5-g0-Z9R" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="sbE-Ia-6hB"/>
+                    <tabBarItem key="tabBarItem" title="포토폴리오" image="chart-pie.png" id="sbE-Ia-6hB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4zB-Bz-MEm">
                         <rect key="frame" x="0.0" y="44" width="428" height="44"/>
@@ -214,10 +214,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aBa-6O-dkn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-814" y="1023"/>
+            <point key="canvasLocation" x="-809" y="919"/>
         </scene>
     </scenes>
     <resources>
+        <image name="chart-pie.png" width="30" height="31"/>
         <image name="loginImage" width="73" height="78"/>
         <image name="logo_apple" width="33.333332061767578" height="33.333332061767578"/>
         <image name="logo_google" width="33.333332061767578" height="33.333332061767578"/>
