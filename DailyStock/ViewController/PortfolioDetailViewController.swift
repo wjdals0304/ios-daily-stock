@@ -56,6 +56,8 @@ class PortfolioDetailViewController: UIViewController {
                 localRealm.add(task)
             }
             
+            NotificationCenter.default.post(name: NSNotification.Name("reloadPieChart"), object: nil)
+        
             self.dismiss(animated: true, completion: nil)
     }
     

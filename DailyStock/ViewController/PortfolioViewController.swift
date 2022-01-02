@@ -33,10 +33,12 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         
         tabBarItem.title = "포토폴리오"
         
-        // Do any additional setup after loading the view.
+        self.tasks = localRealm.objects(UserPortfolio.self).sorted(byKeyPath: "percent", ascending: false)
+        
         tableView.delegate = self
         tableView.dataSource = self
-        tableViewHeight.constant = self.view.frame.height
+    
+        tableViewHeight.constant = CGFloat(self.tasks.count) * 220 + 50
 
         self.tableView.isScrollEnabled = false
         self.scrollView.bounces = false
@@ -46,8 +48,6 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         self.tableView.register(nibName, forCellReuseIdentifier: PortfolioTableViewCell.identifier)
 
         setUpBarButtonItem()
-        
-        self.tasks = localRealm.objects(UserPortfolio.self).sorted(byKeyPath: "percent", ascending: false)
         
         self.portofolioList = Array(tasks)
         self.configureChartView(portofolioList: self.portofolioList)
@@ -59,18 +59,31 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         self.totalAssetsLabel.text = "\(totalAssetsDecimal)"
         
         setUpStyle()
+        print(#function)
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         print(#function)
-//        self.portofolioList = Array(tasks)
-//        self.configureChartView(portofolioList: self.portofolioList)
+
+        NotificationCenter.default.addObserver(self,selector: #selector(reloadPieChart), name: NSNotification.Name("reloadPieChart") , object: nil)
+        
+        let taskCount = localRealm.objects(UserPortfolio.self).count
+        tableViewHeight.constant = CGFloat(taskCount) * 220 + 50
         
         self.tableView.reloadData()
     }
+    
+    @objc func reloadPieChart() {
+        
+        self.tasks = localRealm.objects(UserPortfolio.self).sorted(byKeyPath: "percent", ascending: false)
 
+        self.portofolioList = Array(tasks)
+        self.configureChartView(portofolioList: self.portofolioList)
+    }
+    
     func percentDouble(portofolio : UserPortfolio) -> Double {
         
         print("percent --------")
@@ -95,7 +108,9 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
 
     func configureChartView(portofolioList : [UserPortfolio]){
         
+        self.pieChartView.delegate = self
         self.dollarViewModel.getDollar()
+        
         self.dollar = UserDefaults.standard.integer(forKey: "dollar")
         
         // [x] TODO: 달러, 원화 구분해서 계산
@@ -107,7 +122,6 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             }
         }
         
-        self.pieChartView.delegate = self
     
         var entries = portofolioList.compactMap { [weak self] overview -> PieChartDataEntry? in
 
@@ -249,8 +263,10 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
     }
         
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
         return 200
     }
     
     
 }
+
