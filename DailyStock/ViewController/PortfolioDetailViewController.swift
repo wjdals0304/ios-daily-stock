@@ -24,6 +24,8 @@ class PortfolioDetailViewController: UIViewController {
     @IBOutlet var moneyTypeLabel: UILabel!
     @IBOutlet var stockPriceLabel: UILabel!
     
+    var portofolioData : UserPortfolio?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,24 @@ class PortfolioDetailViewController: UIViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
     
         setUpStyle()
+        
+        if portofolioData != nil {
+            
+            self.stockNameText.text = portofolioData?.stockName
+        
+            self.stockAmountText.text = "\(String(describing: portofolioData!.stockAmount))"
+            self.stockPriceText.text = "\(String(describing: portofolioData!.stockPrice))"
+            
+            
+            if portofolioData?.moneyType == "won" {
+                wonButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+                wonButton.isSelected = true
+            } else {
+                dollarButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+                dollarButton.isSelected = true
+            }
+        }
+        
     }
     
     @objc func closeButtonClicked(){
@@ -83,9 +103,7 @@ class PortfolioDetailViewController: UIViewController {
         dollarButton.isSelected = !wonButton.isSelected
         dollarButton.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
         
-        print("---------------")
-        print(wonButton.isSelected)
-        print(dollarButton.isSelected)
+ 
         
     }
     

@@ -33,12 +33,15 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         
         tabBarItem.title = "포토폴리오"
         
-        self.tasks = localRealm.objects(UserPortfolio.self).sorted(byKeyPath: "percent", ascending: false)
-        
+        reloadPieChart()
+        setUpTableView()
+        setUpBarButtonItem()
+        setUpStyle()
+    }
+    
+    func setUpTableView() {
         tableView.delegate = self
         tableView.dataSource = self
-    
-        tableViewHeight.constant = CGFloat(self.tasks.count) * 220 + 50
 
         self.tableView.isScrollEnabled = false
         self.scrollView.bounces = false
@@ -46,51 +49,40 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
 
         let nibName = UINib(nibName: PortfolioTableViewCell.identifier, bundle: nibBundle)
         self.tableView.register(nibName, forCellReuseIdentifier: PortfolioTableViewCell.identifier)
-
-        setUpBarButtonItem()
         
-        self.portofolioList = Array(tasks)
-        self.configureChartView(portofolioList: self.portofolioList)
-        
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        
-        let totalAssetsDecimal = numberFormatter.string(from: NSNumber(value: totalAssets))!
-        self.totalAssetsLabel.text = "\(totalAssetsDecimal)"
-        
-        setUpStyle()
-        print(#function)
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(#function)
-
         NotificationCenter.default.addObserver(self,selector: #selector(reloadPieChart), name: NSNotification.Name("reloadPieChart") , object: nil)
         
-        let taskCount = localRealm.objects(UserPortfolio.self).count
-        tableViewHeight.constant = CGFloat(taskCount) * 220 + 50
+    
         
         self.tableView.reloadData()
     }
     
     @objc func reloadPieChart() {
         
+        let taskCount = localRealm.objects(UserPortfolio.self).count
+        tableViewHeight.constant = CGFloat(taskCount) * 220 + 50
+        
+        self.totalAssets = 0
         self.tasks = localRealm.objects(UserPortfolio.self).sorted(byKeyPath: "percent", ascending: false)
-
+        
         self.portofolioList = Array(tasks)
         self.configureChartView(portofolioList: self.portofolioList)
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+            
+        let totalAssetsDecimal = numberFormatter.string(from: NSNumber(value: totalAssets))!
+        self.totalAssetsLabel.text = "\(totalAssetsDecimal)"
+            
     }
     
     func percentDouble(portofolio : UserPortfolio) -> Double {
-        
-        print("percent --------")
-        print(portofolio.stockName)
-        print(portofolio.stockPrice)
-        print(portofolio.stockAmount)
-        print(portofolio.moneyType)
+
 
         var total: Double = 0
         if portofolio.moneyType == "dollar" {
@@ -100,8 +92,6 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         }
         
         total = total * 100
-        print(total)
-        print("-------------")
         
         return total
     }
@@ -130,9 +120,10 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             let stockPercent = Int(round(percentDouble(portofolio: overview)))
             self.stockPercentDic[overview.stockName] = "\(stockPercent)%"
             self.updateRealm(overview.stockName, stockPercent)
-                    
+            
+            
           return PieChartDataEntry(
-             value: percentDouble(portofolio: overview)
+             value: Double(stockPercent)
             ,label: overview.stockName + " - \( stockPercent )%"
             ,data: overview
           )
@@ -152,15 +143,9 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
         dataSet.valueLinePart2Length = 0.2
-        dataSet.colors = ChartColorTemplates.colorful()
-        
+        dataSet.colors = ChartColorTemplates.colorful() + ChartColorTemplates.material()
+        + ChartColorTemplates.joyful() + ChartColorTemplates.liberty()
 
-//        let formatter = NumberFormatter()
-//        formatter.numberStyle = .percent
-//        formatter.maximumFractionDigits = 2
-//        formatter.multiplier = 1.0
-//        formatter.percentSymbol = "%"
-//        //pieChartData.setValueFormatter(DefaultValueFormatter(formatter: formatter))
 
         let l = pieChartView.legend
 
@@ -169,8 +154,8 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
         l.orientation = .horizontal
         l.xEntrySpace = 10
         l.yEntrySpace = 0
-        l.font = UIFont.systemFont(ofSize: 20)
-        l.formSize = 20
+        l.font = UIFont.systemFont(ofSize: 17)
+        l.formSize = 17
         
         self.pieChartView.drawHoleEnabled = false
         self.pieChartView.drawEntryLabelsEnabled = false
@@ -247,11 +232,7 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PortfolioTableViewCell.identifier,for: indexPath) as? PortfolioTableViewCell else {
             return UITableViewCell()
         }
-//        print("percentdic")
-//        print(stockPercentDic)
-//        print(tasks)
-//        print(type(of: tasks))
-//
+        
         let row = tasks[indexPath.row]
         cell.updateUI(item: row,stockPercentDic: self.stockPercentDic)
         
@@ -266,6 +247,53 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
         
         return 200
     }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let editing = UIContextualAction(style: .normal, title: "편집") { (UIContextualAction , UIView , success: @escaping (Bool) -> Void) in
+            print("수정")
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "PortfolioDetailViewController") as! PortfolioDetailViewController
+            
+            vc.portofolioData = self.tasks[indexPath.row]
+            
+            let nav = UINavigationController(rootViewController: vc)
+            nav.modalPresentationStyle = .fullScreen
+            
+            self.present(nav,animated: true, completion: nil)
+            
+        }
+    
+        editing.backgroundColor = .systemBlue
+        
+        
+        
+        let delete = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void ) in
+            
+            print("delete")
+
+            let row = self.tasks[indexPath.row]
+            
+            try! self.localRealm.write{
+                
+                self.localRealm.delete(row)
+                tableView.reloadData()
+                
+            }
+            self.reloadPieChart()
+            
+            
+        }
+        
+        delete.backgroundColor = .systemRed
+        
+    
+        return UISwipeActionsConfiguration(actions: [delete,editing])
+     
+    }
+    
+    
     
     
 }
