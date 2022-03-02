@@ -70,41 +70,32 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     func setUpStyle() {
         
         view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
-        stockNameLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        stockNameLabel.font = UIFont(name: "Roboto-Bold", size: 15)
+        [
+            stockNameLabel,
+            tradingTypeLabel,
+            tradingDateLabel,
+            stockAmountLabel,
+            stockPriceLabel,
+            tradingReasonLabel
+        ].forEach { label in
+            label?.textColor = UIColor.getColor(.detailLabelColor)
+            label?.font = UIFont.getFont(.Bold_15)
+
+        }
         
-        tradingTypeLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        tradingTypeLabel.font = UIFont(name: "Roboto-Bold", size: 15)
+        [
+          stockNameText,
+          stockAmountText,
+          tradingReasonText
+        ].forEach { text in
+            text?.clipsToBounds = true
+            text?.layer.cornerRadius = 8
+            text?.layer.borderWidth = 1
+            text?.layer.borderColor = UIColor.getColor(.detailTextColor).cgColor
+        }
         
-        tradingDateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        tradingDateLabel.font = UIFont(name: "Roboto-Bold", size: 15)
-        
-        stockAmountLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        stockAmountLabel.font = UIFont(name: "Roboto-Bold", size: 15)
-        
-        stockPriceLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        stockPriceLabel.font = UIFont(name: "Roboto-Bold", size: 15)
-        
-        tradingReasonLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        tradingReasonLabel.font = UIFont(name: "Roboto-Bold", size: 15)
-        
-        stockNameText.clipsToBounds = true
-        stockNameText.layer.cornerRadius = 8
-        stockNameText.layer.borderWidth = 1
-        stockNameText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-        
-        stockAmountText.clipsToBounds = true
-        stockAmountText.layer.cornerRadius = 8
-        stockAmountText.layer.borderWidth = 1
-        stockAmountText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-        
-        tradingReasonText.clipsToBounds = true
-        tradingReasonText.layer.cornerRadius = 8
-        tradingReasonText.layer.borderWidth = 1
-        tradingReasonText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-    
         // 셀렉트 박스
         dropDownTrading.anchorView = tradingTypeButton
         dropDownTrading.dataSource = tradingTypeArray
