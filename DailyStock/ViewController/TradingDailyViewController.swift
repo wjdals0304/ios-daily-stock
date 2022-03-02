@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import Firebase
+
 class TradingDailyViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
@@ -35,22 +36,13 @@ class TradingDailyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        let nibName = UINib(nibName: TradingDailyTableViewCell.identifier, bundle: nil)
-        self.tableView.register(nibName, forCellReuseIdentifier: TradingDailyTableViewCell.identifier)
-        self.tableView.tableFooterView = UIView(frame: .zero)
         
         self.tasks = localRealm.objects(UserTradingDaily.self)
         self.setUpSearchController()
-        
-        self.navigationItem.title = "매매일지"
-
+    
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        setUpStyle()
-        addButton.setTitle("", for: .normal)
+        setup()
+        
         
     //crash test
 //        let button = UIButton(type: .roundedRect)
@@ -94,12 +86,25 @@ class TradingDailyViewController: UIViewController {
         self.navigationItem.hidesSearchBarWhenScrolling = false
     }
     
-    func setUpStyle() {
+    func setup() {
         
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        // view
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
+//        view.backgroundColor = .white
         
-        self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
+        // addButton
+        addButton.setTitle("", for: .normal)
+
+        
+        // tableView
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.backgroundColor = UIColor.getColor(.mainColor)
+        
+        let nibName = UINib(nibName: TradingDailyTableViewCell.identifier, bundle: nil)
+        self.tableView.register(nibName, forCellReuseIdentifier: TradingDailyTableViewCell.identifier)
+        self.tableView.tableFooterView = UIView(frame: .zero)
+        
     }
     
 }
@@ -121,27 +126,8 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
         
-        cell.stockNameLabel.textColor = UIColor.black
-        cell.stockNameLabel.font =  UIFont(name: "Roboto-Bold", size: 30)
-        
-        cell.dateLabel.textColor = UIColor(red: 0.561, green: 0.565, blue: 0.576, alpha: 1)
-        cell.dateLabel.font = UIFont(name: "Roboto-Bold", size: 20)
-        
-        cell.priceLabel.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
-        cell.priceLabel.font = UIFont(name: "Roboto-Bold", size: 24)
-        
-        cell.amountLabel.textColor =  UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
-        cell.amountLabel.font = UIFont(name: "Roboto-Bold", size: 24)
-
-        cell.clipsToBounds = true
-        cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-            .cgColor
-        cell.layer.borderWidth = 8
-        cell.layer.cornerRadius = 8
-        
         let numberFormatter = NumberFormatter()
         numberFormatter.numberStyle = .decimal
-         
         
         if self.isFiltering {
  
