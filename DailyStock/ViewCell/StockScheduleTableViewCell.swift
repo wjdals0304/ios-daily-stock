@@ -23,4 +23,14 @@ class StockScheduleTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    override func layoutSubviews() {
+        
+        self.layer.borderColor = UIColor.getColor(.mainColor).cgColor
+        self.backgroundColor = .white
+        self.layer.borderWidth = 10
+        self.layer.cornerRadius = 8
+        self.clipsToBounds = true
+    }
+    
+    
 }

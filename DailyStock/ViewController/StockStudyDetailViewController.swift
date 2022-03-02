@@ -36,12 +36,8 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-
-        navigationItem.title = "종목 분석"
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
-        
+    
+ 
         if studyData != nil {
             self.stockNameText.text = studyData?.stockName
             self.updateDatePicker.date = studyData!.updateDate
@@ -51,7 +47,8 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
             
             self.selectedBool = true
         }
-        setUpStyle()
+        
+        setup()
         
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.delegate = self
@@ -66,57 +63,49 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
     
     
     
-    func setUpStyle() {
+    func setup() {
+        
         updateDatePicker.locale = Locale(identifier: "ko-KR")
 
         view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
         viewInScroll.backgroundColor = .white
-        viewInScroll.layer.backgroundColor = UIColor(red: 0.914, green: 0.918, blue: 0.937, alpha: 1).cgColor
+        viewInScroll.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
-        stockNameLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        stockNameLabel.font = UIFont(name: "Roboto-Bold", size: 20)
-
-        updateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        updateLabel.font = UIFont(name: "Roboto-Bold", size: 20)
-
-        salesLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        salesLabel.font = UIFont(name: "Roboto-Bold", size: 20)
-
-        prosAndConsLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        prosAndConsLabel.font = UIFont(name: "Roboto-Bold", size: 20)
-
-        memoLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        memoLabel.font = UIFont(name: "Roboto-Bold", size: 20)
-
-        stockNameText.clipsToBounds = true
-        stockNameText.layer.cornerRadius = 8
-        stockNameText.layer.borderWidth = 1
-        stockNameText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-
-        salesText.clipsToBounds = true
-        salesText.layer.cornerRadius = 8
-        salesText.layer.borderWidth = 1
-        salesText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-
-        prosAndConsText.clipsToBounds = true
-        prosAndConsText.layer.cornerRadius = 8
-        prosAndConsText.layer.borderWidth = 1
-        prosAndConsText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-
-        memoText.clipsToBounds = true
-        memoText.layer.cornerRadius = 8
-        memoText.layer.borderWidth = 1
-        memoText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+        navigationItem.title = "종목 분석"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        
+        
+        
+        [
+            stockNameLabel,
+            updateLabel,
+            salesLabel,
+            prosAndConsLabel,
+            memoLabel
+        ].forEach { label in
+            label?.textColor = UIColor.getColor(.detailLabelColor)
+            label?.font = UIFont.getFont(.Bold_20)
+        }
+        
+        [
+            stockNameText,
+            salesText,
+            prosAndConsText,
+            memoText
+        ].forEach { text in
+            text?.clipsToBounds = true
+            text?.layer.cornerRadius = 8
+            text?.layer.borderWidth = 1
+            text?.layer.borderColor = UIColor.getColor(.detailTextColor).cgColor
+        }
     }
-    
     
     @objc func closeButtonClicked(){
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
+
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         

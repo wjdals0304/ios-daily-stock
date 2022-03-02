@@ -15,8 +15,6 @@ enum Mode {
 
 class StockStudyViewController: UIViewController {
 
-    
-    
     @IBOutlet var addButton: UIButton!
     @IBOutlet var collectionView: UICollectionView!
     
@@ -100,33 +98,33 @@ class StockStudyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpSearchController()
+        setup()
         
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        
-        let nibName = UINib(nibName: StockStudyCollectionViewCell.identifier, bundle: nil)
-        self.collectionView.register(nibName, forCellWithReuseIdentifier: StockStudyCollectionViewCell.identifier)
+        setUpBarButtonItems()
+    }
+    
+    func setup() {
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
         self.tasks = localRealm.objects(UserStockStudy.self)
         self.navigationItem.title = "종목분석"
         
+        
+        // collectionView
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.getColor(.mainColor)
+
+        let nibName = UINib(nibName: StockStudyCollectionViewCell.identifier, bundle: nil)
+        self.collectionView.register(nibName, forCellWithReuseIdentifier: StockStudyCollectionViewCell.identifier)
         let layout = UICollectionViewFlowLayout()
         collectionView.collectionViewLayout = layout
         
-        setUpSearchController()
-        setUpStyle()
-        setUpBarButtonItems()
-        
+        //addButton
         addButton.setTitle("", for: .normal)
- 
 
-    }
-    
-    func setUpStyle() {
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        collectionView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -186,20 +184,6 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
     
-        cell.stockNameLabel.textColor = UIColor.black
-        cell.stockNameLabel.font =  UIFont(name: "Roboto-Bold", size: 25)
-        
-        cell.updateDateLabel.textColor = UIColor(red: 0.561, green: 0.565, blue: 0.576, alpha: 1)
-        cell.updateDateLabel.font = UIFont(name: "Roboto-Bold", size: 15)
-        
-        
-        cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-            .cgColor
-        cell.backgroundColor = .white
-        cell.layer.borderWidth = 10
-        cell.layer.cornerRadius = 8
-        cell.clipsToBounds = true
-        
         if self.isFiltering {
             
             let filterRow = filteredStock[indexPath.row]

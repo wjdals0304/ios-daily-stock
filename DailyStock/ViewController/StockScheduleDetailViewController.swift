@@ -36,47 +36,7 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
-        
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
-        titleLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        titleLabel.font = UIFont(name: "Roboto-Bold", size: 16)
-        
-        alarmDateLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        alarmDateLabel.font = UIFont(name: "Roboto-Bold", size: 16)
-        
-        alarmLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        alarmLabel.font = UIFont(name: "Roboto-Bold", size: 16)
-        
-        memoLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        memoLabel.font = UIFont(name: "Roboto-Bold", size: 16)
-        
-        alarmLabel.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-        alarmLabel.font = UIFont(name: "Roboto-Bold", size: 16)
-        
-        
-        titleText.clipsToBounds = true
-        titleText.layer.cornerRadius = 8
-        titleText.layer.borderWidth = 1
-        titleText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-        
-        memoText.clipsToBounds = true
-        memoText.layer.cornerRadius = 8
-        memoText.layer.borderWidth = 1
-        memoText.layer.borderColor = UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
-        
-        requestNotificationAuthorization()
-        
-        if memoData != nil {
-            self.titleText.text = memoData?.titleName
-            self.alarmDatePicker.setDate(memoData!.alarmDate, animated: true)
-            self.alarmTF.isOn = memoData!.isAlarm
-            self.memoText.text = memoData?.memo
-            self.selectedBool = true
-        }
-        alarmDatePicker.locale = Locale(identifier: "ko-KR")
+        setup()
         
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
         tapGesture.delegate = self
@@ -88,6 +48,45 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         self.view.endEditing(true)
         return true
+    }
+    
+    func setup() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
+        
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
+        
+        [
+         titleLabel,
+         alarmDateLabel,
+         alarmLabel,
+         memoLabel
+        ].forEach { label in
+            label?.textColor = UIColor.getColor(.detailLabelColor)
+            label?.font = UIFont.getFont(.Bold_16)
+        }
+        
+        [
+            titleText,
+            memoText
+        ].forEach { text in
+            text?.layer.borderColor = UIColor.getColor(.detailTextColor).cgColor
+            text?.clipsToBounds = true
+            text?.layer.cornerRadius = 8
+            text?.layer.borderWidth = 1
+        }
+    
+        requestNotificationAuthorization()
+        
+        if memoData != nil {
+            self.titleText.text = memoData?.titleName
+            self.alarmDatePicker.setDate(memoData!.alarmDate, animated: true)
+            self.alarmTF.isOn = memoData!.isAlarm
+            self.memoText.text = memoData?.memo
+            self.selectedBool = true
+        }
+        alarmDatePicker.locale = Locale(identifier: "ko-KR")
+        
     }
     
     

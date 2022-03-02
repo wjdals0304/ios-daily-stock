@@ -39,22 +39,35 @@ class StockScheduleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        calendar.reloadData()
+        tableView.reloadData()
+    }
+    
+    func setup() {
         
         self.navigationItem.title = "일정관리"
         self.navigationItem.rightBarButtonItem = addBarButton
         
+        //tableview
         tableView.delegate = self
         tableView.dataSource = self
-        self.tableView.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-
-        //style
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
+        self.tableView.backgroundColor = UIColor.getColor(.mainColor)
         let nibName = UINib(nibName: StockScheduleTableViewCell.identifier, bundle: nibBundle)
         self.tableView.register(nibName, forCellReuseIdentifier: StockScheduleTableViewCell.identifier)
         self.tableView.tableFooterView = UIView(frame: .zero)
+        
+        //style
+        view.backgroundColor = .white
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
+        
         self.tasks = localRealm.objects(UserStockSchedule.self)
+        
         
         // calendar
         self.calendar.delegate = self
@@ -66,13 +79,8 @@ class StockScheduleViewController: UIViewController {
         calendar.appearance.headerTitleFont = UIFont.systemFont(ofSize: 24)
         calendar.appearance.titleFont = UIFont.systemFont(ofSize: 24)
         calendar.locale = Locale(identifier: "ko_KR")
-        calendar.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        calendar.reloadData()
-        tableView.reloadData()
+        calendar.backgroundColor = UIColor.getColor(.mainColor)
+        
     }
     
 }
@@ -84,7 +92,6 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StockScheduleTableViewCell.identifier, for: indexPath) as? StockScheduleTableViewCell else { return UITableViewCell() }
         
-        
         self.startCalenderStart = calendar.currentPage.add(days:1)!
         self.endCalenderEnd = calendar.currentPage.add(months:1)!
         
@@ -94,14 +101,6 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
             return UITableViewCell()
         }
         
-        cell.layer.borderColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1)
-            .cgColor
-        cell.backgroundColor = .white
-        cell.layer.borderWidth = 10
-        cell.layer.cornerRadius = 8
-        cell.clipsToBounds = true
-        
-
         let row = filteredDateTasks[indexPath.row]
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "ko_KR")
