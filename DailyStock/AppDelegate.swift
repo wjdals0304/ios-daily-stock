@@ -9,12 +9,12 @@ import UIKit
 import Firebase
 import AppTrackingTransparency
 import UserNotifications
-import GoogleSignIn
+//import GoogleSignIn
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
+class AppDelegate: UIResponder, UIApplicationDelegate  {
     
-    
+//    , GIDSignInDelegate
     // 세로모드만 적용 
     func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.portrait
@@ -27,8 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
         FirebaseApp.configure()
 
         //google login
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-        GIDSignIn.sharedInstance().delegate = self
+//        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+//        GIDSignIn.sharedInstance().delegate = self
 
         
         UNUserNotificationCenter.current().delegate = self
@@ -39,6 +39,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
             appearance.configureWithOpaqueBackground()
             
             UITabBar.appearance().backgroundColor = UIColor(red: 0.93, green: 0.932, blue: 0.942, alpha: 1)
+            
+            let navApperance = UINavigationBarAppearance()
+            navApperance.configureWithOpaqueBackground()
+            navApperance.backgroundColor = UIColor.getColor(.mainColor)
+            navApperance.shadowColor = .clear
+            UINavigationBar.appearance().standardAppearance = navApperance
+            UINavigationBar.appearance().scrollEdgeAppearance = navApperance
+
         }
         // 런치스크린
         Thread.sleep(forTimeInterval: 0.5)
@@ -52,9 +60,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
     }
     
     // 앱이 수신하는 URL를 처리
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        return GIDSignIn.sharedInstance().handle(url)
-    }
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//        return GIDSignIn.sharedInstance().handle(url)
+//    }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -70,27 +78,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate  {
     }
     
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-
-        if let error = error {
-            print("ERROR Google Sign IN \(error.localizedDescription)")
-            return
-        }
-
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
-
-        Auth.auth().signIn(with: credential) { _, _ in
-            self.showMainViewController()
-        }
-    }
-    private func showMainViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-        let mainViewController = storyboard.instantiateViewController(withIdentifier: "startView")
-        mainViewController.modalPresentationStyle = .fullScreen
-        UIApplication.shared.windows.first?.rootViewController?.show(mainViewController, sender: nil)
-
-    }
+//    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+//
+//        if let error = error {
+//            print("ERROR Google Sign IN \(error.localizedDescription)")
+//            return
+//        }
+//
+//        guard let authentication = user.authentication else { return }
+//        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+//
+//        Auth.auth().signIn(with: credential) { _, _ in
+//            self.showMainViewController()
+//        }
+//    }
+    
+//    private func showMainViewController() {
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let mainViewController = storyboard.instantiateViewController(withIdentifier: "startView")
+//        mainViewController.modalPresentationStyle = .fullScreen
+//        UIApplication.shared.windows.first?.rootViewController?.show(mainViewController, sender: nil)
+//
+//    }
 
 
 }
