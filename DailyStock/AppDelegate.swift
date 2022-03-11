@@ -39,13 +39,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             appearance.configureWithOpaqueBackground()
             
             UITabBar.appearance().backgroundColor = UIColor(red: 0.93, green: 0.932, blue: 0.942, alpha: 1)
-            
-            let navApperance = UINavigationBarAppearance()
-            navApperance.configureWithOpaqueBackground()
-            navApperance.backgroundColor = UIColor.getColor(.mainColor)
-            navApperance.shadowColor = .clear
-            UINavigationBar.appearance().standardAppearance = navApperance
-            UINavigationBar.appearance().scrollEdgeAppearance = navApperance
 
         }
         // 런치스크린
@@ -114,5 +107,24 @@ extension AppDelegate : UNUserNotificationCenterDelegate {
         // 푸시가 오면 alert, badge, sound표시를 하라는 의미
         completionHandler([.alert, .badge, .sound])
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
+    {
+        guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let vc = storyboard.instantiateViewController(withIdentifier: "StockSchedule") as? StockScheduleViewController,
+           let tabBar = rootViewController as? UITabBarController,
+           let navVC = tabBar.selectedViewController as? UINavigationController {
+            tabBar.selectedIndex = 2
+            navVC.pushViewController(vc, animated: true)
+        }
+        
+        
+    }
+        
     
  }
