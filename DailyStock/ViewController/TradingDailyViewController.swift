@@ -8,6 +8,7 @@
 import UIKit
 import RealmSwift
 import Firebase
+import SnapKit
 
 class TradingDailyViewController: UIViewController {
 
@@ -24,7 +25,8 @@ class TradingDailyViewController: UIViewController {
     var totalDailyCount : Int = 0
     var searchWord: String?
     
-    
+    lazy var emptyView = EmptyDataView(frame:.zero , descText: "하루하루 매매일지를 기록해보세요", buttonText: "매매일지 기록하기")
+
     var isFiltering : Bool {
     
         let searchController = self.navigationItem.searchController
@@ -37,40 +39,81 @@ class TradingDailyViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.getColor(.mainColor)
+
         self.tasks = localRealm.objects(UserTradingDaily.self)
         self.setUpSearchController()
     
-        print(Realm.Configuration.defaultConfiguration.fileURL!)
+//        print(Realm.Configuration.defaultConfiguration.fileURL!)
         setup()
-        
-        
-    //crash test
-//        let button = UIButton(type: .roundedRect)
-//           button.frame = CGRect(x: 20, y: 200, width: 100, height: 30)
-//           button.setTitle("Test Crash", for: [])
-//           button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-//           view.addSubview(button)
+    
+        //crash test
+        //        let button = UIButton(type: .roundedRect)
+        //           button.frame = CGRect(x: 20, y: 200, width: 100, height: 30)
+        //           button.setTitle("Test Crash", for: [])
+        //           button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
+        //           view.addSubview(button)
         
     }
     
-//    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-//        let numbers = [0]
-//        let _ = numbers[1]
-//    }
+    //    @IBAction func crashButtonTapped(_ sender: AnyObject) {
+    //        let numbers = [0]
+    //        let _ = numbers[1]
+    //    }
     
     override func viewWillAppear(_ animated: Bool) {
+        print(#function)
         super.viewWillAppear(animated)
         tableView.reloadData()
+        checkEmptyDataView()
     }
+    
+    func checkEmptyDataView() {
+        
+        let taskCount = localRealm.objects(UserTradingDaily.self).count
+
+        if taskCount == 0 {
+            self.tableView.isHidden = true
+            self.addButton.isHidden = true
+            self.navigationItem.searchController?.searchBar.isHidden = true
+            self.view.addSubview(self.emptyView)
+            
+            self.emptyView.snp.makeConstraints { make in
+                make.top.equalToSuperview().offset(150)
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(82)
+                make.leading.equalToSuperview().offset(26)
+                make.width.equalTo(UIScreen.main.bounds.width - 52)
+            }
+            
+            self.emptyView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+            
+        } else {
+            self.tableView.isHidden = false
+            self.addButton.isHidden = false
+            self.navigationItem.searchController?.searchBar.isHidden = false
+
+            self.emptyView.removeFromSuperview()
+            
+        }
+        
+    }
+    
     
     @IBAction func addClickedButton(_ sender: UIButton) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "TradingDailyDetailViewController") as! TradingDailyDetailViewController
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav,animated: true, completion: nil)
         
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    @objc func addButtonClicked() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "TradingDailyDetailViewController") as! TradingDailyDetailViewController
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     func setUpSearchController() {
         
@@ -90,7 +133,6 @@ class TradingDailyViewController: UIViewController {
         
         // view
         view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
-//        view.backgroundColor = .white
         
         // addButton
         addButton.setTitle("", for: .normal)
@@ -167,13 +209,7 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
         
         vc.dailyData = self.isFiltering ? filteredDaily[indexPath.row] : tasks[indexPath.row]
         
-        
-        let nav = UINavigationController(rootViewController: vc)
-        
-        nav.modalPresentationStyle = .fullScreen
-        
-        self.present(nav,animated: true, completion: nil)
-        
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -184,6 +220,7 @@ extension TradingDailyViewController : UITableViewDelegate,UITableViewDataSource
             try! localRealm.write{
                 localRealm.delete(row)
                 tableView.reloadData()
+                checkEmptyDataView()
             }
             
         }
