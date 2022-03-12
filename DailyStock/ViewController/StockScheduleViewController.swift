@@ -30,11 +30,8 @@ class StockScheduleViewController: UIViewController {
     @objc func didAddBarButtonClicked(_ sender : UIBarButtonItem) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockScheduleDetailViewController") as! StockScheduleDetailViewController
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav,animated: true, completion: nil)
-        
+        self.navigationController?.pushViewController(vc, animated: true)
+
     }
     
     override func viewDidLoad() {
@@ -50,10 +47,12 @@ class StockScheduleViewController: UIViewController {
     }
     
     func setup() {
-        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+
         self.navigationItem.title = "일정관리"
         self.navigationItem.rightBarButtonItem = addBarButton
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.getColor(.mainColor)
+
         //tableview
         tableView.delegate = self
         tableView.dataSource = self
@@ -140,11 +139,8 @@ extension StockScheduleViewController : UITableViewDelegate,UITableViewDataSourc
 
         vc.memoData = filteredDateTasks[indexPath.row]
         
-        
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        
-        self.present(nav,animated: true, completion: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    
         
     }
 
