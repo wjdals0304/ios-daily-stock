@@ -165,6 +165,39 @@ class StockStudyViewController: UIViewController {
         
     }
     
+    func checkEmptyDataView() {
+        
+        let taskCount = localRealm.objects(UserStockStudy.self).count
+
+        if taskCount == 0 {
+            self.collectionView.isHidden = true
+            self.addButton.isHidden = true
+            self.navigationItem.searchController?.searchBar.isHidden = true
+            self.navigationItem.setRightBarButton(nil, animated: true)
+            self.navigationItem.setLeftBarButton(nil, animated: true)
+            self.view.addSubview(self.emptyView)
+            
+            self.emptyView.snp.makeConstraints { make in
+                make.top.equalToSuperview().offset(150)
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(82)
+                make.leading.equalToSuperview().offset(26)
+                make.width.equalTo(UIScreen.main.bounds.width - 52)
+            }
+            
+            self.emptyView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
+            
+        } else {
+            self.collectionView.isHidden = false
+            self.addButton.isHidden = false
+            self.navigationItem.searchController?.searchBar.isHidden = false
+            self.navigationItem.rightBarButtonItem = selectBarButton
+            self.eMode = .view
+            self.emptyView.removeFromSuperview()
+            
+        }
+        
+    }
+    
 }
 
 
@@ -215,11 +248,8 @@ extension StockStudyViewController : UICollectionViewDataSource, UICollectionVie
             
             vc.studyData = self.isFiltering ? filteredStock[indexPath.row] : tasks[indexPath.row]
             
-            let nav = UINavigationController(rootViewController: vc)
-            nav.modalPresentationStyle = .fullScreen
-            
-            self.present(nav,animated: true, completion: nil)
-            
+            self.navigationController?.pushViewController(vc, animated: true)
+
         case .select :
             dictionarySelectedIndexPath[indexPath] = true
             
