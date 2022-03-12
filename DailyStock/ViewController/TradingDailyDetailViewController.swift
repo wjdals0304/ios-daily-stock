@@ -43,7 +43,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
 
         let tapGesture: UITapGestureRecognizer = UITapGestureRecognizer()
@@ -69,8 +69,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     
     func setUpStyle() {
         
-        view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
+        view.backgroundColor = UIColor.getColor(.mainColor)
         
         [
             stockNameLabel,
@@ -113,7 +112,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
     }
     
     @objc func closeButtonClicked(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -177,7 +176,7 @@ class TradingDailyDetailViewController: UIViewController ,UIGestureRecognizerDel
             
         }
         
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
