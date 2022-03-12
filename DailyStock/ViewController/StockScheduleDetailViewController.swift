@@ -91,7 +91,7 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
     
     
     @objc func closeButtonClicked(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     
@@ -160,9 +160,7 @@ class StockScheduleDetailViewController: UIViewController ,UIGestureRecognizerDe
 
             }
         }
-        
-        self.dismiss(animated: true, completion: nil)
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     func requestNotificationAuthorization() {
