@@ -58,6 +58,8 @@ class StockStudyViewController: UIViewController {
         return barButtonItem
     }()
     
+    lazy var emptyView = EmptyDataView(frame:.zero , descText: "종목분석을 기록해보세요", buttonText: "종목분석 기록하기")
+    
     
     @objc func didSelectButtonClicked(_ sender: UIBarButtonItem) {
         eMode = eMode == .view ? .select : .view
@@ -86,6 +88,7 @@ class StockStudyViewController: UIViewController {
         collectionView.deleteItems(at: deleteNeededIndexPaths)
         dictionarySelectedIndexPath.removeAll()
         collectionView.reloadData()
+        checkEmptyDataView()
 
     }
     
@@ -97,7 +100,8 @@ class StockStudyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
+
         setUpSearchController()
         setup()
         
@@ -105,12 +109,12 @@ class StockStudyViewController: UIViewController {
     }
     
     func setup() {
-        view.backgroundColor = .white
         view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
         self.tasks = localRealm.objects(UserStockStudy.self)
         self.navigationItem.title = "종목분석"
-        
+        self.navigationController?.navigationBar.barTintColor = UIColor.getColor(.mainColor)
+
         
         // collectionView
         collectionView.delegate = self
@@ -130,6 +134,7 @@ class StockStudyViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        checkEmptyDataView()
     }
     
     var isFiltering : Bool {
@@ -145,10 +150,8 @@ class StockStudyViewController: UIViewController {
     @IBAction func addButtonClicked(_ sender: UIButton) {
         
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "StockStudyDetailViewController") as! StockStudyDetailViewController
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        self.present(nav,animated: true, completion: nil)
         
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     
