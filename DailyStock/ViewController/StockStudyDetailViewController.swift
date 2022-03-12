@@ -36,8 +36,9 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
- 
+        self.navigationController?.navigationBar.barTintColor = UIColor.getColor(.mainColor)
+        
+
         if studyData != nil {
             self.stockNameText.text = studyData?.stockName
             self.updateDatePicker.date = studyData!.updateDate
@@ -76,8 +77,6 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
         navigationItem.title = "종목 분석"
         navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "chevron.backward"), style: .plain, target: self, action: #selector(closeButtonClicked))
         
-        
-        
         [
             stockNameLabel,
             updateLabel,
@@ -103,7 +102,7 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
     }
     
     @objc func closeButtonClicked(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
     
@@ -144,7 +143,7 @@ class StockStudyDetailViewController: UIViewController,UIGestureRecognizerDelega
             
         }
         
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
 
     
