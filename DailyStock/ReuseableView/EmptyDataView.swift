@@ -29,8 +29,15 @@ class EmptyDataView: UIView {
         descLabel.textAlignment = .center
         descLabel.text = descText
         descLabel.font = UIFont.getFont(.regular_18)
-        descLabel.asFont(targetString: "매매일지")
         
+        let boldTextArray = ["매매일지","종목분석","포트폴리오"]
+        
+        _ = boldTextArray.map { str in
+            if descText.contains(str) {
+                descLabel.asFont(targetString: str)
+            }
+        }
+
         addButton.setTitle(buttonText, for: .normal)
         addButton.setTitleColor(UIColor.getColor(.whiteColor), for: .normal)
         
