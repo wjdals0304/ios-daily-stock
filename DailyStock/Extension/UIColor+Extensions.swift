@@ -21,6 +21,21 @@ enum Color {
     case detailLabelColor
     
     case detailTextColor
+    
+    case viewInStackPortFolio
+
+    case lineView
+    
+    case orangeColor
+    
+    case whiteColor
+    
+    case activeMoneyTypeButtonColor
+    
+    case imageBarColor
+    
+    case reuseViewBackgroundColor
+    
 }
 
 
@@ -44,7 +59,29 @@ extension UIColor {
             
         case .detailTextColor :
             return UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1)
+        
+        case .viewInStackPortFolio :
+            return UIColor(red: 0.951, green: 0.953, blue: 0.971, alpha: 1)
             
+        case .lineView:
+            return UIColor(red: 0.89, green: 0.898, blue: 0.941, alpha: 1)
+            
+        case .orangeColor :
+            return UIColor(red: 0.975, green: 0.611, blue: 0.183, alpha: 1)
+            
+            
+        case .whiteColor :
+            return UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+            
+        case .activeMoneyTypeButtonColor :
+            return UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1)
+            
+        case .imageBarColor:
+            return UIColor(red: 0.891, green: 0.9, blue: 0.942, alpha: 1)
+            
+            
+        case .reuseViewBackgroundColor:
+            return UIColor(red: 0.951, green: 0.953, blue: 0.971, alpha: 1)
             
         }
         
