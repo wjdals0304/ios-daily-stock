@@ -21,17 +21,49 @@ class PortfolioTableViewCell: UITableViewCell {
     
     @IBOutlet var lineView: UIView!
     
+    @IBOutlet var stackView: UIStackView!
     static let identifier = "PortfolioTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        setUpStyle()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        // Configure the view for the slelected state
+    }
+
+    override func layoutSubviews() {
+        
+
+        self.stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor, constant: -20).isActive = true
+        stackView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 20).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -40).isActive = true
+
+        
+        lineView?.layer.backgroundColor = UIColor.getColor(.lineView).cgColor
+        stockNameLabel?.textColor = UIColor.getColor(.numberColor)
+        stockNameLabel?.font = UIFont.getFont(.Bold_24)
+        
+        [stockAmountNameLabel, stockPriceNameLabel, stockTotalAsseetsNameLabel].forEach {
+            $0?.textColor = UIColor.getColor(.numberColor)
+            $0?.font = UIFont.getFont(.regular_20)
+        }
+        
+        percentLabel?.textColor = UIColor.getColor(.numberColor)
+        percentLabel?.font =  UIFont.getFont(.regular_24)
+        
+        [stockAmountLabel, stockPriceLabel].forEach {
+            $0?.textColor = UIColor.getColor(.numberColor)
+            $0?.font = UIFont.getFont(.regular_20)
+        }
+            
+        stocktotalAssetsLabel?.font = UIFont.getFont(.Bold_18)
+        stocktotalAssetsLabel.textColor = UIColor.getColor(.orangeColor)
+        
     }
     
     func updateUI(item : UserPortfolio?,stockPercentDic: Dictionary<String, String>) {
@@ -48,36 +80,12 @@ class PortfolioTableViewCell: UITableViewCell {
         
         stockNameLabel.text = cell.stockName
         stockAmountLabel.text = "\(stockAmount)"
-        stockPriceLabel.text = "\(decimalPrice)"
-        stocktotalAssetsLabel.text = "\(stocktotalAssetsPrice)"
+        stockPriceLabel.text = "₩\(decimalPrice)"
+        stocktotalAssetsLabel.text = "₩\(stocktotalAssetsPrice)"
         percentLabel.text = stockPercentDic[cell.stockName]
 
     }
     
-    func setUpStyle() {
-        
-        lineView?.layer.backgroundColor = UIColor(red: 0.89, green: 0.898, blue: 0.941, alpha: 1).cgColor
-        
-        stockNameLabel?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
-        stockNameLabel?.font = UIFont(name: "Roboto-Regular", size: 24)
-        
-        [stockAmountNameLabel, stockPriceNameLabel, stockTotalAsseetsNameLabel].forEach {
-            $0?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
-            $0?.font = UIFont(name: "Roboto-Regular", size: 20)
-        }
-        
-        percentLabel?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
-        percentLabel?.font =  UIFont(name: "Roboto-Regular", size: 24)
-        
-        [stockAmountLabel, stockPriceLabel].forEach {
-            $0?.textColor = UIColor(red: 0.232, green: 0.244, blue: 0.292, alpha: 1)
-            $0?.font = UIFont(name: "Roboto-Regular", size: 20)
-        }
-        
-        stocktotalAssetsLabel?.textColor = UIColor(red: 0.279, green: 0.284, blue: 0.304, alpha: 1)
-        stocktotalAssetsLabel?.font = UIFont(name: "Roboto-Regular", size: 18)
-        
-    }
-    
+  
     
 }
