@@ -44,10 +44,10 @@ class PortfolioDetailViewController: UIViewController {
             
             
             if portofolioData?.moneyType == "won" {
-                wonButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+                wonButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
                 wonButton.isSelected = true
             } else {
-                dollarButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+                dollarButton.layer.backgroundColor = UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
                 dollarButton.isSelected = true
             }
         }
@@ -55,53 +55,59 @@ class PortfolioDetailViewController: UIViewController {
     }
     
     @objc func closeButtonClicked(){
-        self.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveButtonClicked(_ sender: UIButton) {
         // TODO: 달러/원화 선택 로직 , 편집 구현
         
-            guard self.stockNameText.text?.isEmpty == false
-                    , self.stockAmountText.text?.isEmpty == false
-                    , self.stockPriceText.text?.isEmpty == false
-            else { return }
-                
-            let stockAmount = Int(stockAmountText.text!) ?? 0
-            let stockPrice = Int(stockPriceText.text!) ?? 0
-            let moneyType = self.dollarButton.isSelected ? "dollar" : "won"
-        
-            let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice ,percent: 0)
+        guard self.stockNameText.text?.isEmpty == false
+                , self.stockAmountText.text?.isEmpty == false
+                , self.stockPriceText.text?.isEmpty == false
+        else {
             
-            try! localRealm.write {
-                localRealm.add(task)
-            }
+            let alert = UIAlertController(title: nil, message: "모든 항목을 확인해주세요.", preferredStyle: .alert )
+            alert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
             
-            NotificationCenter.default.post(name: NSNotification.Name("reloadPieChart"), object: nil)
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
         
-            self.dismiss(animated: true, completion: nil)
+        let stockAmount = Int(stockAmountText.text!) ?? 0
+        let stockPrice = Int(stockPriceText.text!) ?? 0
+        let moneyType = self.dollarButton.isSelected ? "dollar" : "won"
+        
+        let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice ,percent: 0)
+        
+        try! localRealm.write {
+            localRealm.add(task)
+        }
+        
+        NotificationCenter.default.post(name: NSNotification.Name("reloadPieChart"), object: nil)
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func dollerTypeClicked(_ sender: UIButton) {
         
         dollarButton.isSelected = !wonButton.isSelected
-        dollarButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+        dollarButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
         
-        dollarButton.tintColor =  UIColor(red: 1, green: 1, blue: 1, alpha: 1)
+        dollarButton.tintColor =  UIColor.getColor(.whiteColor)
         
         wonButton.isSelected = !dollarButton.isSelected
-        wonButton.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
-        
+        wonButton.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
+                    
     }
     
     @IBAction func wonTypeClicked(_ sender: UIButton) {
         
         wonButton.isSelected = !dollarButton.isSelected
-        wonButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+        wonButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
         
-        wonButton.tintColor =  UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        
+        wonButton.tintColor =  UIColor.getColor(.whiteColor)
         dollarButton.isSelected = !wonButton.isSelected
-        dollarButton.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        dollarButton.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
  
         
@@ -110,28 +116,28 @@ class PortfolioDetailViewController: UIViewController {
     func setUpStyle() {
         
         view.backgroundColor = .white
-        view.layer.backgroundColor = UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+        view.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
         
         [ stockNameLabel , stockAmountLabel , moneyTypeLabel, stockPriceLabel ].forEach {
-            $0?.textColor = UIColor(red: 0.417, green: 0.43, blue: 0.479, alpha: 1)
-            $0?.font = UIFont(name: "Roboto-Bold", size: 16)
+            $0?.textColor = UIColor.getColor(.detailLabelColor)
+
+            $0?.font = UIFont.getFont(.Bold_16)
         }
         
         [stockNameText , stockAmountText , stockPriceText  ].forEach {
             $0?.clipsToBounds = true
             $0?.layer.cornerRadius = 8
             $0?.layer.borderWidth = 1
-            $0?.layer.borderColor =  UIColor(red: 0.871, green: 0.878, blue: 0.913, alpha: 1).cgColor
+            $0?.layer.borderColor =  UIColor.getColor(.detailTextColor).cgColor
         }
         
-        saveUIButton.backgroundColor = UIColor(red: 0.975, green: 0.611, blue: 0.183, alpha: 1)
-        
+        saveUIButton.backgroundColor = UIColor.getColor(.orangeColor)
         saveUIButton.layer.cornerRadius = 10
         
         
-        saveUIButton.tintColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        saveUIButton.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 22)
+        saveUIButton.tintColor = UIColor.getColor(.whiteColor)
+        saveUIButton.titleLabel?.font = UIFont.getFont(.Bold_22)
         
         
         [wonButton,dollarButton].forEach {
@@ -141,12 +147,12 @@ class PortfolioDetailViewController: UIViewController {
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor(red: 0.738, green: 0.753, blue: 0.817, alpha: 1).cgColor
             $0?.tintColor =  UIColor(red: 0.687, green: 0.711, blue: 0.808, alpha: 1)
-            $0?.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 22 )
+            $0?.titleLabel?.font = UIFont.getFont(.Bold_22)
             
         }
         
-        wonButton.tintColor =   UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-        wonButton.layer.backgroundColor =  UIColor(red: 0.176, green: 0.588, blue: 0.965, alpha: 1).cgColor
+        wonButton.tintColor =   UIColor.getColor(.whiteColor)
+        wonButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
         
     }
 
