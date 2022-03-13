@@ -6,10 +6,7 @@
 //
 
 import UIKit
-import Firebase
-import AppTrackingTransparency
 import UserNotifications
-//import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate  {
@@ -24,8 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         //Firebase 초기화 , 공유 인스턴스 생성
-        FirebaseApp.configure()
-
+//g
         //google login
 //        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 //        GIDSignIn.sharedInstance().delegate = self
@@ -41,9 +37,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
             UITabBar.appearance().backgroundColor = UIColor(red: 0.93, green: 0.932, blue: 0.942, alpha: 1)
 
         }
-        // 런치스크린
-        Thread.sleep(forTimeInterval: 0.5)
-        
         //Crashlytics
         
         //ATT Framework
