@@ -44,7 +44,7 @@ class TradingDailyTableViewCell: UITableViewCell {
         self.clipsToBounds = true
         self.layer.borderColor = UIColor.getColor(.mainColor).cgColor
         self.layer.borderWidth = 8
-        self.layer.cornerRadius = 10
+        self.layer.cornerRadius = 26
         self.backgroundColor = .white
         
     }

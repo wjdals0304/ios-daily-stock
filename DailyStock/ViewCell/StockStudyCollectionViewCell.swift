@@ -40,7 +40,7 @@ class StockStudyCollectionViewCell: UICollectionViewCell {
         self.layer.borderColor = UIColor.getColor(.mainColor).cgColor
         self.backgroundColor = .white
         self.layer.borderWidth = 10
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 25
         self.clipsToBounds = true
         
         stockNameLabel.textColor = UIColor.black
