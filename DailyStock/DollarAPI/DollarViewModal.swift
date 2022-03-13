@@ -17,9 +17,6 @@ class DollarViewModel {
             guard let dollar = dollar else {
                 return
             }
-            
-            print("baseprice ")
-//            print(dollar.first?.basePrice)
 
             UserDefaults.standard.set(dollar.first?.basePrice, forKey: "dollar")
         }
