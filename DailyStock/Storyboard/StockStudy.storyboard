@@ -78,7 +78,7 @@
         <!--Stock Study Detail View Controller-->
         <scene sceneID="pKL-xZ-zMG">
             <objects>
-                <viewController storyboardIdentifier="StockStudyDetailViewController" id="srR-SW-O2W" customClass="StockStudyDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StockStudyDetailViewController" hidesBottomBarWhenPushed="YES" id="srR-SW-O2W" customClass="StockStudyDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yID-hO-JBw">
                         <rect key="frame" x="0.0" y="0.0" width="428" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="44" width="428" height="1456"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9p-sz-wb0">
-                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1133.3333333333333"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="428" height="1143.3333333333333"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종목이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFQ-6C-W0D">
                                                 <rect key="frame" x="20" y="30" width="59" height="20.333333333333329"/>
@@ -148,9 +148,9 @@
                                                 <rect key="frame" x="84" y="149.33333333333334" width="314" height="31"/>
                                             </datePicker>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gJy-5I-XPQ">
-                                                <rect key="frame" x="0.0" y="1083.3333333333333" width="423" height="50"/>
+                                                <rect key="frame" x="0.0" y="1083.3333333333333" width="428" height="60"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="50" id="XFc-l2-8T7"/>
+                                                    <constraint firstAttribute="height" constant="60" id="XFc-l2-8T7"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="저장하기"/>
@@ -195,7 +195,7 @@
                                             <constraint firstItem="gJy-5I-XPQ" firstAttribute="top" secondItem="Ohj-KH-SqG" secondAttribute="bottom" constant="40" id="eOL-0g-pJO"/>
                                             <constraint firstItem="HjP-xS-tpo" firstAttribute="top" secondItem="Cfe-A5-iut" secondAttribute="bottom" constant="30" id="eik-cO-eM3"/>
                                             <constraint firstItem="Fat-e5-d3F" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="20" id="kK5-z3-u7m"/>
-                                            <constraint firstAttribute="trailing" secondItem="gJy-5I-XPQ" secondAttribute="trailing" constant="5" id="mpZ-P8-XYw"/>
+                                            <constraint firstAttribute="trailing" secondItem="gJy-5I-XPQ" secondAttribute="trailing" id="mpZ-P8-XYw"/>
                                             <constraint firstItem="gJy-5I-XPQ" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" id="n5C-PY-gna"/>
                                             <constraint firstItem="KRt-rg-lOg" firstAttribute="leading" secondItem="91H-yH-asl" secondAttribute="trailing" constant="5" id="pP3-56-p0j"/>
                                             <constraint firstItem="HjP-xS-tpo" firstAttribute="leading" secondItem="c9p-sz-wb0" secondAttribute="leading" constant="20" id="t52-L1-biD"/>

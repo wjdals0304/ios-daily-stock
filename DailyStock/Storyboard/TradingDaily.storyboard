@@ -49,7 +49,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="rwa-bS-cNH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="EHj-c0-RL7"/>
+                            <constraint firstItem="rwa-bS-cNH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="B36-jY-hVo"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="rwa-bS-cNH" secondAttribute="trailing" id="KAy-uC-0KB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="QxS-Hg-wYZ" secondAttribute="bottom" constant="50" id="hxx-tP-fA8"/>
                             <constraint firstItem="rwa-bS-cNH" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="l62-yA-ifL"/>
@@ -61,18 +61,18 @@
                     <navigationItem key="navigationItem" id="Vh6-jN-e6a"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addButton" destination="QxS-Hg-wYZ" id="GJE-iL-cOz"/>
-                        <outlet property="tableView" destination="rwa-bS-cNH" id="g6h-jl-cOS"/>
+                        <outlet property="addButton" destination="QxS-Hg-wYZ" id="mhR-3P-hRH"/>
+                        <outlet property="tableView" destination="rwa-bS-cNH" id="sgd-Hh-Osu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075" y="17"/>
+            <point key="canvasLocation" x="1039.1304347826087" y="-98.4375"/>
         </scene>
         <!--Trading Daily Detail View Controller-->
         <scene sceneID="8JT-1a-nJI">
             <objects>
-                <viewController storyboardIdentifier="TradingDailyDetailViewController" id="RDA-B7-sUG" customClass="TradingDailyDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TradingDailyDetailViewController" hidesBottomBarWhenPushed="YES" id="RDA-B7-sUG" customClass="TradingDailyDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aq1-hd-tMA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -106,16 +106,16 @@
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="c04-xV-nC2">
-                                <rect key="frame" x="20" y="490" width="374" height="282"/>
+                                <rect key="frame" x="20" y="490" width="374" height="272"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DdL-8v-OeM">
-                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="802" width="414" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="4iJ-8Q-mgG"/>
+                                    <constraint firstAttribute="height" constant="60" id="4iJ-8Q-mgG"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="저장하기"/>
@@ -237,7 +237,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiw-xd-RN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Zog-pd-R4r"/>
             </objects>
-            <point key="canvasLocation" x="1762.3188405797102" y="16.741071428571427"/>
+            <point key="canvasLocation" x="2226" y="-125"/>
         </scene>
     </scenes>
     <resources>

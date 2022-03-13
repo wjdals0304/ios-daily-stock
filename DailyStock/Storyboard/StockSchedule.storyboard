@@ -63,7 +63,7 @@
         <!--Stock Schedule Detail View Controller-->
         <scene sceneID="w8f-5a-Sxw">
             <objects>
-                <viewController storyboardIdentifier="StockScheduleDetailViewController" id="WnI-6r-2eY" customClass="StockScheduleDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StockScheduleDetailViewController" hidesBottomBarWhenPushed="YES" id="WnI-6r-2eY" customClass="StockScheduleDetailViewController" customModule="DailyStock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="uJt-l2-3Yk">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
