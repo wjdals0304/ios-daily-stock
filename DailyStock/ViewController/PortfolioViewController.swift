@@ -153,11 +153,13 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             entry1.y > entry2.y
         })
         
-        let dataSet = PieChartDataSet(entries: entries, label: nil)
+        let dataSet = PieChartDataSet(entries: entries, label: "")
+        
         dataSet.sliceSpace = 1
         dataSet.entryLabelColor = .black
         dataSet.valueTextColor = .black
         dataSet.xValuePosition = .outsideSlice
+        dataSet.entryLabelColor = .black
         
         dataSet.valueLinePart1OffsetPercentage = 0.8
         dataSet.valueLinePart1Length = 0.2
