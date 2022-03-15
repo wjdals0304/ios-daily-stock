@@ -7,6 +7,7 @@
 
 import UIKit
 import UserNotifications
+import Firebase
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate  {
@@ -21,7 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate  {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         //Firebase 초기화 , 공유 인스턴스 생성
-//g
+        FirebaseApp.configure()
+        
         //google login
 //        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 //        GIDSignIn.sharedInstance().delegate = self
