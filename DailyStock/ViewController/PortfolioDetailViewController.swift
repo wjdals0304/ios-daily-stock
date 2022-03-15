@@ -46,9 +46,11 @@ class PortfolioDetailViewController: UIViewController {
             if portofolioData?.moneyType == "won" {
                 wonButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
                 wonButton.isSelected = true
+                dollarButton.layer.backgroundColor =  UIColor.getColor(.deactiveMoneyTypeButtonColor).cgColor
             } else {
                 dollarButton.layer.backgroundColor = UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
                 dollarButton.isSelected = true
+                wonButton.layer.backgroundColor = UIColor.getColor(.deactiveMoneyTypeButtonColor).cgColor
             }
         }
         
@@ -107,27 +109,24 @@ class PortfolioDetailViewController: UIViewController {
     
     @IBAction func dollerTypeClicked(_ sender: UIButton) {
         
-        dollarButton.isSelected = !wonButton.isSelected
+        dollarButton.isSelected = true
         dollarButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
         
         dollarButton.tintColor =  UIColor.getColor(.whiteColor)
         
-        wonButton.isSelected = !dollarButton.isSelected
-        wonButton.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
+        wonButton.isSelected = false
+        wonButton.layer.backgroundColor = UIColor.getColor(.deactiveMoneyTypeButtonColor).cgColor
                     
     }
     
     @IBAction func wonTypeClicked(_ sender: UIButton) {
         
-        wonButton.isSelected = !dollarButton.isSelected
+        wonButton.isSelected = true
         wonButton.layer.backgroundColor =  UIColor.getColor(.activeMoneyTypeButtonColor).cgColor
-        
         wonButton.tintColor =  UIColor.getColor(.whiteColor)
-        dollarButton.isSelected = !wonButton.isSelected
-        dollarButton.layer.backgroundColor = UIColor.getColor(.mainColor).cgColor
         
- 
-        
+        dollarButton.isSelected = false
+        dollarButton.layer.backgroundColor = UIColor.getColor(.deactiveMoneyTypeButtonColor).cgColor
     }
     
     func setUpStyle() {
@@ -159,11 +158,11 @@ class PortfolioDetailViewController: UIViewController {
         
         [wonButton,dollarButton].forEach {
             
-            $0?.layer.backgroundColor =  UIColor(red: 0.914, green: 0.916, blue: 0.938, alpha: 1).cgColor
+            $0?.layer.backgroundColor =  UIColor.getColor(.deactiveMoneyTypeButtonColor).cgColor
             $0?.layer.cornerRadius = 8
             $0?.layer.borderWidth = 1
             $0?.layer.borderColor = UIColor(red: 0.738, green: 0.753, blue: 0.817, alpha: 1).cgColor
-            $0?.tintColor =  UIColor(red: 0.687, green: 0.711, blue: 0.808, alpha: 1)
+            $0?.tintColor =  UIColor.getColor(.whiteColor)
             $0?.titleLabel?.font = UIFont.getFont(.Bold_22)
             
         }
