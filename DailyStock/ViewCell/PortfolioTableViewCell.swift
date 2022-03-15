@@ -73,15 +73,34 @@ class PortfolioTableViewCell: UITableViewCell {
         
         guard let cell = item else { return }
         
+        let dollar = UserDefaults.standard.integer(forKey: "dollar")
+        
+        var decimalPrice = ""
+        var stocktotalAssetsPrice = ""
+        
+        if cell.moneyType == "dollar" {
+            
+            decimalPrice = numberFormatter.string(from: NSNumber(value: cell.stockPrice * dollar))!
+            stocktotalAssetsPrice =
+            numberFormatter.string(from: NSNumber(value: cell.stockAmount * cell.stockPrice * dollar))!
+            
+        } else {
+            
+            decimalPrice = numberFormatter.string(from: NSNumber(value: cell.stockPrice))!
+            stocktotalAssetsPrice =
+            numberFormatter.string(from: NSNumber(value: cell.stockAmount * cell.stockPrice))!
+            
+        }
+        
         let stockAmount = numberFormatter.string(from: NSNumber(value: cell.stockAmount))!
-        let decimalPrice = numberFormatter.string(from: NSNumber(value: cell.stockPrice))!
-        let stocktotalAssetsPrice =
-        numberFormatter.string(from: NSNumber(value: cell.stockAmount * cell.stockPrice))!
+
         
         stockNameLabel.text = cell.stockName
+        
         stockAmountLabel.text = "\(stockAmount)"
         stockPriceLabel.text = "₩\(decimalPrice)"
         stocktotalAssetsLabel.text = "₩\(stocktotalAssetsPrice)"
+        
         percentLabel.text = stockPercentDic[cell.stockName]
 
     }
