@@ -32,6 +32,8 @@ enum Color {
     
     case activeMoneyTypeButtonColor
     
+    case deactiveMoneyTypeButtonColor
+    
     case imageBarColor
     
     case reuseViewBackgroundColor
@@ -82,6 +84,10 @@ extension UIColor {
             
         case .reuseViewBackgroundColor:
             return UIColor(red: 0.951, green: 0.953, blue: 0.971, alpha: 1)
+            
+            
+        case .deactiveMoneyTypeButtonColor :
+            return UIColor(red: 0.738, green: 0.753, blue: 0.817, alpha: 1)
             
         }
         
