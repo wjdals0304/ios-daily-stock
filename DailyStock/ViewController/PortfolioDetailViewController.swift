@@ -73,14 +73,31 @@ class PortfolioDetailViewController: UIViewController {
             return
         }
         
+        guard let stockName = stockNameText.text else {
+            return
+        }
         let stockAmount = Int(stockAmountText.text!) ?? 0
         let stockPrice = Int(stockPriceText.text!) ?? 0
         let moneyType = self.dollarButton.isSelected ? "dollar" : "won"
         
-        let task = UserPortfolio(stockName: stockNameText.text!, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice ,percent: 0)
+        let task = localRealm.objects(UserPortfolio.self).filter("stockName = %@",stockName).first
         
-        try! localRealm.write {
-            localRealm.add(task)
+        if task != nil {
+            
+            try! localRealm.write {
+                task?.stockAmount = stockAmount
+                task?.moneyType = moneyType
+                task?.stockPrice = stockPrice
+            }
+            
+        } else {
+            
+            let task = UserPortfolio(stockName: stockName, stockAmount: stockAmount, moneyType: moneyType, stockPrice: stockPrice ,percent: 0)
+            
+            try! localRealm.write {
+                localRealm.add(task)
+            }
+            
         }
         
         NotificationCenter.default.post(name: NSNotification.Name("reloadPieChart"), object: nil)
