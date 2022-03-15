@@ -15,9 +15,9 @@ class DollarViewModel {
         DollarAPI.dollarPrice { dollar, error in
             
             guard let dollar = dollar else {
+                UserDefaults.standard.set(1200, forKey: "dollar")
                 return
             }
-
             UserDefaults.standard.set(dollar.first?.basePrice, forKey: "dollar")
         }
 
