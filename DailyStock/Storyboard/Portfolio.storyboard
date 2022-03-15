@@ -209,7 +209,6 @@
                                             <constraint firstItem="R30-c0-keP" firstAttribute="top" secondItem="TE7-eL-WCc" secondAttribute="bottom" id="Qjd-sQ-fLk"/>
                                             <constraint firstItem="TE7-eL-WCc" firstAttribute="top" secondItem="Fc0-wg-7jy" secondAttribute="top" id="hrE-LT-kUl"/>
                                             <constraint firstAttribute="trailing" secondItem="R30-c0-keP" secondAttribute="trailing" id="l6e-nv-JAU"/>
-                                            <constraint firstAttribute="bottom" secondItem="R30-c0-keP" secondAttribute="bottom" id="r4a-KM-FFV"/>
                                             <constraint firstItem="TE7-eL-WCc" firstAttribute="centerX" secondItem="Fc0-wg-7jy" secondAttribute="centerX" id="xj1-hk-7At"/>
                                         </constraints>
                                     </stackView>
