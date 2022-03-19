@@ -7,7 +7,6 @@
 
 import UIKit
 import RealmSwift
-import Firebase
 import SnapKit
 
 class TradingDailyViewController: UIViewController {
@@ -42,26 +41,15 @@ class TradingDailyViewController: UIViewController {
         self.navigationController?.interactivePopGestureRecognizer?.delegate = nil
         
         self.navigationController?.navigationBar.barTintColor = UIColor.getColor(.mainColor)
-
+        
         self.tasks = localRealm.objects(UserTradingDaily.self)
         self.setUpSearchController()
     
-//        print(Realm.Configuration.defaultConfiguration.fileURL!)
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
         setup()
-    
-        //crash test
-        //        let button = UIButton(type: .roundedRect)
-        //           button.frame = CGRect(x: 20, y: 200, width: 100, height: 30)
-        //           button.setTitle("Test Crash", for: [])
-        //           button.addTarget(self, action: #selector(self.crashButtonTapped(_:)), for: .touchUpInside)
-        //           view.addSubview(button)
-        
+
     }
     
-    //    @IBAction func crashButtonTapped(_ sender: AnyObject) {
-    //        let numbers = [0]
-    //        let _ = numbers[1]
-    //    }
     
     override func viewWillAppear(_ animated: Bool) {
         print(#function)
@@ -81,10 +69,10 @@ class TradingDailyViewController: UIViewController {
             self.view.addSubview(self.emptyView)
             
             self.emptyView.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(150)
-                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(82)
-                make.leading.equalToSuperview().offset(26)
+                make.centerY.equalTo(self.view.snp.centerY)
+                make.centerX.equalTo(self.view.snp.centerX)
                 make.width.equalTo(UIScreen.main.bounds.width - 52)
+                make.height.equalTo(450)
             }
             
             self.emptyView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)

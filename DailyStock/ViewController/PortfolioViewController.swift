@@ -247,10 +247,10 @@ class PortfolioViewController: UIViewController, ChartViewDelegate {
             self.view.addSubview(self.emptyView)
             
             self.emptyView.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(150)
-                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(82)
-                make.leading.equalToSuperview().offset(26)
+                make.centerY.equalTo(self.view.snp.centerY)
+                make.centerX.equalTo(self.view.snp.centerX)
                 make.width.equalTo(UIScreen.main.bounds.width - 52)
+                make.height.equalTo(450)
             }
             
             self.emptyView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
@@ -344,7 +344,7 @@ extension PortfolioViewController : UITableViewDataSource , UITableViewDelegate,
 
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
 
-        let label = UILabel(frame: CGRect(x:20 , y: -20 , width: 150 , height : 40 ))
+        let label = UILabel(frame: CGRect(x:20 , y: 10 , width: 150 , height : 40 ))
 
         label.text = "보유종목"
         label.font = UIFont.getFont(.Bold_18)

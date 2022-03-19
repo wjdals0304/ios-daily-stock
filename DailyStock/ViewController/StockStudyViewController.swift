@@ -181,10 +181,10 @@ class StockStudyViewController: UIViewController {
             self.view.addSubview(self.emptyView)
             
             self.emptyView.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(150)
-                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(82)
-                make.leading.equalToSuperview().offset(26)
+                make.centerY.equalTo(self.view.snp.centerY)
+                make.centerX.equalTo(self.view.snp.centerX)
                 make.width.equalTo(UIScreen.main.bounds.width - 52)
+                make.height.equalTo(450)
             }
             
             self.emptyView.addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
