@@ -164,7 +164,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="gmq-NQ-0ff">
-                                <rect key="frame" x="142" y="208.5" width="182" height="31"/>
+                                <rect key="frame" x="215" y="208.5" width="109" height="31"/>
                                 <locale key="locale" localeIdentifier="ko_KR"/>
                             </datePicker>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iq3-4B-rpf">
@@ -204,9 +204,9 @@
                             <constraint firstItem="3V9-2U-olY" firstAttribute="leading" secondItem="UeH-TK-jko" secondAttribute="leading" constant="15" id="fRl-XE-icL"/>
                             <constraint firstItem="0Mx-bw-eCw" firstAttribute="top" secondItem="iq3-4B-rpf" secondAttribute="bottom" constant="20" id="hbb-Sd-vdv"/>
                             <constraint firstItem="iq3-4B-rpf" firstAttribute="leading" secondItem="UeH-TK-jko" secondAttribute="leading" constant="20" id="ixp-Qt-GbB"/>
-                            <constraint firstItem="gmq-NQ-0ff" firstAttribute="leading" secondItem="3V9-2U-olY" secondAttribute="trailing" constant="50" id="jET-2M-j8H"/>
                             <constraint firstItem="0Mx-bw-eCw" firstAttribute="leading" secondItem="UeH-TK-jko" secondAttribute="leading" constant="20" id="rbY-CB-Bhf"/>
                             <constraint firstItem="3V9-2U-olY" firstAttribute="top" secondItem="4VN-2a-ZI7" secondAttribute="bottom" constant="20" id="sgX-Sz-uMK"/>
+                            <constraint firstItem="gmq-NQ-0ff" firstAttribute="leading" secondItem="CSS-FK-aeQ" secondAttribute="leading" id="vUt-NW-Jbi"/>
                             <constraint firstItem="DdL-8v-OeM" firstAttribute="leading" secondItem="UeH-TK-jko" secondAttribute="leading" id="wp4-Oo-Xhn"/>
                             <constraint firstItem="UeH-TK-jko" firstAttribute="trailing" secondItem="gmq-NQ-0ff" secondAttribute="trailing" constant="90" id="x0H-RX-ekL"/>
                             <constraint firstItem="DdL-8v-OeM" firstAttribute="bottom" secondItem="UeH-TK-jko" secondAttribute="bottom" id="ywd-Xe-ncn"/>
@@ -237,7 +237,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eiw-xd-RN5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Zog-pd-R4r"/>
             </objects>
-            <point key="canvasLocation" x="2226" y="-125"/>
+            <point key="canvasLocation" x="1838" y="-80"/>
         </scene>
     </scenes>
     <resources>
