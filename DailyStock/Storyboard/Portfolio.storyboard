@@ -18,35 +18,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="종목 이름" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XjB-qL-guO">
-                                <rect key="frame" x="40" y="84" width="63.333333333333343" height="20.333333333333329"/>
+                                <rect key="frame" x="40" y="64" width="63.333333333333343" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="t6y-3f-NDc">
-                                <rect key="frame" x="40" y="134.33333333333334" width="348" height="34"/>
+                                <rect key="frame" x="40" y="114.33333333333331" width="348" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매 수량" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0Y-YG-YiX">
-                                <rect key="frame" x="40" y="219.33333333333334" width="63.333333333333343" height="20.333333333333343"/>
+                                <rect key="frame" x="40" y="199.33333333333334" width="63.333333333333343" height="20.333333333333343"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="통화선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zdj-Qu-mYk">
-                                <rect key="frame" x="40" y="355.66666666666669" width="59" height="20.333333333333314"/>
+                                <rect key="frame" x="40" y="335.66666666666669" width="59" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="goD-Fx-p1q">
-                                <rect key="frame" x="40" y="269.66666666666669" width="348" height="34"/>
+                                <rect key="frame" x="40" y="249.66666666666663" width="348" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ygO-Ij-x9p">
-                                <rect key="frame" x="40" y="406" width="348" height="31"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ygO-Ij-x9p">
+                                <rect key="frame" x="40" y="386" width="348" height="31"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Do7-9u-xE9">
                                         <rect key="frame" x="0.0" y="0.0" width="169" height="31"/>
@@ -67,18 +67,18 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="평균 단가" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxM-Mv-2k7">
-                                <rect key="frame" x="40" y="467" width="63.333333333333343" height="20.333333333333314"/>
+                                <rect key="frame" x="40" y="447" width="63.333333333333343" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bt3-CY-WAG">
-                                <rect key="frame" x="40" y="521" width="348" height="34"/>
+                                <rect key="frame" x="40" y="501" width="348" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xv7-NF-Szj">
-                                <rect key="frame" x="0.0" y="826" width="428" height="60"/>
+                                <rect key="frame" x="0.0" y="846" width="428" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="CSR-5t-Qpq"/>
                                 </constraints>
@@ -100,7 +100,7 @@
                             <constraint firstItem="XjB-qL-guO" firstAttribute="leading" secondItem="uaB-qb-Yet" secondAttribute="leading" constant="40" id="Huk-E9-wfA"/>
                             <constraint firstItem="ygO-Ij-x9p" firstAttribute="top" secondItem="Zdj-Qu-mYk" secondAttribute="bottom" constant="30" id="MMb-Xf-QZ6"/>
                             <constraint firstItem="uaB-qb-Yet" firstAttribute="trailing" secondItem="goD-Fx-p1q" secondAttribute="trailing" constant="40" id="NM7-gH-7Fw"/>
-                            <constraint firstItem="XjB-qL-guO" firstAttribute="top" secondItem="uaB-qb-Yet" secondAttribute="top" constant="40" id="QXV-ke-Anh"/>
+                            <constraint firstItem="XjB-qL-guO" firstAttribute="top" secondItem="uaB-qb-Yet" secondAttribute="top" constant="20" id="QXV-ke-Anh"/>
                             <constraint firstItem="ygO-Ij-x9p" firstAttribute="leading" secondItem="uaB-qb-Yet" secondAttribute="leading" constant="40" id="WJs-Q3-i9B"/>
                             <constraint firstItem="uaB-qb-Yet" firstAttribute="trailing" secondItem="ygO-Ij-x9p" secondAttribute="trailing" constant="40" id="Y3n-M5-kWV"/>
                             <constraint firstItem="HxM-Mv-2k7" firstAttribute="top" secondItem="ygO-Ij-x9p" secondAttribute="bottom" constant="30" id="bRw-B3-Ybr"/>
@@ -110,7 +110,7 @@
                             <constraint firstItem="HxM-Mv-2k7" firstAttribute="leading" secondItem="uaB-qb-Yet" secondAttribute="leading" constant="40" id="hgw-AG-s5Z"/>
                             <constraint firstItem="Xv7-NF-Szj" firstAttribute="trailing" secondItem="uaB-qb-Yet" secondAttribute="trailing" id="nhU-WE-2CI"/>
                             <constraint firstItem="Xv7-NF-Szj" firstAttribute="leading" secondItem="uaB-qb-Yet" secondAttribute="leading" id="rO8-5y-Ls8"/>
-                            <constraint firstAttribute="bottom" secondItem="Xv7-NF-Szj" secondAttribute="bottom" constant="40" id="sSd-WC-wbS"/>
+                            <constraint firstAttribute="bottom" secondItem="Xv7-NF-Szj" secondAttribute="bottom" constant="20" id="sSd-WC-wbS"/>
                             <constraint firstItem="Zdj-Qu-mYk" firstAttribute="top" secondItem="goD-Fx-p1q" secondAttribute="bottom" constant="52" id="sc5-4J-5LK"/>
                             <constraint firstItem="Bt3-CY-WAG" firstAttribute="top" secondItem="HxM-Mv-2k7" secondAttribute="bottom" constant="33.666666666666742" id="ttU-nm-L51"/>
                             <constraint firstItem="c0Y-YG-YiX" firstAttribute="leading" secondItem="uaB-qb-Yet" secondAttribute="leading" constant="40" id="wTr-AH-6sK"/>
